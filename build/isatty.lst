@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s 			page 1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s 			page 1
 
 
    1              		.file	"isatty.c"
@@ -42,50 +42,50 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s 			page 1
   30              		.text
   31              	.Letext0:
   32              		.file 2 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s 			page 2
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s 			page 2
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 isatty.c
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:13     .text._isatty:0000000000000000 _isatty
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:17     .text._isatty:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:19     .text._isatty:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:20     .text._isatty:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:21     .text._isatty:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:24     .text._isatty:0000000000000002 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:27     .text._isatty:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:30     .text._isatty:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:13     .text._isatty:0000000000000000 _isatty
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:17     .text._isatty:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:19     .text._isatty:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:20     .text._isatty:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:21     .text._isatty:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:24     .text._isatty:0000000000000002 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:27     .text._isatty:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:30     .text._isatty:0000000000000008 .L0 
                      .debug_frame:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:174    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:358    .debug_str:0000000000000107 .LASF17
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:348    .debug_str:00000000000000be .LASF18
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:344    .debug_str:000000000000004b .LASF19
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:326    .debug_ranges:0000000000000000 .Ldebug_ranges0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:332    .debug_line:0000000000000000 .Ldebug_line0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:374    .debug_str:00000000000001d8 .LASF0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:350    .debug_str:00000000000000e4 .LASF1
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:370    .debug_str:00000000000001c6 .LASF2
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:360    .debug_str:000000000000018f .LASF3
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:354    .debug_str:00000000000000f7 .LASF4
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:340    .debug_str:0000000000000022 .LASF5
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:334    .debug_str:0000000000000000 .LASF6
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:342    .debug_str:0000000000000034 .LASF7
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:336    .debug_str:000000000000000e .LASF8
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:352    .debug_str:00000000000000f2 .LASF9
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:364    .debug_str:00000000000001ab .LASF10
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:372    .debug_str:00000000000001d0 .LASF11
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:368    .debug_str:00000000000001bf .LASF12
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:338    .debug_str:000000000000001b .LASF13
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:346    .debug_str:00000000000000b7 .LASF14
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:356    .debug_str:0000000000000100 .LASF15
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:362    .debug_str:00000000000001a2 .LASF16
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:366    .debug_str:00000000000001b7 .LASF20
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:14     .text._isatty:0000000000000000 .LFB0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:28     .text._isatty:0000000000000008 .LFE0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:293    .debug_loc:0000000000000000 .LLST0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:18     .text._isatty:0000000000000000 .LVL0
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:22     .text._isatty:0000000000000002 .LVL1
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:25     .text._isatty:0000000000000006 .LVL2
-C:\Users\Jesper\AppData\Local\Temp\ccItawJh.s:34     .debug_info:0000000000000000 .Ldebug_info0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:174    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:358    .debug_str:0000000000000108 .LASF17
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:348    .debug_str:00000000000000bf .LASF18
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:338    .debug_str:000000000000001b .LASF19
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:326    .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:332    .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:374    .debug_str:00000000000001d9 .LASF0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:350    .debug_str:00000000000000e5 .LASF1
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:370    .debug_str:00000000000001c7 .LASF2
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:360    .debug_str:0000000000000190 .LASF3
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:354    .debug_str:00000000000000f8 .LASF4
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:342    .debug_str:000000000000008f .LASF5
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:334    .debug_str:0000000000000000 .LASF6
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:344    .debug_str:00000000000000a1 .LASF7
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:336    .debug_str:000000000000000e .LASF8
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:352    .debug_str:00000000000000f3 .LASF9
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:364    .debug_str:00000000000001ac .LASF10
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:372    .debug_str:00000000000001d1 .LASF11
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:368    .debug_str:00000000000001c0 .LASF12
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:340    .debug_str:0000000000000088 .LASF13
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:346    .debug_str:00000000000000b8 .LASF14
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:356    .debug_str:0000000000000101 .LASF15
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:362    .debug_str:00000000000001a3 .LASF16
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:366    .debug_str:00000000000001b8 .LASF20
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:14     .text._isatty:0000000000000000 .LFB0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:28     .text._isatty:0000000000000008 .LFE0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:293    .debug_loc:0000000000000000 .LLST0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:18     .text._isatty:0000000000000000 .LVL0
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:22     .text._isatty:0000000000000002 .LVL1
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:25     .text._isatty:0000000000000006 .LVL2
+C:\Users\Jesper\AppData\Local\Temp\cc2LAiFi.s:34     .debug_info:0000000000000000 .Ldebug_info0
 
 NO UNDEFINED SYMBOLS
