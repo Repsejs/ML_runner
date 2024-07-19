@@ -1,6 +1,6 @@
-build/tm_model.o: lib/tinymaix/src/tm_model.c \
- lib/tinymaix/include/tinymaix.h lib/tinymaix/include/tm_port.h
+build/tm_model.o: lib/tinymaix/src/tm_model.c include/tinymaix.h \
+ include/tm_port.h
 
-lib/tinymaix/include/tinymaix.h:
+include/tinymaix.h:
 
-lib/tinymaix/include/tm_port.h:
+include/tm_port.h:

@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 1
 
 
    1              		.file	"main.c"
@@ -9,297 +9,4579 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 1
    6              		.text
    7              	.Ltext0:
    8              		.cfi_sections	.debug_frame
-   9              		.section	.text.startup.main,"ax",@progbits
+   9              		.section	.text.layer_cb,"ax",@progbits
   10              		.align	1
-  11              		.globl	main
-  13              	main:
-  14              	.LFB2:
-  15              		.file 1 "main.c"
-   1:main.c        **** /* 
-   2:main.c        **** Replace this file with your code. Put your source files in this directory and any libraries in the 
-   3:main.c        **** If your main program should be assembly-language replace this file with main.S instead.
-   4:main.c        **** 
-   5:main.c        **** Libraries (other than vendor SDK and gcc libraries) must have .h-files in /lib/[library name]/inclu
-   6:main.c        **** */
-   7:main.c        **** 
-   8:main.c        **** #include "gd32vf103.h"
-   9:main.c        **** #define BITMASK 0xFFFFFFF8
-  10:main.c        **** 
-  11:main.c        **** int main(){
-  16              		.loc 1 11 11
-  17              		.cfi_startproc
-  12:main.c        **** 	uint32_t port = 0;
-  18              		.loc 1 12 2
-  19              	.LVL0:
-  13:main.c        **** 	uint32_t count = 0;
-  20              		.loc 1 13 2
-  14:main.c        **** 	rcu_periph_clock_enable(RCU_GPIOB);
-  21              		.loc 1 14 2
-  11:main.c        **** 	uint32_t port = 0;
-  22              		.loc 1 11 11 is_stmt 0
-  23 0000 0111     		addi	sp,sp,-32
-  24              	.LCFI0:
-  25              		.cfi_def_cfa_offset 32
-  26              		.loc 1 14 2
-  27 0002 13053060 		li	a0,1539
-  11:main.c        **** 	uint32_t port = 0;
-  28              		.loc 1 11 11
-  29 0006 06CE     		sw	ra,28(sp)
-  30 0008 22CC     		sw	s0,24(sp)
-  31 000a 26CA     		sw	s1,20(sp)
-  32 000c 4AC8     		sw	s2,16(sp)
-  33              		.cfi_offset 1, -4
-  34              		.cfi_offset 8, -8
-  35              		.cfi_offset 9, -12
-  36              		.cfi_offset 18, -16
-  15:main.c        **** 	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2);
-  37              		.loc 1 15 2
-  38 000e 37140140 		li	s0,1073811456
-  14:main.c        **** 	rcu_periph_clock_enable(RCU_GPIOB);
-  39              		.loc 1 14 2
-  40 0012 97000000 		call	rcu_periph_clock_enable
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 2
+  12              	layer_cb:
+  13              	.LFB26:
+  14              		.file 1 "main.c"
+   1:main.c        **** /* Copyright 2022 Sipeed Technology Co., Ltd. All Rights Reserved.
+   2:main.c        **** Licensed under the Apache License, Version 2.0 (the "License");
+   3:main.c        **** you may not use this file except in compliance with the License.
+   4:main.c        **** You may obtain a copy of the License at
+   5:main.c        ****     http://www.apache.org/licenses/LICENSE-2.0
+   6:main.c        **** Unless required by applicable law or agreed to in writing, software
+   7:main.c        **** distributed under the License is distributed on an "AS IS" BASIS,
+   8:main.c        **** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   9:main.c        **** See the License for the specific language governing permissions and
+  10:main.c        **** limitations under the License.
+  11:main.c        **** ==============================================================================*/
+  12:main.c        **** 
+  13:main.c        **** #include "stdio.h"
+  14:main.c        **** #include "tinymaix.h"
+  15:main.c        **** 
+  16:main.c        **** #if TM_MDL_TYPE == TM_MDL_INT8
+  17:main.c        **** #include "mnist_valid_q.h"
+  18:main.c        **** //#include "../../tools/tmdl/mnist_resnet_q.h"
+  19:main.c        **** #elif TM_MDL_TYPE == TM_MDL_FP32
+  20:main.c        **** #include "/tools/tmdl/mnist_valid_f.h"
+  21:main.c        **** //#include "../../tools/tmdl/mnist_resnet_f.h"
+  22:main.c        **** #elif TM_MDL_TYPE == TM_MDL_FP16
+  23:main.c        **** #include "/tools/tmdl/mnist_valid_fp16.h"
+  24:main.c        **** #elif TM_MDL_TYPE == TM_MDL_FP8_143
+  25:main.c        **** #include "/tools/tmdl/mnist_fp8_143.h"
+  26:main.c        **** #elif TM_MDL_TYPE == TM_MDL_FP8_152
+  27:main.c        **** #include "/tools/tmdl/mnist_fp8_152.h"
+  28:main.c        **** #endif
+  29:main.c        **** 
+  30:main.c        **** #if 1
+  31:main.c        **** uint8_t mnist_pic[28*28]={
+  32:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  33:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  34:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  35:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,116,125,171,255,255,150, 93,  0,  0,  0,  0,  0,  0,  0,  0
+  36:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,169,253,253,253,253,253,253,218, 30,  0,  0,  0,  0,  0,  0,  0
+  37:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,169,253,253,253,213,142,176,253,253,122,  0,  0,  0,  0,  0,  0,  0
+  38:main.c        ****   0,  0,  0,  0,  0,  0,  0, 52,250,253,210, 32, 12,  0,  6,206,253,140,  0,  0,  0,  0,  0,  0,  0
+  39:main.c        ****   0,  0,  0,  0,  0,  0,  0, 77,251,210, 25,  0,  0,  0,122,248,253, 65,  0,  0,  0,  0,  0,  0,  0
+  40:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0, 31, 18,  0,  0,  0,  0,209,253,253, 65,  0,  0,  0,  0,  0,  0,  0
+  41:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,117,247,253,198, 10,  0,  0,  0,  0,  0,  0,  0
+  42:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 76,247,253,231, 63,  0,  0,  0,  0,  0,  0,  0,  0
+  43:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,128,253,253,144,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  44:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,176,246,253,159, 12,  0,  0,  0,  0,  0,  0,  0,  0,  0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 2
 
 
-  40      E7800000 
-  41              	.LVL1:
-  42              		.loc 1 15 2 is_stmt 1
-  43 001a 130504C0 		addi	a0,s0,-1024
-  44 001e 9D46     		li	a3,7
-  45 0020 0D46     		li	a2,3
-  46 0022 C145     		li	a1,16
-  47              	.LBB2:
-  16:main.c        **** 	while(1){
-  17:main.c        **** 		count += 1;
-  18:main.c        **** 		port = gpio_input_port_get(GPIOB);
-  19:main.c        **** 		gpio_port_write(GPIOB, (port & BITMASK) | (count & (~BITMASK)));
-  20:main.c        **** 		for(volatile int i = 0; i < 1000000; i++);
-  48              		.loc 1 20 3 is_stmt 0
-  49 0024 37490F00 		li	s2,999424
-  50              	.LBE2:
-  15:main.c        **** 	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_0 | GPIO_PIN_1 | GPIO_PIN_2);
-  51              		.loc 1 15 2
-  52 0028 97000000 		call	gpio_init
-  52      E7800000 
-  53              	.LVL2:
-  13:main.c        **** 	rcu_periph_clock_enable(RCU_GPIOB);
-  54              		.loc 1 13 11
-  55 0030 8144     		li	s1,0
-  18:main.c        **** 		gpio_port_write(GPIOB, (port & BITMASK) | (count & (~BITMASK)));
-  56              		.loc 1 18 10
-  57 0032 130404C0 		addi	s0,s0,-1024
-  58              	.LBB3:
-  59              		.loc 1 20 3
-  60 0036 1309F923 		addi	s2,s2,575
-  61              	.LVL3:
-  62              	.L4:
-  63              	.LBE3:
-  16:main.c        **** 	while(1){
-  64              		.loc 1 16 2 is_stmt 1
-  17:main.c        **** 		port = gpio_input_port_get(GPIOB);
-  65              		.loc 1 17 3
-  18:main.c        **** 		gpio_port_write(GPIOB, (port & BITMASK) | (count & (~BITMASK)));
-  66              		.loc 1 18 10 is_stmt 0
-  67 003a 2285     		mv	a0,s0
-  68 003c 97000000 		call	gpio_input_port_get
-  68      E7800000 
-  69              	.LVL4:
-  17:main.c        **** 		port = gpio_input_port_get(GPIOB);
-  70              		.loc 1 17 9
-  71 0044 8504     		addi	s1,s1,1
-  72              	.LVL5:
-  18:main.c        **** 		gpio_port_write(GPIOB, (port & BITMASK) | (count & (~BITMASK)));
-  73              		.loc 1 18 3 is_stmt 1
-  19:main.c        **** 		for(volatile int i = 0; i < 1000000; i++);
-  74              		.loc 1 19 3
-  19:main.c        **** 		for(volatile int i = 0; i < 1000000; i++);
-  75              		.loc 1 19 32 is_stmt 0
-  76 0046 6199     		andi	a0,a0,-8
-  77              	.LVL6:
-  19:main.c        **** 		for(volatile int i = 0; i < 1000000; i++);
-  78              		.loc 1 19 52
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 3
+  45:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 25,234,253,233, 35,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  46:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,198,253,253,141,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  47:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0, 78,248,253,189, 12,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  48:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0, 19,200,253,253,141,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  49:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,134,253,253,173, 12,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  50:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,248,253,253, 25,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  51:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,248,253,253, 43, 20, 20, 20, 20,  5,  0,  5, 20, 20, 37,150,150,150
+  52:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,248,253,253,253,253,253,253,253,168,143,166,253,253,253,253,253,253
+  53:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,174,253,253,253,253,253,253,253,253,253,253,253,249,247,247,169,117
+  54:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,118,123,123,123,166,253,253,253,155,123,123, 41,  0,  0,  0,  0
+  55:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  56:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  57:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  58:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  59:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  60:main.c        **** };
+  61:main.c        **** #else
+  62:main.c        **** uint8_t mnist_pic[28*28]={
+  63:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  64:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  65:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  66:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  67:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  68:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  69:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  70:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 36, 56,137,201,199, 95, 37,  0,  0,  0,  0,  0
+  71:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 45,152,234,254,254,254,254,254,250,211,151,  6,  0,  0
+  72:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0, 46,153,240,254,254,227,166,133,251,200,254,229,225,104,  0,  0
+  73:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,153,234,254,254,187,142,  8,  0,  0,191, 40,198,246,223,253, 21,  0
+  74:main.c        ****   0,  0,  0,  0,  0,  0,  8,126,253,254,233,128, 11,  0,  0,  0,  0,210, 43, 70,254,254,254, 21,  0
+  75:main.c        ****   0,  0,  0,  0,  0,  0, 72,243,254,228, 54,  0,  0,  0,  0,  3, 32,116,225,242,254,255,162,  5,  0
+  76:main.c        ****   0,  0,  0,  0,  0,  0, 75,240,254,223,109,138,178,178,169,210,251,231,254,254,254,232, 38,  0,  0
+  77:main.c        ****   0,  0,  0,  0,  0,  0,  9,175,244,253,255,254,254,251,254,254,254,254,254,252,171, 25,  0,  0,  0
+  78:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0, 16,136,195,176,146,153,200,254,254,254,254,150, 16,  0,  0,  0,  0
+  79:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,162,254,254,241, 99,  3,  0,  0,  0,  0,  0
+  80:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,118,250,254,254, 90,  0,  0,  0,  0,  0,  0,  0
+  81:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,100,242,254,254,211,  7,  0,  0,  0,  0,  0,  0,  0
+  82:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 54,241,254,254,242, 59,  0,  0,  0,  0,  0,  0,  0,  0
+  83:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,131,254,254,244, 64,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  84:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 13,249,254,254,152,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  85:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0, 12,228,254,254,208,  8,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  86:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0, 78,255,254,254, 66,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  87:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,209,254,254,137,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  88:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,227,255,233, 25,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  89:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,113,255,108,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  90:main.c        ****   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
+  91:main.c        **** };
+  92:main.c        **** #endif
+  93:main.c        **** 
+  94:main.c        **** static tm_err_t layer_cb(tm_mdl_t* mdl, tml_head_t* lh)
+  95:main.c        **** {   //dump middle result
+  15              		.loc 1 95 1
+  16              		.cfi_startproc
+  17              	.LVL0:
+  96:main.c        ****     int h = lh->out_dims[1];
+  18              		.loc 1 96 5
+  97:main.c        ****     int w = lh->out_dims[2];
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 3
 
 
-  79 0048 93F57400 		andi	a1,s1,7
-  19:main.c        **** 		for(volatile int i = 0; i < 1000000; i++);
-  80              		.loc 1 19 3
-  81 004c C98D     		or	a1,a0,a1
-  82 004e C205     		slli	a1,a1,16
-  83 0050 C181     		srli	a1,a1,16
-  84 0052 2285     		mv	a0,s0
-  85 0054 97000000 		call	gpio_port_write
-  85      E7800000 
-  86              	.LVL7:
-  87              		.loc 1 20 3 is_stmt 1
-  88              	.LBB4:
-  89              		.loc 1 20 7
-  90              		.loc 1 20 20 is_stmt 0
-  91 005c 02C6     		sw	zero,12(sp)
-  92              	.L2:
-  93              		.loc 1 20 29 discriminator 1
-  94 005e B247     		lw	a5,12(sp)
-  95              		.loc 1 20 3 discriminator 1
-  96 0060 E34DF9FC 		bgt	a5,s2,.L4
-  97              		.loc 1 20 44 is_stmt 1 discriminator 3
-  98              		.loc 1 20 41 is_stmt 0 discriminator 3
-  99 0064 B247     		lw	a5,12(sp)
- 100 0066 8507     		addi	a5,a5,1
- 101 0068 3EC6     		sw	a5,12(sp)
- 102 006a D5BF     		j	.L2
- 103              	.LBE4:
- 104              		.cfi_endproc
- 105              	.LFE2:
- 107              		.text
- 108              	.Letext0:
- 109              		.file 2 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
- 110              		.file 3 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
- 111              		.file 4 "./../../firmware/GD32VF103_standard_peripheral/Include/gd32vf103_rcu.h"
- 112              		.file 5 "./../../firmware/GD32VF103_standard_peripheral/Include/gd32vf103_gpio.h"
- 113              		.file 6 "./../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 4
+  19              		.loc 1 97 5
+  98:main.c        ****     int ch= lh->out_dims[3];
+  20              		.loc 1 98 5
+  99:main.c        ****     mtype_t* output = TML_GET_OUTPUT(mdl, lh);
+  21              		.loc 1 99 5
+ 100:main.c        ****     return TM_OK;
+  22              		.loc 1 100 5
+ 101:main.c        ****     TM_PRINTF("Layer %d callback ========\n", mdl->layer_i);
+ 102:main.c        ****     #if 1
+ 103:main.c        ****     for(int y=0; y<h; y++){
+ 104:main.c        ****         TM_PRINTF("[");
+ 105:main.c        ****         for(int x=0; x<w; x++){
+ 106:main.c        ****             TM_PRINTF("[");
+ 107:main.c        ****             for(int c=0; c<ch; c++){
+ 108:main.c        ****             #if TM_MDL_TYPE == TM_MDL_FP32
+ 109:main.c        ****                 TM_PRINTF("%.3f,", output[(y*w+x)*ch+c]);
+ 110:main.c        ****             #else
+ 111:main.c        ****                 TM_PRINTF("%.3f,", TML_DEQUANT(lh,output[(y*w+x)*ch+c]));
+ 112:main.c        ****             #endif
+ 113:main.c        ****             }
+ 114:main.c        ****             TM_PRINTF("],");
+ 115:main.c        ****         }
+ 116:main.c        ****         TM_PRINTF("],\n");
+ 117:main.c        ****     }
+ 118:main.c        ****     TM_PRINTF("\n");
+ 119:main.c        ****     #endif
+ 120:main.c        ****     return TM_OK;
+ 121:main.c        **** }
+  23              		.loc 1 121 1 is_stmt 0
+  24 0000 0145     		li	a0,0
+  25              	.LVL1:
+  26 0002 8280     		ret
+  27              		.cfi_endproc
+  28              	.LFE26:
+  30              		.globl	__udivdi3
+  31              		.globl	__divdi3
+  32              		.globl	__floatunsisf
+  33              		.globl	__divsf3
+  34              		.globl	__extendsfdf2
+  35              		.globl	__gtsf2
+  36              		.section	.text.startup.main,"ax",@progbits
+  37              		.align	1
+  38              		.globl	main
+  40              	main:
+  41              	.LFB28:
+ 122:main.c        **** 
+ 123:main.c        **** static void parse_output(tm_mat_t* outs)
+ 124:main.c        **** {
+ 125:main.c        ****     tm_mat_t out = outs[0];
+ 126:main.c        ****     float* data  = out.dataf;
+ 127:main.c        ****     float maxp = 0;
+ 128:main.c        ****     int maxi = -1;
+ 129:main.c        ****     for(int i=0; i<10; i++){
+ 130:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 131:main.c        ****         if(data[i] > maxp) {
+ 132:main.c        ****             maxi = i;
+ 133:main.c        ****             maxp = data[i];
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 4
+
+
+ 134:main.c        ****         }
+ 135:main.c        ****     }
+ 136:main.c        ****     TM_PRINTF("### Predict output is: Number %d, prob %.3f\n", maxi, maxp);
+ 137:main.c        ****     return;
+ 138:main.c        **** }
+ 139:main.c        **** 
+ 140:main.c        **** int main(int argc, char** argv)
+ 141:main.c        **** {   TM_DBGT_INIT();
+  42              		.loc 1 141 1 is_stmt 1
+  43              		.cfi_startproc
+  44              	.LVL2:
+  45              		.loc 1 141 5
+  46              		.loc 1 141 5
+  47              		.loc 1 141 5
+  48              		.loc 1 141 1 is_stmt 0
+  49 0000 1D71     		addi	sp,sp,-96
+  50              	.LCFI0:
+  51              		.cfi_def_cfa_offset 96
+  52 0002 86CE     		sw	ra,92(sp)
+  53 0004 A2CC     		sw	s0,88(sp)
+  54 0006 A6CA     		sw	s1,84(sp)
+  55 0008 CAC8     		sw	s2,80(sp)
+  56 000a CEC6     		sw	s3,76(sp)
+  57 000c D2C4     		sw	s4,72(sp)
+  58 000e D6C2     		sw	s5,68(sp)
+  59 0010 DAC0     		sw	s6,64(sp)
+  60              		.cfi_offset 1, -4
+  61              		.cfi_offset 8, -8
+  62              		.cfi_offset 9, -12
+  63              		.cfi_offset 18, -16
+  64              		.cfi_offset 19, -20
+  65              		.cfi_offset 20, -24
+  66              		.cfi_offset 21, -28
+  67              		.cfi_offset 22, -32
+  68              		.loc 1 141 5
+  69 0012 97000000 		call	clock
+  69      E7800000 
+  70              	.LVL3:
+  71              		.loc 1 141 19 is_stmt 1
+ 142:main.c        ****     TM_PRINTF("mnist demo\n");
+  72              		.loc 1 142 5
+  73 001a 37050000 		lui	a0,%hi(.LC2)
+  74 001e 13050500 		addi	a0,a0,%lo(.LC2)
+  75              	.LBB6:
+ 143:main.c        ****     tm_mdl_t mdl;
+ 144:main.c        **** 
+ 145:main.c        ****     for(int i=0; i<28*28; i++){
+ 146:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+  76              		.loc 1 146 9 is_stmt 0
+  77 0022 B7040000 		lui	s1,%hi(.LANCHOR0)
+  78              	.LBE6:
+ 142:main.c        ****     TM_PRINTF("mnist demo\n");
+  79              		.loc 1 142 5
+  80 0026 97000000 		call	puts
+  80      E7800000 
+  81              	.LVL4:
+ 143:main.c        ****     tm_mdl_t mdl;
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 5
+
+
+  82              		.loc 1 143 5 is_stmt 1
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+  83              		.loc 1 145 5
+  84              	.LBB7:
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+  85              		.loc 1 145 9
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+  86              		.loc 1 145 13 is_stmt 0
+  87 002e 0144     		li	s0,0
+  88              		.loc 1 146 9
+  89 0030 93840400 		addi	s1,s1,%lo(.LANCHOR0)
+  90 0034 B7090000 		lui	s3,%hi(.LC3)
+ 147:main.c        ****         if(i%28==27)TM_PRINTF("\n");
+  91              		.loc 1 147 13
+  92 0038 714A     		li	s4,28
+  93              		.loc 1 147 11
+  94 003a ED4A     		li	s5,27
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+  95              		.loc 1 145 5
+  96 003c 13090031 		li	s2,784
+  97              	.LVL5:
+  98              	.L4:
+ 146:main.c        ****         if(i%28==27)TM_PRINTF("\n");
+  99              		.loc 1 146 9 is_stmt 1
+ 100 0040 B3878400 		add	a5,s1,s0
+ 101 0044 83C50700 		lbu	a1,0(a5)
+ 102 0048 13850900 		addi	a0,s3,%lo(.LC3)
+ 103 004c 97000000 		call	printf
+ 103      E7800000 
+ 104              	.LVL6:
+ 105              		.loc 1 147 9
+ 106              		.loc 1 147 13 is_stmt 0
+ 107 0054 B3674403 		rem	a5,s0,s4
+ 108              		.loc 1 147 11
+ 109 0058 63975701 		bne	a5,s5,.L3
+ 110              		.loc 1 147 21 is_stmt 1 discriminator 1
+ 111 005c 2945     		li	a0,10
+ 112 005e 97000000 		call	putchar
+ 112      E7800000 
+ 113              	.LVL7:
+ 114              	.L3:
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+ 115              		.loc 1 145 28 is_stmt 0 discriminator 2
+ 116 0066 0504     		addi	s0,s0,1
+ 117              	.LVL8:
+ 145:main.c        ****         TM_PRINTF("%3d,", mnist_pic[i]);
+ 118              		.loc 1 145 5 discriminator 2
+ 119 0068 E31C24FD 		bne	s0,s2,.L4
+ 120              	.LBE7:
+ 148:main.c        ****     }
+ 149:main.c        **** 
+ 150:main.c        ****     tm_mat_t in_uint8 = {3,28,28,1, {(mtype_t*)mnist_pic}};
+ 121              		.loc 1 150 5 is_stmt 1
+ 122              		.loc 1 150 14 is_stmt 0
+ 123 006c B7050000 		lui	a1,%hi(.LANCHOR1)
+ 124 0070 13840500 		addi	s0,a1,%lo(.LANCHOR1)
+ 125              	.LVL9:
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 6
+
+
+ 126 0074 3146     		li	a2,12
+ 127 0076 93850500 		addi	a1,a1,%lo(.LANCHOR1)
+ 128 007a 4800     		addi	a0,sp,4
+ 129 007c 97000000 		call	memcpy
+ 129      E7800000 
+ 130              	.LVL10:
+ 151:main.c        ****     tm_mat_t in = {3,28,28,1, {NULL}};
+ 131              		.loc 1 151 5 is_stmt 1
+ 132              		.loc 1 151 14 is_stmt 0
+ 133 0084 9305C400 		addi	a1,s0,12
+ 134 0088 3146     		li	a2,12
+ 135 008a 0808     		addi	a0,sp,16
+ 136 008c 97000000 		call	memcpy
+ 136      E7800000 
+ 137              	.LVL11:
+ 152:main.c        ****     tm_mat_t outs[1];
+ 138              		.loc 1 152 5 is_stmt 1
+ 153:main.c        ****     tm_err_t res;
+ 139              		.loc 1 153 5
+ 154:main.c        ****     tm_stat((tm_mdlbin_t*)mdl_data); 
+ 140              		.loc 1 154 5
+ 141 0094 37040000 		lui	s0,%hi(mdl_data)
+ 142 0098 13050400 		addi	a0,s0,%lo(mdl_data)
+ 143 009c 97000000 		call	tm_stat
+ 143      E7800000 
+ 144              	.LVL12:
+ 155:main.c        **** 
+ 156:main.c        ****     res = tm_load(&mdl, mdl_data, NULL, layer_cb, &in);
+ 145              		.loc 1 156 5
+ 146              		.loc 1 156 11 is_stmt 0
+ 147 00a4 B7060000 		lui	a3,%hi(layer_cb)
+ 148 00a8 93050400 		addi	a1,s0,%lo(mdl_data)
+ 149 00ac 1808     		addi	a4,sp,16
+ 150 00ae 93860600 		addi	a3,a3,%lo(layer_cb)
+ 151 00b2 0146     		li	a2,0
+ 152 00b4 2810     		addi	a0,sp,40
+ 153 00b6 97000000 		call	tm_load
+ 153      E7800000 
+ 154              	.LVL13:
+ 155 00be AA85     		mv	a1,a0
+ 156              	.LVL14:
+ 157:main.c        ****     if(res != TM_OK) {
+ 157              		.loc 1 157 5 is_stmt 1
+ 158              		.loc 1 157 7 is_stmt 0
+ 159 00c0 05C5     		beq	a0,zero,.L5
+ 158:main.c        ****         TM_PRINTF("tm model load err %d\n", res);
+ 160              		.loc 1 158 9 is_stmt 1
+ 161 00c2 37050000 		lui	a0,%hi(.LC5)
+ 162              	.LVL15:
+ 163 00c6 13050500 		addi	a0,a0,%lo(.LC5)
+ 164 00ca 97000000 		call	printf
+ 164      E7800000 
+ 165              	.LVL16:
+ 159:main.c        ****         return -1;
+ 166              		.loc 1 159 9
+ 167              		.loc 1 159 16 is_stmt 0
+ 168 00d2 7D55     		li	a0,-1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 7
+
+
+ 169              	.L2:
+ 160:main.c        ****     }
+ 161:main.c        **** 
+ 162:main.c        **** #if (TM_MDL_TYPE == TM_MDL_INT8) || (TM_MDL_TYPE == TM_MDL_INT16) 
+ 163:main.c        ****     res = tm_preprocess(&mdl, TMPP_UINT2INT, &in_uint8, &in); 
+ 164:main.c        **** #else
+ 165:main.c        ****     res = tm_preprocess(&mdl, TMPP_UINT2FP01, &in_uint8, &in); 
+ 166:main.c        **** #endif
+ 167:main.c        ****     TM_DBGT_START();
+ 168:main.c        ****     res = tm_run(&mdl, &in, outs);
+ 169:main.c        ****     TM_DBGT("tm_run");
+ 170:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 171:main.c        ****     else TM_PRINTF("tm run error: %d\n", res);
+ 172:main.c        ****     tm_unload(&mdl);                 
+ 173:main.c        ****     return 0;
+ 174:main.c        **** }
+ 170              		.loc 1 174 1
+ 171 00d4 F640     		lw	ra,92(sp)
+ 172              		.cfi_remember_state
+ 173              		.cfi_restore 1
+ 174 00d6 6644     		lw	s0,88(sp)
+ 175              		.cfi_restore 8
+ 176 00d8 D644     		lw	s1,84(sp)
+ 177              		.cfi_restore 9
+ 178 00da 4649     		lw	s2,80(sp)
+ 179              		.cfi_restore 18
+ 180 00dc B649     		lw	s3,76(sp)
+ 181              		.cfi_restore 19
+ 182 00de 264A     		lw	s4,72(sp)
+ 183              		.cfi_restore 20
+ 184 00e0 964A     		lw	s5,68(sp)
+ 185              		.cfi_restore 21
+ 186 00e2 064B     		lw	s6,64(sp)
+ 187              		.cfi_restore 22
+ 188 00e4 2561     		addi	sp,sp,96
+ 189              	.LCFI1:
+ 190              		.cfi_def_cfa_offset 0
+ 191 00e6 8280     		jr	ra
+ 192              	.LVL17:
+ 193              	.L5:
+ 194              	.LCFI2:
+ 195              		.cfi_restore_state
+ 163:main.c        **** #else
+ 196              		.loc 1 163 5 is_stmt 1
+ 163:main.c        **** #else
+ 197              		.loc 1 163 11 is_stmt 0
+ 198 00e8 1408     		addi	a3,sp,16
+ 199 00ea 5000     		addi	a2,sp,4
+ 200 00ec 8945     		li	a1,2
+ 201 00ee 2810     		addi	a0,sp,40
+ 202              	.LVL18:
+ 203 00f0 97000000 		call	tm_preprocess
+ 203      E7800000 
+ 204              	.LVL19:
+ 167:main.c        ****     res = tm_run(&mdl, &in, outs);
+ 205              		.loc 1 167 5 is_stmt 1
+ 206 00f8 97000000 		call	clock
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 8
+
+
+ 206      E7800000 
+ 207              	.LVL20:
+ 208 0100 2A89     		mv	s2,a0
+ 209              	.LVL21:
+ 167:main.c        ****     res = tm_run(&mdl, &in, outs);
+ 210              		.loc 1 167 20
+ 168:main.c        ****     TM_DBGT("tm_run");
+ 211              		.loc 1 168 5
+ 168:main.c        ****     TM_DBGT("tm_run");
+ 212              		.loc 1 168 11 is_stmt 0
+ 213 0102 7008     		addi	a2,sp,28
+ 214 0104 0C08     		addi	a1,sp,16
+ 215 0106 2810     		addi	a0,sp,40
+ 216              	.LVL22:
+ 217 0108 97000000 		call	tm_run
+ 217      E7800000 
+ 218              	.LVL23:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 219              		.loc 1 169 5
+ 220 0110 37440F00 		li	s0,999424
+ 221 0114 13040424 		addi	s0,s0,576
+ 168:main.c        ****     TM_DBGT("tm_run");
+ 222              		.loc 1 168 11
+ 223 0118 AA84     		mv	s1,a0
+ 224              	.LVL24:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 225              		.loc 1 169 5 is_stmt 1
+ 226 011a 97000000 		call	clock
+ 226      E7800000 
+ 227              	.LVL25:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 228              		.loc 1 169 5
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 229              		.loc 1 169 5
+ 230 0122 B3358502 		mulhu	a1,a0,s0
+ 231 0126 37460F00 		li	a2,999424
+ 232 012a 13060624 		addi	a2,a2,576
+ 233 012e 8146     		li	a3,0
+ 234 0130 33058502 		mul	a0,a0,s0
+ 235              	.LVL26:
+ 236 0134 97000000 		call	__udivdi3
+ 236      E7800000 
+ 237              	.LVL27:
+ 238 013c AA89     		mv	s3,a0
+ 167:main.c        ****     res = tm_run(&mdl, &in, outs);
+ 239              		.loc 1 167 5 is_stmt 0
+ 240 013e B3358902 		mulhu	a1,s2,s0
+ 241 0142 37460F00 		li	a2,999424
+ 242 0146 13060624 		addi	a2,a2,576
+ 243 014a 8146     		li	a3,0
+ 244 014c 33058902 		mul	a0,s2,s0
+ 245 0150 97000000 		call	__udivdi3
+ 245      E7800000 
+ 246              	.LVL28:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 247              		.loc 1 169 5
+ 248 0158 3385A940 		sub	a0,s3,a0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 9
+
+
+ 249 015c 97000000 		call	__floatunsisf
+ 249      E7800000 
+ 250              	.LVL29:
+ 251 0164 B7070000 		lui	a5,%hi(.LC6)
+ 252 0168 83A50700 		lw	a1,%lo(.LC6)(a5)
+ 253 016c 97000000 		call	__divsf3
+ 253      E7800000 
+ 254              	.LVL30:
+ 255 0174 97000000 		call	__extendsfdf2
+ 255      E7800000 
+ 256              	.LVL31:
+ 257 017c 2A86     		mv	a2,a0
+ 258 017e AE86     		mv	a3,a1
+ 259 0180 37050000 		lui	a0,%hi(.LC8)
+ 260 0184 B7050000 		lui	a1,%hi(.LC7)
+ 261 0188 93850500 		addi	a1,a1,%lo(.LC7)
+ 262 018c 13050500 		addi	a0,a0,%lo(.LC8)
+ 263 0190 97000000 		call	printf
+ 263      E7800000 
+ 264              	.LVL32:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 265              		.loc 1 169 5 is_stmt 1
+ 266 0198 97000000 		call	clock
+ 266      E7800000 
+ 267              	.LVL33:
+ 169:main.c        ****     if(res==TM_OK) parse_output(outs);  
+ 268              		.loc 1 169 22
+ 170:main.c        ****     else TM_PRINTF("tm run error: %d\n", res);
+ 269              		.loc 1 170 5
+ 170:main.c        ****     else TM_PRINTF("tm run error: %d\n", res);
+ 270              		.loc 1 170 7 is_stmt 0
+ 271 01a0 B5EC     		bne	s1,zero,.L7
+ 170:main.c        ****     else TM_PRINTF("tm run error: %d\n", res);
+ 272              		.loc 1 170 20 is_stmt 1
+ 273              	.LVL34:
+ 274              	.LBB8:
+ 275              	.LBB9:
+ 125:main.c        ****     float* data  = out.dataf;
+ 276              		.loc 1 125 5
+ 126:main.c        ****     float maxp = 0;
+ 277              		.loc 1 126 5
+ 127:main.c        ****     int maxi = -1;
+ 278              		.loc 1 127 5
+ 128:main.c        ****     for(int i=0; i<10; i++){
+ 279              		.loc 1 128 5
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 280              		.loc 1 129 5
+ 281              	.LBB10:
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 282              		.loc 1 129 9
+ 283 01a2 9254     		lw	s1,36(sp)
+ 284              	.LVL35:
+ 285              	.LBE10:
+ 128:main.c        ****     for(int i=0; i<10; i++){
+ 286              		.loc 1 128 9 is_stmt 0
+ 287 01a4 FD59     		li	s3,-1
+ 127:main.c        ****     int maxi = -1;
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 10
+
+
+ 288              		.loc 1 127 11
+ 289 01a6 13090000 		mv	s2,zero
+ 290              	.LBB11:
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 291              		.loc 1 129 13
+ 292 01aa 0144     		li	s0,0
+ 130:main.c        ****         if(data[i] > maxp) {
+ 293              		.loc 1 130 9
+ 294 01ac 370B0000 		lui	s6,%hi(.LC9)
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 295              		.loc 1 129 5
+ 296 01b0 A94A     		li	s5,10
+ 297              	.LVL36:
+ 298              	.L10:
+ 130:main.c        ****         if(data[i] > maxp) {
+ 299              		.loc 1 130 9 is_stmt 1
+ 300 01b2 8840     		lw	a0,0(s1)
+ 301 01b4 97000000 		call	__extendsfdf2
+ 301      E7800000 
+ 302              	.LVL37:
+ 303 01bc 2A86     		mv	a2,a0
+ 304 01be AE86     		mv	a3,a1
+ 305 01c0 13050B00 		addi	a0,s6,%lo(.LC9)
+ 306 01c4 A285     		mv	a1,s0
+ 307 01c6 97000000 		call	printf
+ 307      E7800000 
+ 308              	.LVL38:
+ 131:main.c        ****             maxi = i;
+ 309              		.loc 1 131 9
+ 131:main.c        ****             maxi = i;
+ 310              		.loc 1 131 16 is_stmt 0
+ 311 01ce 03AA0400 		lw	s4,0(s1)
+ 131:main.c        ****             maxi = i;
+ 312              		.loc 1 131 11
+ 313 01d2 CA85     		mv	a1,s2
+ 314 01d4 5285     		mv	a0,s4
+ 315 01d6 97000000 		call	__gtsf2
+ 315      E7800000 
+ 316              	.LVL39:
+ 317 01de 6354A000 		ble	a0,zero,.L8
+ 318 01e2 A289     		mv	s3,s0
+ 319              	.LVL40:
+ 133:main.c        ****         }
+ 320              		.loc 1 133 18
+ 321 01e4 5289     		mv	s2,s4
+ 322              	.LVL41:
+ 323              	.L8:
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 324              		.loc 1 129 25
+ 325 01e6 0504     		addi	s0,s0,1
+ 326              	.LVL42:
+ 327 01e8 9104     		addi	s1,s1,4
+ 129:main.c        ****         printf("%d: %.3f\n", i, data[i]);
+ 328              		.loc 1 129 5
+ 329 01ea E31454FD 		bne	s0,s5,.L10
+ 330              	.LBE11:
+ 136:main.c        ****     return;
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 11
+
+
+ 331              		.loc 1 136 5 is_stmt 1
+ 332 01ee 4A85     		mv	a0,s2
+ 333 01f0 97000000 		call	__extendsfdf2
+ 333      E7800000 
+ 334              	.LVL43:
+ 335 01f8 2A86     		mv	a2,a0
+ 336 01fa 37050000 		lui	a0,%hi(.LC10)
+ 337 01fe AE86     		mv	a3,a1
+ 338 0200 13050500 		addi	a0,a0,%lo(.LC10)
+ 339 0204 CE85     		mv	a1,s3
+ 340 0206 97000000 		call	printf
+ 340      E7800000 
+ 341              	.LVL44:
+ 137:main.c        **** }
+ 342              		.loc 1 137 5
+ 343              	.L11:
+ 344              	.LBE9:
+ 345              	.LBE8:
+ 172:main.c        ****     return 0;
+ 346              		.loc 1 172 5
+ 347 020e 2810     		addi	a0,sp,40
+ 348 0210 97000000 		call	tm_unload
+ 348      E7800000 
+ 349              	.LVL45:
+ 173:main.c        **** }
+ 350              		.loc 1 173 5
+ 173:main.c        **** }
+ 351              		.loc 1 173 12 is_stmt 0
+ 352 0218 0145     		li	a0,0
+ 353 021a 6DBD     		j	.L2
+ 354              	.LVL46:
+ 355              	.L7:
+ 171:main.c        ****     tm_unload(&mdl);                 
+ 356              		.loc 1 171 10 is_stmt 1
+ 357 021c 37050000 		lui	a0,%hi(.LC11)
+ 358 0220 A685     		mv	a1,s1
+ 359 0222 13050500 		addi	a0,a0,%lo(.LC11)
+ 360 0226 97000000 		call	printf
+ 360      E7800000 
+ 361              	.LVL47:
+ 362 022e C5B7     		j	.L11
+ 363              		.cfi_endproc
+ 364              	.LFE28:
+ 366              		.globl	mnist_pic
+ 367              		.globl	mdl_data
+ 368              		.section	.rodata
+ 369              		.align	2
+ 370              		.set	.LANCHOR1,. + 0
+ 371              	.LC4:
+ 372 0000 0300     		.half	3
+ 373 0002 1C00     		.half	28
+ 374 0004 1C00     		.half	28
+ 375 0006 0100     		.half	1
+ 376 0008 00000000 		.word	mnist_pic
+ 377              	.LC1:
+ 378 000c 0300     		.half	3
+ 379 000e 1C00     		.half	28
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 12
+
+
+ 380 0010 1C00     		.half	28
+ 381 0012 0100     		.half	1
+ 382 0014 00000000 		.word	0
+ 383              		.section	.data.mnist_pic,"aw"
+ 384              		.align	2
+ 385              		.set	.LANCHOR0,. + 0
+ 388              	mnist_pic:
+ 389 0000 00       		.byte	0
+ 390 0001 00       		.byte	0
+ 391 0002 00       		.byte	0
+ 392 0003 00       		.byte	0
+ 393 0004 00       		.byte	0
+ 394 0005 00       		.byte	0
+ 395 0006 00       		.byte	0
+ 396 0007 00       		.byte	0
+ 397 0008 00       		.byte	0
+ 398 0009 00       		.byte	0
+ 399 000a 00       		.byte	0
+ 400 000b 00       		.byte	0
+ 401 000c 00       		.byte	0
+ 402 000d 00       		.byte	0
+ 403 000e 00       		.byte	0
+ 404 000f 00       		.byte	0
+ 405 0010 00       		.byte	0
+ 406 0011 00       		.byte	0
+ 407 0012 00       		.byte	0
+ 408 0013 00       		.byte	0
+ 409 0014 00       		.byte	0
+ 410 0015 00       		.byte	0
+ 411 0016 00       		.byte	0
+ 412 0017 00       		.byte	0
+ 413 0018 00       		.byte	0
+ 414 0019 00       		.byte	0
+ 415 001a 00       		.byte	0
+ 416 001b 00       		.byte	0
+ 417 001c 00       		.byte	0
+ 418 001d 00       		.byte	0
+ 419 001e 00       		.byte	0
+ 420 001f 00       		.byte	0
+ 421 0020 00       		.byte	0
+ 422 0021 00       		.byte	0
+ 423 0022 00       		.byte	0
+ 424 0023 00       		.byte	0
+ 425 0024 00       		.byte	0
+ 426 0025 00       		.byte	0
+ 427 0026 00       		.byte	0
+ 428 0027 00       		.byte	0
+ 429 0028 00       		.byte	0
+ 430 0029 00       		.byte	0
+ 431 002a 00       		.byte	0
+ 432 002b 00       		.byte	0
+ 433 002c 00       		.byte	0
+ 434 002d 00       		.byte	0
+ 435 002e 00       		.byte	0
+ 436 002f 00       		.byte	0
+ 437 0030 00       		.byte	0
+ 438 0031 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 13
+
+
+ 439 0032 00       		.byte	0
+ 440 0033 00       		.byte	0
+ 441 0034 00       		.byte	0
+ 442 0035 00       		.byte	0
+ 443 0036 00       		.byte	0
+ 444 0037 00       		.byte	0
+ 445 0038 00       		.byte	0
+ 446 0039 00       		.byte	0
+ 447 003a 00       		.byte	0
+ 448 003b 00       		.byte	0
+ 449 003c 00       		.byte	0
+ 450 003d 00       		.byte	0
+ 451 003e 00       		.byte	0
+ 452 003f 00       		.byte	0
+ 453 0040 00       		.byte	0
+ 454 0041 00       		.byte	0
+ 455 0042 00       		.byte	0
+ 456 0043 00       		.byte	0
+ 457 0044 00       		.byte	0
+ 458 0045 00       		.byte	0
+ 459 0046 00       		.byte	0
+ 460 0047 00       		.byte	0
+ 461 0048 00       		.byte	0
+ 462 0049 00       		.byte	0
+ 463 004a 00       		.byte	0
+ 464 004b 00       		.byte	0
+ 465 004c 00       		.byte	0
+ 466 004d 00       		.byte	0
+ 467 004e 00       		.byte	0
+ 468 004f 00       		.byte	0
+ 469 0050 00       		.byte	0
+ 470 0051 00       		.byte	0
+ 471 0052 00       		.byte	0
+ 472 0053 00       		.byte	0
+ 473 0054 00       		.byte	0
+ 474 0055 00       		.byte	0
+ 475 0056 00       		.byte	0
+ 476 0057 00       		.byte	0
+ 477 0058 00       		.byte	0
+ 478 0059 00       		.byte	0
+ 479 005a 00       		.byte	0
+ 480 005b 00       		.byte	0
+ 481 005c 00       		.byte	0
+ 482 005d 00       		.byte	0
+ 483 005e 74       		.byte	116
+ 484 005f 7D       		.byte	125
+ 485 0060 AB       		.byte	-85
+ 486 0061 FF       		.byte	-1
+ 487 0062 FF       		.byte	-1
+ 488 0063 96       		.byte	-106
+ 489 0064 5D       		.byte	93
+ 490 0065 00       		.byte	0
+ 491 0066 00       		.byte	0
+ 492 0067 00       		.byte	0
+ 493 0068 00       		.byte	0
+ 494 0069 00       		.byte	0
+ 495 006a 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 14
+
+
+ 496 006b 00       		.byte	0
+ 497 006c 00       		.byte	0
+ 498 006d 00       		.byte	0
+ 499 006e 00       		.byte	0
+ 500 006f 00       		.byte	0
+ 501 0070 00       		.byte	0
+ 502 0071 00       		.byte	0
+ 503 0072 00       		.byte	0
+ 504 0073 00       		.byte	0
+ 505 0074 00       		.byte	0
+ 506 0075 00       		.byte	0
+ 507 0076 00       		.byte	0
+ 508 0077 00       		.byte	0
+ 509 0078 00       		.byte	0
+ 510 0079 A9       		.byte	-87
+ 511 007a FD       		.byte	-3
+ 512 007b FD       		.byte	-3
+ 513 007c FD       		.byte	-3
+ 514 007d FD       		.byte	-3
+ 515 007e FD       		.byte	-3
+ 516 007f FD       		.byte	-3
+ 517 0080 DA       		.byte	-38
+ 518 0081 1E       		.byte	30
+ 519 0082 00       		.byte	0
+ 520 0083 00       		.byte	0
+ 521 0084 00       		.byte	0
+ 522 0085 00       		.byte	0
+ 523 0086 00       		.byte	0
+ 524 0087 00       		.byte	0
+ 525 0088 00       		.byte	0
+ 526 0089 00       		.byte	0
+ 527 008a 00       		.byte	0
+ 528 008b 00       		.byte	0
+ 529 008c 00       		.byte	0
+ 530 008d 00       		.byte	0
+ 531 008e 00       		.byte	0
+ 532 008f 00       		.byte	0
+ 533 0090 00       		.byte	0
+ 534 0091 00       		.byte	0
+ 535 0092 00       		.byte	0
+ 536 0093 00       		.byte	0
+ 537 0094 A9       		.byte	-87
+ 538 0095 FD       		.byte	-3
+ 539 0096 FD       		.byte	-3
+ 540 0097 FD       		.byte	-3
+ 541 0098 D5       		.byte	-43
+ 542 0099 8E       		.byte	-114
+ 543 009a B0       		.byte	-80
+ 544 009b FD       		.byte	-3
+ 545 009c FD       		.byte	-3
+ 546 009d 7A       		.byte	122
+ 547 009e 00       		.byte	0
+ 548 009f 00       		.byte	0
+ 549 00a0 00       		.byte	0
+ 550 00a1 00       		.byte	0
+ 551 00a2 00       		.byte	0
+ 552 00a3 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 15
+
+
+ 553 00a4 00       		.byte	0
+ 554 00a5 00       		.byte	0
+ 555 00a6 00       		.byte	0
+ 556 00a7 00       		.byte	0
+ 557 00a8 00       		.byte	0
+ 558 00a9 00       		.byte	0
+ 559 00aa 00       		.byte	0
+ 560 00ab 00       		.byte	0
+ 561 00ac 00       		.byte	0
+ 562 00ad 00       		.byte	0
+ 563 00ae 00       		.byte	0
+ 564 00af 34       		.byte	52
+ 565 00b0 FA       		.byte	-6
+ 566 00b1 FD       		.byte	-3
+ 567 00b2 D2       		.byte	-46
+ 568 00b3 20       		.byte	32
+ 569 00b4 0C       		.byte	12
+ 570 00b5 00       		.byte	0
+ 571 00b6 06       		.byte	6
+ 572 00b7 CE       		.byte	-50
+ 573 00b8 FD       		.byte	-3
+ 574 00b9 8C       		.byte	-116
+ 575 00ba 00       		.byte	0
+ 576 00bb 00       		.byte	0
+ 577 00bc 00       		.byte	0
+ 578 00bd 00       		.byte	0
+ 579 00be 00       		.byte	0
+ 580 00bf 00       		.byte	0
+ 581 00c0 00       		.byte	0
+ 582 00c1 00       		.byte	0
+ 583 00c2 00       		.byte	0
+ 584 00c3 00       		.byte	0
+ 585 00c4 00       		.byte	0
+ 586 00c5 00       		.byte	0
+ 587 00c6 00       		.byte	0
+ 588 00c7 00       		.byte	0
+ 589 00c8 00       		.byte	0
+ 590 00c9 00       		.byte	0
+ 591 00ca 00       		.byte	0
+ 592 00cb 4D       		.byte	77
+ 593 00cc FB       		.byte	-5
+ 594 00cd D2       		.byte	-46
+ 595 00ce 19       		.byte	25
+ 596 00cf 00       		.byte	0
+ 597 00d0 00       		.byte	0
+ 598 00d1 00       		.byte	0
+ 599 00d2 7A       		.byte	122
+ 600 00d3 F8       		.byte	-8
+ 601 00d4 FD       		.byte	-3
+ 602 00d5 41       		.byte	65
+ 603 00d6 00       		.byte	0
+ 604 00d7 00       		.byte	0
+ 605 00d8 00       		.byte	0
+ 606 00d9 00       		.byte	0
+ 607 00da 00       		.byte	0
+ 608 00db 00       		.byte	0
+ 609 00dc 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 16
+
+
+ 610 00dd 00       		.byte	0
+ 611 00de 00       		.byte	0
+ 612 00df 00       		.byte	0
+ 613 00e0 00       		.byte	0
+ 614 00e1 00       		.byte	0
+ 615 00e2 00       		.byte	0
+ 616 00e3 00       		.byte	0
+ 617 00e4 00       		.byte	0
+ 618 00e5 00       		.byte	0
+ 619 00e6 00       		.byte	0
+ 620 00e7 00       		.byte	0
+ 621 00e8 1F       		.byte	31
+ 622 00e9 12       		.byte	18
+ 623 00ea 00       		.byte	0
+ 624 00eb 00       		.byte	0
+ 625 00ec 00       		.byte	0
+ 626 00ed 00       		.byte	0
+ 627 00ee D1       		.byte	-47
+ 628 00ef FD       		.byte	-3
+ 629 00f0 FD       		.byte	-3
+ 630 00f1 41       		.byte	65
+ 631 00f2 00       		.byte	0
+ 632 00f3 00       		.byte	0
+ 633 00f4 00       		.byte	0
+ 634 00f5 00       		.byte	0
+ 635 00f6 00       		.byte	0
+ 636 00f7 00       		.byte	0
+ 637 00f8 00       		.byte	0
+ 638 00f9 00       		.byte	0
+ 639 00fa 00       		.byte	0
+ 640 00fb 00       		.byte	0
+ 641 00fc 00       		.byte	0
+ 642 00fd 00       		.byte	0
+ 643 00fe 00       		.byte	0
+ 644 00ff 00       		.byte	0
+ 645 0100 00       		.byte	0
+ 646 0101 00       		.byte	0
+ 647 0102 00       		.byte	0
+ 648 0103 00       		.byte	0
+ 649 0104 00       		.byte	0
+ 650 0105 00       		.byte	0
+ 651 0106 00       		.byte	0
+ 652 0107 00       		.byte	0
+ 653 0108 00       		.byte	0
+ 654 0109 75       		.byte	117
+ 655 010a F7       		.byte	-9
+ 656 010b FD       		.byte	-3
+ 657 010c C6       		.byte	-58
+ 658 010d 0A       		.byte	10
+ 659 010e 00       		.byte	0
+ 660 010f 00       		.byte	0
+ 661 0110 00       		.byte	0
+ 662 0111 00       		.byte	0
+ 663 0112 00       		.byte	0
+ 664 0113 00       		.byte	0
+ 665 0114 00       		.byte	0
+ 666 0115 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 17
+
+
+ 667 0116 00       		.byte	0
+ 668 0117 00       		.byte	0
+ 669 0118 00       		.byte	0
+ 670 0119 00       		.byte	0
+ 671 011a 00       		.byte	0
+ 672 011b 00       		.byte	0
+ 673 011c 00       		.byte	0
+ 674 011d 00       		.byte	0
+ 675 011e 00       		.byte	0
+ 676 011f 00       		.byte	0
+ 677 0120 00       		.byte	0
+ 678 0121 00       		.byte	0
+ 679 0122 00       		.byte	0
+ 680 0123 00       		.byte	0
+ 681 0124 4C       		.byte	76
+ 682 0125 F7       		.byte	-9
+ 683 0126 FD       		.byte	-3
+ 684 0127 E7       		.byte	-25
+ 685 0128 3F       		.byte	63
+ 686 0129 00       		.byte	0
+ 687 012a 00       		.byte	0
+ 688 012b 00       		.byte	0
+ 689 012c 00       		.byte	0
+ 690 012d 00       		.byte	0
+ 691 012e 00       		.byte	0
+ 692 012f 00       		.byte	0
+ 693 0130 00       		.byte	0
+ 694 0131 00       		.byte	0
+ 695 0132 00       		.byte	0
+ 696 0133 00       		.byte	0
+ 697 0134 00       		.byte	0
+ 698 0135 00       		.byte	0
+ 699 0136 00       		.byte	0
+ 700 0137 00       		.byte	0
+ 701 0138 00       		.byte	0
+ 702 0139 00       		.byte	0
+ 703 013a 00       		.byte	0
+ 704 013b 00       		.byte	0
+ 705 013c 00       		.byte	0
+ 706 013d 00       		.byte	0
+ 707 013e 00       		.byte	0
+ 708 013f 00       		.byte	0
+ 709 0140 80       		.byte	-128
+ 710 0141 FD       		.byte	-3
+ 711 0142 FD       		.byte	-3
+ 712 0143 90       		.byte	-112
+ 713 0144 00       		.byte	0
+ 714 0145 00       		.byte	0
+ 715 0146 00       		.byte	0
+ 716 0147 00       		.byte	0
+ 717 0148 00       		.byte	0
+ 718 0149 00       		.byte	0
+ 719 014a 00       		.byte	0
+ 720 014b 00       		.byte	0
+ 721 014c 00       		.byte	0
+ 722 014d 00       		.byte	0
+ 723 014e 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 18
+
+
+ 724 014f 00       		.byte	0
+ 725 0150 00       		.byte	0
+ 726 0151 00       		.byte	0
+ 727 0152 00       		.byte	0
+ 728 0153 00       		.byte	0
+ 729 0154 00       		.byte	0
+ 730 0155 00       		.byte	0
+ 731 0156 00       		.byte	0
+ 732 0157 00       		.byte	0
+ 733 0158 00       		.byte	0
+ 734 0159 00       		.byte	0
+ 735 015a 00       		.byte	0
+ 736 015b B0       		.byte	-80
+ 737 015c F6       		.byte	-10
+ 738 015d FD       		.byte	-3
+ 739 015e 9F       		.byte	-97
+ 740 015f 0C       		.byte	12
+ 741 0160 00       		.byte	0
+ 742 0161 00       		.byte	0
+ 743 0162 00       		.byte	0
+ 744 0163 00       		.byte	0
+ 745 0164 00       		.byte	0
+ 746 0165 00       		.byte	0
+ 747 0166 00       		.byte	0
+ 748 0167 00       		.byte	0
+ 749 0168 00       		.byte	0
+ 750 0169 00       		.byte	0
+ 751 016a 00       		.byte	0
+ 752 016b 00       		.byte	0
+ 753 016c 00       		.byte	0
+ 754 016d 00       		.byte	0
+ 755 016e 00       		.byte	0
+ 756 016f 00       		.byte	0
+ 757 0170 00       		.byte	0
+ 758 0171 00       		.byte	0
+ 759 0172 00       		.byte	0
+ 760 0173 00       		.byte	0
+ 761 0174 00       		.byte	0
+ 762 0175 00       		.byte	0
+ 763 0176 19       		.byte	25
+ 764 0177 EA       		.byte	-22
+ 765 0178 FD       		.byte	-3
+ 766 0179 E9       		.byte	-23
+ 767 017a 23       		.byte	35
+ 768 017b 00       		.byte	0
+ 769 017c 00       		.byte	0
+ 770 017d 00       		.byte	0
+ 771 017e 00       		.byte	0
+ 772 017f 00       		.byte	0
+ 773 0180 00       		.byte	0
+ 774 0181 00       		.byte	0
+ 775 0182 00       		.byte	0
+ 776 0183 00       		.byte	0
+ 777 0184 00       		.byte	0
+ 778 0185 00       		.byte	0
+ 779 0186 00       		.byte	0
+ 780 0187 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 19
+
+
+ 781 0188 00       		.byte	0
+ 782 0189 00       		.byte	0
+ 783 018a 00       		.byte	0
+ 784 018b 00       		.byte	0
+ 785 018c 00       		.byte	0
+ 786 018d 00       		.byte	0
+ 787 018e 00       		.byte	0
+ 788 018f 00       		.byte	0
+ 789 0190 00       		.byte	0
+ 790 0191 00       		.byte	0
+ 791 0192 C6       		.byte	-58
+ 792 0193 FD       		.byte	-3
+ 793 0194 FD       		.byte	-3
+ 794 0195 8D       		.byte	-115
+ 795 0196 00       		.byte	0
+ 796 0197 00       		.byte	0
+ 797 0198 00       		.byte	0
+ 798 0199 00       		.byte	0
+ 799 019a 00       		.byte	0
+ 800 019b 00       		.byte	0
+ 801 019c 00       		.byte	0
+ 802 019d 00       		.byte	0
+ 803 019e 00       		.byte	0
+ 804 019f 00       		.byte	0
+ 805 01a0 00       		.byte	0
+ 806 01a1 00       		.byte	0
+ 807 01a2 00       		.byte	0
+ 808 01a3 00       		.byte	0
+ 809 01a4 00       		.byte	0
+ 810 01a5 00       		.byte	0
+ 811 01a6 00       		.byte	0
+ 812 01a7 00       		.byte	0
+ 813 01a8 00       		.byte	0
+ 814 01a9 00       		.byte	0
+ 815 01aa 00       		.byte	0
+ 816 01ab 00       		.byte	0
+ 817 01ac 00       		.byte	0
+ 818 01ad 4E       		.byte	78
+ 819 01ae F8       		.byte	-8
+ 820 01af FD       		.byte	-3
+ 821 01b0 BD       		.byte	-67
+ 822 01b1 0C       		.byte	12
+ 823 01b2 00       		.byte	0
+ 824 01b3 00       		.byte	0
+ 825 01b4 00       		.byte	0
+ 826 01b5 00       		.byte	0
+ 827 01b6 00       		.byte	0
+ 828 01b7 00       		.byte	0
+ 829 01b8 00       		.byte	0
+ 830 01b9 00       		.byte	0
+ 831 01ba 00       		.byte	0
+ 832 01bb 00       		.byte	0
+ 833 01bc 00       		.byte	0
+ 834 01bd 00       		.byte	0
+ 835 01be 00       		.byte	0
+ 836 01bf 00       		.byte	0
+ 837 01c0 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 20
+
+
+ 838 01c1 00       		.byte	0
+ 839 01c2 00       		.byte	0
+ 840 01c3 00       		.byte	0
+ 841 01c4 00       		.byte	0
+ 842 01c5 00       		.byte	0
+ 843 01c6 00       		.byte	0
+ 844 01c7 00       		.byte	0
+ 845 01c8 13       		.byte	19
+ 846 01c9 C8       		.byte	-56
+ 847 01ca FD       		.byte	-3
+ 848 01cb FD       		.byte	-3
+ 849 01cc 8D       		.byte	-115
+ 850 01cd 00       		.byte	0
+ 851 01ce 00       		.byte	0
+ 852 01cf 00       		.byte	0
+ 853 01d0 00       		.byte	0
+ 854 01d1 00       		.byte	0
+ 855 01d2 00       		.byte	0
+ 856 01d3 00       		.byte	0
+ 857 01d4 00       		.byte	0
+ 858 01d5 00       		.byte	0
+ 859 01d6 00       		.byte	0
+ 860 01d7 00       		.byte	0
+ 861 01d8 00       		.byte	0
+ 862 01d9 00       		.byte	0
+ 863 01da 00       		.byte	0
+ 864 01db 00       		.byte	0
+ 865 01dc 00       		.byte	0
+ 866 01dd 00       		.byte	0
+ 867 01de 00       		.byte	0
+ 868 01df 00       		.byte	0
+ 869 01e0 00       		.byte	0
+ 870 01e1 00       		.byte	0
+ 871 01e2 00       		.byte	0
+ 872 01e3 00       		.byte	0
+ 873 01e4 86       		.byte	-122
+ 874 01e5 FD       		.byte	-3
+ 875 01e6 FD       		.byte	-3
+ 876 01e7 AD       		.byte	-83
+ 877 01e8 0C       		.byte	12
+ 878 01e9 00       		.byte	0
+ 879 01ea 00       		.byte	0
+ 880 01eb 00       		.byte	0
+ 881 01ec 00       		.byte	0
+ 882 01ed 00       		.byte	0
+ 883 01ee 00       		.byte	0
+ 884 01ef 00       		.byte	0
+ 885 01f0 00       		.byte	0
+ 886 01f1 00       		.byte	0
+ 887 01f2 00       		.byte	0
+ 888 01f3 00       		.byte	0
+ 889 01f4 00       		.byte	0
+ 890 01f5 00       		.byte	0
+ 891 01f6 00       		.byte	0
+ 892 01f7 00       		.byte	0
+ 893 01f8 00       		.byte	0
+ 894 01f9 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 21
+
+
+ 895 01fa 00       		.byte	0
+ 896 01fb 00       		.byte	0
+ 897 01fc 00       		.byte	0
+ 898 01fd 00       		.byte	0
+ 899 01fe 00       		.byte	0
+ 900 01ff 00       		.byte	0
+ 901 0200 F8       		.byte	-8
+ 902 0201 FD       		.byte	-3
+ 903 0202 FD       		.byte	-3
+ 904 0203 19       		.byte	25
+ 905 0204 00       		.byte	0
+ 906 0205 00       		.byte	0
+ 907 0206 00       		.byte	0
+ 908 0207 00       		.byte	0
+ 909 0208 00       		.byte	0
+ 910 0209 00       		.byte	0
+ 911 020a 00       		.byte	0
+ 912 020b 00       		.byte	0
+ 913 020c 00       		.byte	0
+ 914 020d 00       		.byte	0
+ 915 020e 00       		.byte	0
+ 916 020f 00       		.byte	0
+ 917 0210 00       		.byte	0
+ 918 0211 00       		.byte	0
+ 919 0212 00       		.byte	0
+ 920 0213 00       		.byte	0
+ 921 0214 00       		.byte	0
+ 922 0215 00       		.byte	0
+ 923 0216 00       		.byte	0
+ 924 0217 00       		.byte	0
+ 925 0218 00       		.byte	0
+ 926 0219 00       		.byte	0
+ 927 021a 00       		.byte	0
+ 928 021b 00       		.byte	0
+ 929 021c F8       		.byte	-8
+ 930 021d FD       		.byte	-3
+ 931 021e FD       		.byte	-3
+ 932 021f 2B       		.byte	43
+ 933 0220 14       		.byte	20
+ 934 0221 14       		.byte	20
+ 935 0222 14       		.byte	20
+ 936 0223 14       		.byte	20
+ 937 0224 05       		.byte	5
+ 938 0225 00       		.byte	0
+ 939 0226 05       		.byte	5
+ 940 0227 14       		.byte	20
+ 941 0228 14       		.byte	20
+ 942 0229 25       		.byte	37
+ 943 022a 96       		.byte	-106
+ 944 022b 96       		.byte	-106
+ 945 022c 96       		.byte	-106
+ 946 022d 93       		.byte	-109
+ 947 022e 0A       		.byte	10
+ 948 022f 00       		.byte	0
+ 949 0230 00       		.byte	0
+ 950 0231 00       		.byte	0
+ 951 0232 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 22
+
+
+ 952 0233 00       		.byte	0
+ 953 0234 00       		.byte	0
+ 954 0235 00       		.byte	0
+ 955 0236 00       		.byte	0
+ 956 0237 00       		.byte	0
+ 957 0238 F8       		.byte	-8
+ 958 0239 FD       		.byte	-3
+ 959 023a FD       		.byte	-3
+ 960 023b FD       		.byte	-3
+ 961 023c FD       		.byte	-3
+ 962 023d FD       		.byte	-3
+ 963 023e FD       		.byte	-3
+ 964 023f FD       		.byte	-3
+ 965 0240 A8       		.byte	-88
+ 966 0241 8F       		.byte	-113
+ 967 0242 A6       		.byte	-90
+ 968 0243 FD       		.byte	-3
+ 969 0244 FD       		.byte	-3
+ 970 0245 FD       		.byte	-3
+ 971 0246 FD       		.byte	-3
+ 972 0247 FD       		.byte	-3
+ 973 0248 FD       		.byte	-3
+ 974 0249 FD       		.byte	-3
+ 975 024a 7B       		.byte	123
+ 976 024b 00       		.byte	0
+ 977 024c 00       		.byte	0
+ 978 024d 00       		.byte	0
+ 979 024e 00       		.byte	0
+ 980 024f 00       		.byte	0
+ 981 0250 00       		.byte	0
+ 982 0251 00       		.byte	0
+ 983 0252 00       		.byte	0
+ 984 0253 00       		.byte	0
+ 985 0254 AE       		.byte	-82
+ 986 0255 FD       		.byte	-3
+ 987 0256 FD       		.byte	-3
+ 988 0257 FD       		.byte	-3
+ 989 0258 FD       		.byte	-3
+ 990 0259 FD       		.byte	-3
+ 991 025a FD       		.byte	-3
+ 992 025b FD       		.byte	-3
+ 993 025c FD       		.byte	-3
+ 994 025d FD       		.byte	-3
+ 995 025e FD       		.byte	-3
+ 996 025f FD       		.byte	-3
+ 997 0260 F9       		.byte	-7
+ 998 0261 F7       		.byte	-9
+ 999 0262 F7       		.byte	-9
+ 1000 0263 A9       		.byte	-87
+ 1001 0264 75       		.byte	117
+ 1002 0265 75       		.byte	117
+ 1003 0266 39       		.byte	57
+ 1004 0267 00       		.byte	0
+ 1005 0268 00       		.byte	0
+ 1006 0269 00       		.byte	0
+ 1007 026a 00       		.byte	0
+ 1008 026b 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 23
+
+
+ 1009 026c 00       		.byte	0
+ 1010 026d 00       		.byte	0
+ 1011 026e 00       		.byte	0
+ 1012 026f 00       		.byte	0
+ 1013 0270 00       		.byte	0
+ 1014 0271 76       		.byte	118
+ 1015 0272 7B       		.byte	123
+ 1016 0273 7B       		.byte	123
+ 1017 0274 7B       		.byte	123
+ 1018 0275 A6       		.byte	-90
+ 1019 0276 FD       		.byte	-3
+ 1020 0277 FD       		.byte	-3
+ 1021 0278 FD       		.byte	-3
+ 1022 0279 9B       		.byte	-101
+ 1023 027a 7B       		.byte	123
+ 1024 027b 7B       		.byte	123
+ 1025 027c 29       		.byte	41
+ 1026 027d 00       		.byte	0
+ 1027 027e 00       		.byte	0
+ 1028 027f 00       		.byte	0
+ 1029 0280 00       		.byte	0
+ 1030 0281 00       		.byte	0
+ 1031 0282 00       		.byte	0
+ 1032 0283 00       		.byte	0
+ 1033 0284 00       		.byte	0
+ 1034 0285 00       		.byte	0
+ 1035 0286 00       		.byte	0
+ 1036 0287 00       		.byte	0
+ 1037 0288 00       		.byte	0
+ 1038 0289 00       		.byte	0
+ 1039 028a 00       		.byte	0
+ 1040 028b 00       		.byte	0
+ 1041 028c 00       		.byte	0
+ 1042 028d 00       		.byte	0
+ 1043 028e 00       		.byte	0
+ 1044 028f 00       		.byte	0
+ 1045 0290 00       		.byte	0
+ 1046 0291 00       		.byte	0
+ 1047 0292 00       		.byte	0
+ 1048 0293 00       		.byte	0
+ 1049 0294 00       		.byte	0
+ 1050 0295 00       		.byte	0
+ 1051 0296 00       		.byte	0
+ 1052 0297 00       		.byte	0
+ 1053 0298 00       		.byte	0
+ 1054 0299 00       		.byte	0
+ 1055 029a 00       		.byte	0
+ 1056 029b 00       		.byte	0
+ 1057 029c 00       		.byte	0
+ 1058 029d 00       		.byte	0
+ 1059 029e 00       		.byte	0
+ 1060 029f 00       		.byte	0
+ 1061 02a0 00       		.byte	0
+ 1062 02a1 00       		.byte	0
+ 1063 02a2 00       		.byte	0
+ 1064 02a3 00       		.byte	0
+ 1065 02a4 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 24
+
+
+ 1066 02a5 00       		.byte	0
+ 1067 02a6 00       		.byte	0
+ 1068 02a7 00       		.byte	0
+ 1069 02a8 00       		.byte	0
+ 1070 02a9 00       		.byte	0
+ 1071 02aa 00       		.byte	0
+ 1072 02ab 00       		.byte	0
+ 1073 02ac 00       		.byte	0
+ 1074 02ad 00       		.byte	0
+ 1075 02ae 00       		.byte	0
+ 1076 02af 00       		.byte	0
+ 1077 02b0 00       		.byte	0
+ 1078 02b1 00       		.byte	0
+ 1079 02b2 00       		.byte	0
+ 1080 02b3 00       		.byte	0
+ 1081 02b4 00       		.byte	0
+ 1082 02b5 00       		.byte	0
+ 1083 02b6 00       		.byte	0
+ 1084 02b7 00       		.byte	0
+ 1085 02b8 00       		.byte	0
+ 1086 02b9 00       		.byte	0
+ 1087 02ba 00       		.byte	0
+ 1088 02bb 00       		.byte	0
+ 1089 02bc 00       		.byte	0
+ 1090 02bd 00       		.byte	0
+ 1091 02be 00       		.byte	0
+ 1092 02bf 00       		.byte	0
+ 1093 02c0 00       		.byte	0
+ 1094 02c1 00       		.byte	0
+ 1095 02c2 00       		.byte	0
+ 1096 02c3 00       		.byte	0
+ 1097 02c4 00       		.byte	0
+ 1098 02c5 00       		.byte	0
+ 1099 02c6 00       		.byte	0
+ 1100 02c7 00       		.byte	0
+ 1101 02c8 00       		.byte	0
+ 1102 02c9 00       		.byte	0
+ 1103 02ca 00       		.byte	0
+ 1104 02cb 00       		.byte	0
+ 1105 02cc 00       		.byte	0
+ 1106 02cd 00       		.byte	0
+ 1107 02ce 00       		.byte	0
+ 1108 02cf 00       		.byte	0
+ 1109 02d0 00       		.byte	0
+ 1110 02d1 00       		.byte	0
+ 1111 02d2 00       		.byte	0
+ 1112 02d3 00       		.byte	0
+ 1113 02d4 00       		.byte	0
+ 1114 02d5 00       		.byte	0
+ 1115 02d6 00       		.byte	0
+ 1116 02d7 00       		.byte	0
+ 1117 02d8 00       		.byte	0
+ 1118 02d9 00       		.byte	0
+ 1119 02da 00       		.byte	0
+ 1120 02db 00       		.byte	0
+ 1121 02dc 00       		.byte	0
+ 1122 02dd 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 25
+
+
+ 1123 02de 00       		.byte	0
+ 1124 02df 00       		.byte	0
+ 1125 02e0 00       		.byte	0
+ 1126 02e1 00       		.byte	0
+ 1127 02e2 00       		.byte	0
+ 1128 02e3 00       		.byte	0
+ 1129 02e4 00       		.byte	0
+ 1130 02e5 00       		.byte	0
+ 1131 02e6 00       		.byte	0
+ 1132 02e7 00       		.byte	0
+ 1133 02e8 00       		.byte	0
+ 1134 02e9 00       		.byte	0
+ 1135 02ea 00       		.byte	0
+ 1136 02eb 00       		.byte	0
+ 1137 02ec 00       		.byte	0
+ 1138 02ed 00       		.byte	0
+ 1139 02ee 00       		.byte	0
+ 1140 02ef 00       		.byte	0
+ 1141 02f0 00       		.byte	0
+ 1142 02f1 00       		.byte	0
+ 1143 02f2 00       		.byte	0
+ 1144 02f3 00       		.byte	0
+ 1145 02f4 00       		.byte	0
+ 1146 02f5 00       		.byte	0
+ 1147 02f6 00       		.byte	0
+ 1148 02f7 00       		.byte	0
+ 1149 02f8 00       		.byte	0
+ 1150 02f9 00       		.byte	0
+ 1151 02fa 00       		.byte	0
+ 1152 02fb 00       		.byte	0
+ 1153 02fc 00       		.byte	0
+ 1154 02fd 00       		.byte	0
+ 1155 02fe 00       		.byte	0
+ 1156 02ff 00       		.byte	0
+ 1157 0300 00       		.byte	0
+ 1158 0301 00       		.byte	0
+ 1159 0302 00       		.byte	0
+ 1160 0303 00       		.byte	0
+ 1161 0304 00       		.byte	0
+ 1162 0305 00       		.byte	0
+ 1163 0306 00       		.byte	0
+ 1164 0307 00       		.byte	0
+ 1165 0308 00       		.byte	0
+ 1166 0309 00       		.byte	0
+ 1167 030a 00       		.byte	0
+ 1168 030b 00       		.byte	0
+ 1169 030c 00       		.byte	0
+ 1170 030d 00       		.byte	0
+ 1171 030e 00       		.byte	0
+ 1172 030f 00       		.byte	0
+ 1173              		.section	.rodata.main.cst4,"aM",@progbits,4
+ 1174              		.align	2
+ 1175              	.LC6:
+ 1176 0000 00007A44 		.word	1148846080
+ 1177              		.section	.rodata.main.str1.4,"aMS",@progbits,1
+ 1178              		.align	2
+ 1179              	.LC2:
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 26
+
+
+ 1180 0000 6D6E6973 		.string	"mnist demo"
+ 1180      74206465 
+ 1180      6D6F00
+ 1181 000b 00       		.zero	1
+ 1182              	.LC3:
+ 1183 000c 2533642C 		.string	"%3d,"
+ 1183      00
+ 1184 0011 000000   		.zero	3
+ 1185              	.LC5:
+ 1186 0014 746D206D 		.string	"tm model load err %d\n"
+ 1186      6F64656C 
+ 1186      206C6F61 
+ 1186      64206572 
+ 1186      72202564 
+ 1187 002a 0000     		.zero	2
+ 1188              	.LC7:
+ 1189 002c 746D5F72 		.string	"tm_run"
+ 1189      756E00
+ 1190 0033 00       		.zero	1
+ 1191              	.LC8:
+ 1192 0034 3D3D3D25 		.string	"===%s use %.3f ms\n"
+ 1192      73207573 
+ 1192      6520252E 
+ 1192      3366206D 
+ 1192      730A00
+ 1193 0047 00       		.zero	1
+ 1194              	.LC9:
+ 1195 0048 25643A20 		.string	"%d: %.3f\n"
+ 1195      252E3366 
+ 1195      0A00
+ 1196 0052 0000     		.zero	2
+ 1197              	.LC10:
+ 1198 0054 23232320 		.string	"### Predict output is: Number %d, prob %.3f\n"
+ 1198      50726564 
+ 1198      69637420 
+ 1198      6F757470 
+ 1198      75742069 
+ 1199 0081 000000   		.zero	3
+ 1200              	.LC11:
+ 1201 0084 746D2072 		.string	"tm run error: %d\n"
+ 1201      756E2065 
+ 1201      72726F72 
+ 1201      3A202564 
+ 1201      0A00
+ 1202              		.section	.rodata.mdl_data,"a"
+ 1203              		.align	2
+ 1206              	mdl_data:
+ 1207 0000 4D       		.byte	77
+ 1208 0001 41       		.byte	65
+ 1209 0002 49       		.byte	73
+ 1210 0003 58       		.byte	88
+ 1211 0004 00       		.byte	0
+ 1212 0005 01       		.byte	1
+ 1213 0006 01       		.byte	1
+ 1214 0007 00       		.byte	0
+ 1215 0008 01       		.byte	1
+ 1216 0009 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 27
+
+
+ 1217 000a 06       		.byte	6
+ 1218 000b 00       		.byte	0
+ 1219 000c B8       		.byte	-72
+ 1220 000d 05       		.byte	5
+ 1221 000e 00       		.byte	0
+ 1222 000f 00       		.byte	0
+ 1223 0010 00       		.byte	0
+ 1224 0011 00       		.byte	0
+ 1225 0012 00       		.byte	0
+ 1226 0013 00       		.byte	0
+ 1227 0014 03       		.byte	3
+ 1228 0015 00       		.byte	0
+ 1229 0016 1C       		.byte	28
+ 1230 0017 00       		.byte	0
+ 1231 0018 1C       		.byte	28
+ 1232 0019 00       		.byte	0
+ 1233 001a 01       		.byte	1
+ 1234 001b 00       		.byte	0
+ 1235 001c 01       		.byte	1
+ 1236 001d 00       		.byte	0
+ 1237 001e 01       		.byte	1
+ 1238 001f 00       		.byte	0
+ 1239 0020 01       		.byte	1
+ 1240 0021 00       		.byte	0
+ 1241 0022 0A       		.byte	10
+ 1242 0023 00       		.byte	0
+ 1243 0024 00       		.byte	0
+ 1244 0025 00       		.byte	0
+ 1245 0026 00       		.byte	0
+ 1246 0027 00       		.byte	0
+ 1247 0028 00       		.byte	0
+ 1248 0029 00       		.byte	0
+ 1249 002a 00       		.byte	0
+ 1250 002b 00       		.byte	0
+ 1251 002c 00       		.byte	0
+ 1252 002d 00       		.byte	0
+ 1253 002e 00       		.byte	0
+ 1254 002f 00       		.byte	0
+ 1255 0030 00       		.byte	0
+ 1256 0031 00       		.byte	0
+ 1257 0032 00       		.byte	0
+ 1258 0033 00       		.byte	0
+ 1259 0034 00       		.byte	0
+ 1260 0035 00       		.byte	0
+ 1261 0036 00       		.byte	0
+ 1262 0037 00       		.byte	0
+ 1263 0038 00       		.byte	0
+ 1264 0039 00       		.byte	0
+ 1265 003a 00       		.byte	0
+ 1266 003b 00       		.byte	0
+ 1267 003c 00       		.byte	0
+ 1268 003d 00       		.byte	0
+ 1269 003e 00       		.byte	0
+ 1270 003f 00       		.byte	0
+ 1271 0040 00       		.byte	0
+ 1272 0041 00       		.byte	0
+ 1273 0042 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 28
+
+
+ 1274 0043 00       		.byte	0
+ 1275 0044 98       		.byte	-104
+ 1276 0045 00       		.byte	0
+ 1277 0046 00       		.byte	0
+ 1278 0047 00       		.byte	0
+ 1279 0048 00       		.byte	0
+ 1280 0049 00       		.byte	0
+ 1281 004a 00       		.byte	0
+ 1282 004b 00       		.byte	0
+ 1283 004c 10       		.byte	16
+ 1284 004d 03       		.byte	3
+ 1285 004e 00       		.byte	0
+ 1286 004f 00       		.byte	0
+ 1287 0050 03       		.byte	3
+ 1288 0051 00       		.byte	0
+ 1289 0052 1C       		.byte	28
+ 1290 0053 00       		.byte	0
+ 1291 0054 1C       		.byte	28
+ 1292 0055 00       		.byte	0
+ 1293 0056 01       		.byte	1
+ 1294 0057 00       		.byte	0
+ 1295 0058 03       		.byte	3
+ 1296 0059 00       		.byte	0
+ 1297 005a 0D       		.byte	13
+ 1298 005b 00       		.byte	0
+ 1299 005c 0D       		.byte	13
+ 1300 005d 00       		.byte	0
+ 1301 005e 04       		.byte	4
+ 1302 005f 00       		.byte	0
+ 1303 0060 81       		.byte	-127
+ 1304 0061 80       		.byte	-128
+ 1305 0062 80       		.byte	-128
+ 1306 0063 3B       		.byte	59
+ 1307 0064 80       		.byte	-128
+ 1308 0065 FF       		.byte	-1
+ 1309 0066 FF       		.byte	-1
+ 1310 0067 FF       		.byte	-1
+ 1311 0068 31       		.byte	49
+ 1312 0069 E9       		.byte	-23
+ 1313 006a 84       		.byte	-124
+ 1314 006b 3C       		.byte	60
+ 1315 006c 80       		.byte	-128
+ 1316 006d FF       		.byte	-1
+ 1317 006e FF       		.byte	-1
+ 1318 006f FF       		.byte	-1
+ 1319 0070 03       		.byte	3
+ 1320 0071 03       		.byte	3
+ 1321 0072 02       		.byte	2
+ 1322 0073 02       		.byte	2
+ 1323 0074 01       		.byte	1
+ 1324 0075 01       		.byte	1
+ 1325 0076 01       		.byte	1
+ 1326 0077 00       		.byte	0
+ 1327 0078 00       		.byte	0
+ 1328 0079 00       		.byte	0
+ 1329 007a 00       		.byte	0
+ 1330 007b 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 29
+
+
+ 1331 007c 00       		.byte	0
+ 1332 007d 00       		.byte	0
+ 1333 007e 00       		.byte	0
+ 1334 007f 00       		.byte	0
+ 1335 0080 00       		.byte	0
+ 1336 0081 00       		.byte	0
+ 1337 0082 00       		.byte	0
+ 1338 0083 00       		.byte	0
+ 1339 0084 50       		.byte	80
+ 1340 0085 00       		.byte	0
+ 1341 0086 00       		.byte	0
+ 1342 0087 00       		.byte	0
+ 1343 0088 60       		.byte	96
+ 1344 0089 00       		.byte	0
+ 1345 008a 00       		.byte	0
+ 1346 008b 00       		.byte	0
+ 1347 008c 88       		.byte	-120
+ 1348 008d 00       		.byte	0
+ 1349 008e 00       		.byte	0
+ 1350 008f 00       		.byte	0
+ 1351 0090 7D       		.byte	125
+ 1352 0091 77       		.byte	119
+ 1353 0092 4A       		.byte	74
+ 1354 0093 3C       		.byte	60
+ 1355 0094 85       		.byte	-123
+ 1356 0095 AD       		.byte	-83
+ 1357 0096 87       		.byte	-121
+ 1358 0097 3C       		.byte	60
+ 1359 0098 26       		.byte	38
+ 1360 0099 92       		.byte	-110
+ 1361 009a C5       		.byte	-59
+ 1362 009b 3B       		.byte	59
+ 1363 009c B9       		.byte	-71
+ 1364 009d C9       		.byte	-55
+ 1365 009e 48       		.byte	72
+ 1366 009f 3C       		.byte	60
+ 1367 00a0 2F       		.byte	47
+ 1368 00a1 5E       		.byte	94
+ 1369 00a2 5B       		.byte	91
+ 1370 00a3 46       		.byte	70
+ 1371 00a4 14       		.byte	20
+ 1372 00a5 C0       		.byte	-64
+ 1373 00a6 B0       		.byte	-80
+ 1374 00a7 81       		.byte	-127
+ 1375 00a8 C8       		.byte	-56
+ 1376 00a9 32       		.byte	50
+ 1377 00aa 0A       		.byte	10
+ 1378 00ab D8       		.byte	-40
+ 1379 00ac 6F       		.byte	111
+ 1380 00ad 09       		.byte	9
+ 1381 00ae 81       		.byte	-127
+ 1382 00af 27       		.byte	39
+ 1383 00b0 F6       		.byte	-10
+ 1384 00b1 D6       		.byte	-42
+ 1385 00b2 7F       		.byte	127
+ 1386 00b3 79       		.byte	121
+ 1387 00b4 50       		.byte	80
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 30
+
+
+ 1388 00b5 F9       		.byte	-7
+ 1389 00b6 16       		.byte	22
+ 1390 00b7 2B       		.byte	43
+ 1391 00b8 2B       		.byte	43
+ 1392 00b9 5E       		.byte	94
+ 1393 00ba 60       		.byte	96
+ 1394 00bb F3       		.byte	-13
+ 1395 00bc 85       		.byte	-123
+ 1396 00bd 99       		.byte	-103
+ 1397 00be 7A       		.byte	122
+ 1398 00bf 0A       		.byte	10
+ 1399 00c0 81       		.byte	-127
+ 1400 00c1 67       		.byte	103
+ 1401 00c2 65       		.byte	101
+ 1402 00c3 19       		.byte	25
+ 1403 00c4 00       		.byte	0
+ 1404 00c5 00       		.byte	0
+ 1405 00c6 00       		.byte	0
+ 1406 00c7 00       		.byte	0
+ 1407 00c8 94       		.byte	-108
+ 1408 00c9 FB       		.byte	-5
+ 1409 00ca FF       		.byte	-1
+ 1410 00cb FF       		.byte	-1
+ 1411 00cc 94       		.byte	-108
+ 1412 00cd FC       		.byte	-4
+ 1413 00ce FF       		.byte	-1
+ 1414 00cf FF       		.byte	-1
+ 1415 00d0 94       		.byte	-108
+ 1416 00d1 41       		.byte	65
+ 1417 00d2 01       		.byte	1
+ 1418 00d3 00       		.byte	0
+ 1419 00d4 AB       		.byte	-85
+ 1420 00d5 FA       		.byte	-6
+ 1421 00d6 FF       		.byte	-1
+ 1422 00d7 FF       		.byte	-1
+ 1423 00d8 00       		.byte	0
+ 1424 00d9 00       		.byte	0
+ 1425 00da 00       		.byte	0
+ 1426 00db 00       		.byte	0
+ 1427 00dc B0       		.byte	-80
+ 1428 00dd 01       		.byte	1
+ 1429 00de 00       		.byte	0
+ 1430 00df 00       		.byte	0
+ 1431 00e0 10       		.byte	16
+ 1432 00e1 03       		.byte	3
+ 1433 00e2 00       		.byte	0
+ 1434 00e3 00       		.byte	0
+ 1435 00e4 00       		.byte	0
+ 1436 00e5 00       		.byte	0
+ 1437 00e6 00       		.byte	0
+ 1438 00e7 00       		.byte	0
+ 1439 00e8 03       		.byte	3
+ 1440 00e9 00       		.byte	0
+ 1441 00ea 0D       		.byte	13
+ 1442 00eb 00       		.byte	0
+ 1443 00ec 0D       		.byte	13
+ 1444 00ed 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 31
+
+
+ 1445 00ee 04       		.byte	4
+ 1446 00ef 00       		.byte	0
+ 1447 00f0 03       		.byte	3
+ 1448 00f1 00       		.byte	0
+ 1449 00f2 06       		.byte	6
+ 1450 00f3 00       		.byte	0
+ 1451 00f4 06       		.byte	6
+ 1452 00f5 00       		.byte	0
+ 1453 00f6 08       		.byte	8
+ 1454 00f7 00       		.byte	0
+ 1455 00f8 31       		.byte	49
+ 1456 00f9 E9       		.byte	-23
+ 1457 00fa 84       		.byte	-124
+ 1458 00fb 3C       		.byte	60
+ 1459 00fc 80       		.byte	-128
+ 1460 00fd FF       		.byte	-1
+ 1461 00fe FF       		.byte	-1
+ 1462 00ff FF       		.byte	-1
+ 1463 0100 A0       		.byte	-96
+ 1464 0101 2A       		.byte	42
+ 1465 0102 84       		.byte	-124
+ 1466 0103 3C       		.byte	60
+ 1467 0104 80       		.byte	-128
+ 1468 0105 FF       		.byte	-1
+ 1469 0106 FF       		.byte	-1
+ 1470 0107 FF       		.byte	-1
+ 1471 0108 03       		.byte	3
+ 1472 0109 03       		.byte	3
+ 1473 010a 02       		.byte	2
+ 1474 010b 02       		.byte	2
+ 1475 010c 01       		.byte	1
+ 1476 010d 01       		.byte	1
+ 1477 010e 01       		.byte	1
+ 1478 010f 00       		.byte	0
+ 1479 0110 00       		.byte	0
+ 1480 0111 00       		.byte	0
+ 1481 0112 00       		.byte	0
+ 1482 0113 00       		.byte	0
+ 1483 0114 00       		.byte	0
+ 1484 0115 00       		.byte	0
+ 1485 0116 00       		.byte	0
+ 1486 0117 00       		.byte	0
+ 1487 0118 00       		.byte	0
+ 1488 0119 00       		.byte	0
+ 1489 011a 00       		.byte	0
+ 1490 011b 00       		.byte	0
+ 1491 011c 50       		.byte	80
+ 1492 011d 00       		.byte	0
+ 1493 011e 00       		.byte	0
+ 1494 011f 00       		.byte	0
+ 1495 0120 70       		.byte	112
+ 1496 0121 00       		.byte	0
+ 1497 0122 00       		.byte	0
+ 1498 0123 00       		.byte	0
+ 1499 0124 90       		.byte	-112
+ 1500 0125 01       		.byte	1
+ 1501 0126 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 32
+
+
+ 1502 0127 00       		.byte	0
+ 1503 0128 B6       		.byte	-74
+ 1504 0129 E0       		.byte	-32
+ 1505 012a 8A       		.byte	-118
+ 1506 012b 3B       		.byte	59
+ 1507 012c E0       		.byte	-32
+ 1508 012d A8       		.byte	-88
+ 1509 012e 36       		.byte	54
+ 1510 012f 3B       		.byte	59
+ 1511 0130 50       		.byte	80
+ 1512 0131 3D       		.byte	61
+ 1513 0132 C9       		.byte	-55
+ 1514 0133 3B       		.byte	59
+ 1515 0134 3E       		.byte	62
+ 1516 0135 4F       		.byte	79
+ 1517 0136 91       		.byte	-111
+ 1518 0137 3B       		.byte	59
+ 1519 0138 88       		.byte	-120
+ 1520 0139 9E       		.byte	-98
+ 1521 013a 57       		.byte	87
+ 1522 013b 3B       		.byte	59
+ 1523 013c 22       		.byte	34
+ 1524 013d A8       		.byte	-88
+ 1525 013e 6C       		.byte	108
+ 1526 013f 3B       		.byte	59
+ 1527 0140 1F       		.byte	31
+ 1528 0141 25       		.byte	37
+ 1529 0142 9F       		.byte	-97
+ 1530 0143 3B       		.byte	59
+ 1531 0144 F2       		.byte	-14
+ 1532 0145 40       		.byte	64
+ 1533 0146 71       		.byte	113
+ 1534 0147 3B       		.byte	59
+ 1535 0148 F1       		.byte	-15
+ 1536 0149 0D       		.byte	13
+ 1537 014a 28       		.byte	40
+ 1538 014b 3E       		.byte	62
+ 1539 014c 71       		.byte	113
+ 1540 014d 3E       		.byte	62
+ 1541 014e A8       		.byte	-88
+ 1542 014f DA       		.byte	-38
+ 1543 0150 EF       		.byte	-17
+ 1544 0151 AD       		.byte	-83
+ 1545 0152 3D       		.byte	61
+ 1546 0153 2C       		.byte	44
+ 1547 0154 81       		.byte	-127
+ 1548 0155 B5       		.byte	-75
+ 1549 0156 CC       		.byte	-52
+ 1550 0157 0F       		.byte	15
+ 1551 0158 F2       		.byte	-14
+ 1552 0159 DF       		.byte	-33
+ 1553 015a DC       		.byte	-36
+ 1554 015b DC       		.byte	-36
+ 1555 015c BF       		.byte	-65
+ 1556 015d 9F       		.byte	-97
+ 1557 015e D1       		.byte	-47
+ 1558 015f E9       		.byte	-23
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 33
+
+
+ 1559 0160 EA       		.byte	-22
+ 1560 0161 E9       		.byte	-23
+ 1561 0162 D0       		.byte	-48
+ 1562 0163 C3       		.byte	-61
+ 1563 0164 C1       		.byte	-63
+ 1564 0165 99       		.byte	-103
+ 1565 0166 F2       		.byte	-14
+ 1566 0167 53       		.byte	83
+ 1567 0168 48       		.byte	72
+ 1568 0169 E8       		.byte	-24
+ 1569 016a 1B       		.byte	27
+ 1570 016b 34       		.byte	52
+ 1571 016c DD       		.byte	-35
+ 1572 016d C3       		.byte	-61
+ 1573 016e BA       		.byte	-70
+ 1574 016f AF       		.byte	-81
+ 1575 0170 81       		.byte	-127
+ 1576 0171 DB       		.byte	-37
+ 1577 0172 AC       		.byte	-84
+ 1578 0173 B1       		.byte	-79
+ 1579 0174 EB       		.byte	-21
+ 1580 0175 2B       		.byte	43
+ 1581 0176 13       		.byte	19
+ 1582 0177 09       		.byte	9
+ 1583 0178 18       		.byte	24
+ 1584 0179 1C       		.byte	28
+ 1585 017a 20       		.byte	32
+ 1586 017b 2F       		.byte	47
+ 1587 017c 34       		.byte	52
+ 1588 017d 20       		.byte	32
+ 1589 017e 56       		.byte	86
+ 1590 017f 46       		.byte	70
+ 1591 0180 3D       		.byte	61
+ 1592 0181 12       		.byte	18
+ 1593 0182 D6       		.byte	-42
+ 1594 0183 DB       		.byte	-37
+ 1595 0184 D4       		.byte	-44
+ 1596 0185 FB       		.byte	-5
+ 1597 0186 00       		.byte	0
+ 1598 0187 3E       		.byte	62
+ 1599 0188 5B       		.byte	91
+ 1600 0189 3F       		.byte	63
+ 1601 018a 48       		.byte	72
+ 1602 018b 5D       		.byte	93
+ 1603 018c 33       		.byte	51
+ 1604 018d 55       		.byte	85
+ 1605 018e 3F       		.byte	63
+ 1606 018f 10       		.byte	16
+ 1607 0190 81       		.byte	-127
+ 1608 0191 C0       		.byte	-64
+ 1609 0192 D3       		.byte	-45
+ 1610 0193 D6       		.byte	-42
+ 1611 0194 93       		.byte	-109
+ 1612 0195 BF       		.byte	-65
+ 1613 0196 D5       		.byte	-43
+ 1614 0197 D7       		.byte	-41
+ 1615 0198 CA       		.byte	-54
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 34
+
+
+ 1616 0199 C9       		.byte	-55
+ 1617 019a F2       		.byte	-14
+ 1618 019b 1B       		.byte	27
+ 1619 019c 02       		.byte	2
+ 1620 019d 24       		.byte	36
+ 1621 019e F8       		.byte	-8
+ 1622 019f 1B       		.byte	27
+ 1623 01a0 F9       		.byte	-7
+ 1624 01a1 F7       		.byte	-9
+ 1625 01a2 DF       		.byte	-33
+ 1626 01a3 F8       		.byte	-8
+ 1627 01a4 07       		.byte	7
+ 1628 01a5 FF       		.byte	-1
+ 1629 01a6 50       		.byte	80
+ 1630 01a7 1C       		.byte	28
+ 1631 01a8 E6       		.byte	-26
+ 1632 01a9 B8       		.byte	-72
+ 1633 01aa C7       		.byte	-57
+ 1634 01ab 1A       		.byte	26
+ 1635 01ac D2       		.byte	-46
+ 1636 01ad CE       		.byte	-50
+ 1637 01ae 0C       		.byte	12
+ 1638 01af 09       		.byte	9
+ 1639 01b0 11       		.byte	17
+ 1640 01b1 E1       		.byte	-31
+ 1641 01b2 F6       		.byte	-10
+ 1642 01b3 0E       		.byte	14
+ 1643 01b4 1F       		.byte	31
+ 1644 01b5 2F       		.byte	47
+ 1645 01b6 20       		.byte	32
+ 1646 01b7 FA       		.byte	-6
+ 1647 01b8 2E       		.byte	46
+ 1648 01b9 2B       		.byte	43
+ 1649 01ba C7       		.byte	-57
+ 1650 01bb F8       		.byte	-8
+ 1651 01bc 0E       		.byte	14
+ 1652 01bd 49       		.byte	73
+ 1653 01be 47       		.byte	71
+ 1654 01bf 19       		.byte	25
+ 1655 01c0 2B       		.byte	43
+ 1656 01c1 11       		.byte	17
+ 1657 01c2 F7       		.byte	-9
+ 1658 01c3 37       		.byte	55
+ 1659 01c4 06       		.byte	6
+ 1660 01c5 E9       		.byte	-23
+ 1661 01c6 B9       		.byte	-71
+ 1662 01c7 B9       		.byte	-71
+ 1663 01c8 E7       		.byte	-25
+ 1664 01c9 7F       		.byte	127
+ 1665 01ca 42       		.byte	66
+ 1666 01cb 14       		.byte	20
+ 1667 01cc A1       		.byte	-95
+ 1668 01cd F4       		.byte	-12
+ 1669 01ce 29       		.byte	41
+ 1670 01cf D1       		.byte	-47
+ 1671 01d0 D5       		.byte	-43
+ 1672 01d1 07       		.byte	7
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 35
+
+
+ 1673 01d2 F9       		.byte	-7
+ 1674 01d3 FC       		.byte	-4
+ 1675 01d4 0C       		.byte	12
+ 1676 01d5 1B       		.byte	27
+ 1677 01d6 2F       		.byte	47
+ 1678 01d7 2F       		.byte	47
+ 1679 01d8 25       		.byte	37
+ 1680 01d9 1E       		.byte	30
+ 1681 01da 07       		.byte	7
+ 1682 01db 02       		.byte	2
+ 1683 01dc EB       		.byte	-21
+ 1684 01dd DD       		.byte	-35
+ 1685 01de 08       		.byte	8
+ 1686 01df A8       		.byte	-88
+ 1687 01e0 B4       		.byte	-76
+ 1688 01e1 2B       		.byte	43
+ 1689 01e2 1D       		.byte	29
+ 1690 01e3 E4       		.byte	-28
+ 1691 01e4 16       		.byte	22
+ 1692 01e5 31       		.byte	49
+ 1693 01e6 16       		.byte	22
+ 1694 01e7 1F       		.byte	31
+ 1695 01e8 F7       		.byte	-9
+ 1696 01e9 5C       		.byte	92
+ 1697 01ea 17       		.byte	23
+ 1698 01eb E0       		.byte	-32
+ 1699 01ec 0A       		.byte	10
+ 1700 01ed 15       		.byte	21
+ 1701 01ee 08       		.byte	8
+ 1702 01ef 25       		.byte	37
+ 1703 01f0 A4       		.byte	-92
+ 1704 01f1 D9       		.byte	-39
+ 1705 01f2 1A       		.byte	26
+ 1706 01f3 19       		.byte	25
+ 1707 01f4 F9       		.byte	-7
+ 1708 01f5 F7       		.byte	-9
+ 1709 01f6 F9       		.byte	-7
+ 1710 01f7 8D       		.byte	-115
+ 1711 01f8 A9       		.byte	-87
+ 1712 01f9 CB       		.byte	-53
+ 1713 01fa 81       		.byte	-127
+ 1714 01fb C0       		.byte	-64
+ 1715 01fc EC       		.byte	-20
+ 1716 01fd 18       		.byte	24
+ 1717 01fe 51       		.byte	81
+ 1718 01ff C4       		.byte	-60
+ 1719 0200 0C       		.byte	12
+ 1720 0201 40       		.byte	64
+ 1721 0202 0C       		.byte	12
+ 1722 0203 65       		.byte	101
+ 1723 0204 24       		.byte	36
+ 1724 0205 CD       		.byte	-51
+ 1725 0206 CD       		.byte	-51
+ 1726 0207 CD       		.byte	-51
+ 1727 0208 87       		.byte	-121
+ 1728 0209 81       		.byte	-127
+ 1729 020a CD       		.byte	-51
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 36
+
+
+ 1730 020b C2       		.byte	-62
+ 1731 020c 9F       		.byte	-97
+ 1732 020d E4       		.byte	-28
+ 1733 020e 75       		.byte	117
+ 1734 020f 52       		.byte	82
+ 1735 0210 F8       		.byte	-8
+ 1736 0211 08       		.byte	8
+ 1737 0212 08       		.byte	8
+ 1738 0213 0C       		.byte	12
+ 1739 0214 8E       		.byte	-114
+ 1740 0215 8A       		.byte	-118
+ 1741 0216 90       		.byte	-112
+ 1742 0217 3A       		.byte	58
+ 1743 0218 1C       		.byte	28
+ 1744 0219 03       		.byte	3
+ 1745 021a 77       		.byte	119
+ 1746 021b 3B       		.byte	59
+ 1747 021c F1       		.byte	-15
+ 1748 021d 45       		.byte	69
+ 1749 021e 4B       		.byte	75
+ 1750 021f 06       		.byte	6
+ 1751 0220 48       		.byte	72
+ 1752 0221 41       		.byte	65
+ 1753 0222 10       		.byte	16
+ 1754 0223 1A       		.byte	26
+ 1755 0224 05       		.byte	5
+ 1756 0225 FE       		.byte	-2
+ 1757 0226 00       		.byte	0
+ 1758 0227 FF       		.byte	-1
+ 1759 0228 EA       		.byte	-22
+ 1760 0229 AC       		.byte	-84
+ 1761 022a 81       		.byte	-127
+ 1762 022b AD       		.byte	-83
+ 1763 022c DA       		.byte	-38
+ 1764 022d B6       		.byte	-74
+ 1765 022e CB       		.byte	-53
+ 1766 022f 13       		.byte	19
+ 1767 0230 EF       		.byte	-17
+ 1768 0231 EA       		.byte	-22
+ 1769 0232 D5       		.byte	-43
+ 1770 0233 C8       		.byte	-56
+ 1771 0234 B3       		.byte	-77
+ 1772 0235 0F       		.byte	15
+ 1773 0236 FD       		.byte	-3
+ 1774 0237 F4       		.byte	-12
+ 1775 0238 FA       		.byte	-6
+ 1776 0239 FE       		.byte	-2
+ 1777 023a 0D       		.byte	13
+ 1778 023b 04       		.byte	4
+ 1779 023c 4B       		.byte	75
+ 1780 023d 4C       		.byte	76
+ 1781 023e 1C       		.byte	28
+ 1782 023f 4B       		.byte	75
+ 1783 0240 44       		.byte	68
+ 1784 0241 09       		.byte	9
+ 1785 0242 38       		.byte	56
+ 1786 0243 33       		.byte	51
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 37
+
+
+ 1787 0244 B0       		.byte	-80
+ 1788 0245 D2       		.byte	-46
+ 1789 0246 17       		.byte	23
+ 1790 0247 8D       		.byte	-115
+ 1791 0248 AF       		.byte	-81
+ 1792 0249 E6       		.byte	-26
+ 1793 024a DA       		.byte	-38
+ 1794 024b CB       		.byte	-53
+ 1795 024c DD       		.byte	-35
+ 1796 024d 2E       		.byte	46
+ 1797 024e 0F       		.byte	15
+ 1798 024f 04       		.byte	4
+ 1799 0250 3C       		.byte	60
+ 1800 0251 7F       		.byte	127
+ 1801 0252 3D       		.byte	61
+ 1802 0253 24       		.byte	36
+ 1803 0254 53       		.byte	83
+ 1804 0255 32       		.byte	50
+ 1805 0256 B0       		.byte	-80
+ 1806 0257 C7       		.byte	-57
+ 1807 0258 E1       		.byte	-31
+ 1808 0259 F1       		.byte	-15
+ 1809 025a 2D       		.byte	45
+ 1810 025b 13       		.byte	19
+ 1811 025c E7       		.byte	-25
+ 1812 025d 4D       		.byte	77
+ 1813 025e 24       		.byte	36
+ 1814 025f A1       		.byte	-95
+ 1815 0260 D8       		.byte	-40
+ 1816 0261 F1       		.byte	-15
+ 1817 0262 B1       		.byte	-79
+ 1818 0263 83       		.byte	-125
+ 1819 0264 D0       		.byte	-48
+ 1820 0265 C5       		.byte	-59
+ 1821 0266 C0       		.byte	-64
+ 1822 0267 E2       		.byte	-30
+ 1823 0268 24       		.byte	36
+ 1824 0269 1F       		.byte	31
+ 1825 026a FF       		.byte	-1
+ 1826 026b FF       		.byte	-1
+ 1827 026c DE       		.byte	-34
+ 1828 026d D1       		.byte	-47
+ 1829 026e 00       		.byte	0
+ 1830 026f 00       		.byte	0
+ 1831 0270 57       		.byte	87
+ 1832 0271 C8       		.byte	-56
+ 1833 0272 FE       		.byte	-2
+ 1834 0273 FF       		.byte	-1
+ 1835 0274 53       		.byte	83
+ 1836 0275 CC       		.byte	-52
+ 1837 0276 00       		.byte	0
+ 1838 0277 00       		.byte	0
+ 1839 0278 F3       		.byte	-13
+ 1840 0279 76       		.byte	118
+ 1841 027a FF       		.byte	-1
+ 1842 027b FF       		.byte	-1
+ 1843 027c 99       		.byte	-103
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 38
+
+
+ 1844 027d FC       		.byte	-4
+ 1845 027e FF       		.byte	-1
+ 1846 027f FF       		.byte	-1
+ 1847 0280 A0       		.byte	-96
+ 1848 0281 12       		.byte	18
+ 1849 0282 00       		.byte	0
+ 1850 0283 00       		.byte	0
+ 1851 0284 5E       		.byte	94
+ 1852 0285 1B       		.byte	27
+ 1853 0286 FF       		.byte	-1
+ 1854 0287 FF       		.byte	-1
+ 1855 0288 00       		.byte	0
+ 1856 0289 00       		.byte	0
+ 1857 028a 00       		.byte	0
+ 1858 028b 00       		.byte	0
+ 1859 028c 50       		.byte	80
+ 1860 028d 05       		.byte	5
+ 1861 028e 00       		.byte	0
+ 1862 028f 00       		.byte	0
+ 1863 0290 00       		.byte	0
+ 1864 0291 00       		.byte	0
+ 1865 0292 00       		.byte	0
+ 1866 0293 00       		.byte	0
+ 1867 0294 78       		.byte	120
+ 1868 0295 05       		.byte	5
+ 1869 0296 00       		.byte	0
+ 1870 0297 00       		.byte	0
+ 1871 0298 03       		.byte	3
+ 1872 0299 00       		.byte	0
+ 1873 029a 06       		.byte	6
+ 1874 029b 00       		.byte	0
+ 1875 029c 06       		.byte	6
+ 1876 029d 00       		.byte	0
+ 1877 029e 08       		.byte	8
+ 1878 029f 00       		.byte	0
+ 1879 02a0 03       		.byte	3
+ 1880 02a1 00       		.byte	0
+ 1881 02a2 02       		.byte	2
+ 1882 02a3 00       		.byte	0
+ 1883 02a4 02       		.byte	2
+ 1884 02a5 00       		.byte	0
+ 1885 02a6 10       		.byte	16
+ 1886 02a7 00       		.byte	0
+ 1887 02a8 A0       		.byte	-96
+ 1888 02a9 2A       		.byte	42
+ 1889 02aa 84       		.byte	-124
+ 1890 02ab 3C       		.byte	60
+ 1891 02ac 80       		.byte	-128
+ 1892 02ad FF       		.byte	-1
+ 1893 02ae FF       		.byte	-1
+ 1894 02af FF       		.byte	-1
+ 1895 02b0 05       		.byte	5
+ 1896 02b1 09       		.byte	9
+ 1897 02b2 68       		.byte	104
+ 1898 02b3 3D       		.byte	61
+ 1899 02b4 80       		.byte	-128
+ 1900 02b5 FF       		.byte	-1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 39
+
+
+ 1901 02b6 FF       		.byte	-1
+ 1902 02b7 FF       		.byte	-1
+ 1903 02b8 03       		.byte	3
+ 1904 02b9 03       		.byte	3
+ 1905 02ba 02       		.byte	2
+ 1906 02bb 02       		.byte	2
+ 1907 02bc 01       		.byte	1
+ 1908 02bd 01       		.byte	1
+ 1909 02be 01       		.byte	1
+ 1910 02bf 00       		.byte	0
+ 1911 02c0 00       		.byte	0
+ 1912 02c1 00       		.byte	0
+ 1913 02c2 00       		.byte	0
+ 1914 02c3 00       		.byte	0
+ 1915 02c4 00       		.byte	0
+ 1916 02c5 00       		.byte	0
+ 1917 02c6 00       		.byte	0
+ 1918 02c7 00       		.byte	0
+ 1919 02c8 00       		.byte	0
+ 1920 02c9 00       		.byte	0
+ 1921 02ca 00       		.byte	0
+ 1922 02cb 00       		.byte	0
+ 1923 02cc 50       		.byte	80
+ 1924 02cd 00       		.byte	0
+ 1925 02ce 00       		.byte	0
+ 1926 02cf 00       		.byte	0
+ 1927 02d0 90       		.byte	-112
+ 1928 02d1 00       		.byte	0
+ 1929 02d2 00       		.byte	0
+ 1930 02d3 00       		.byte	0
+ 1931 02d4 10       		.byte	16
+ 1932 02d5 05       		.byte	5
+ 1933 02d6 00       		.byte	0
+ 1934 02d7 00       		.byte	0
+ 1935 02d8 E3       		.byte	-29
+ 1936 02d9 93       		.byte	-109
+ 1937 02da AD       		.byte	-83
+ 1938 02db 3C       		.byte	60
+ 1939 02dc 61       		.byte	97
+ 1940 02dd 96       		.byte	-106
+ 1941 02de 68       		.byte	104
+ 1942 02df 3C       		.byte	60
+ 1943 02e0 71       		.byte	113
+ 1944 02e1 D9       		.byte	-39
+ 1945 02e2 96       		.byte	-106
+ 1946 02e3 3C       		.byte	60
+ 1947 02e4 CA       		.byte	-54
+ 1948 02e5 A1       		.byte	-95
+ 1949 02e6 4F       		.byte	79
+ 1950 02e7 3C       		.byte	60
+ 1951 02e8 7B       		.byte	123
+ 1952 02e9 9B       		.byte	-101
+ 1953 02ea 6D       		.byte	109
+ 1954 02eb 3C       		.byte	60
+ 1955 02ec 35       		.byte	53
+ 1956 02ed 94       		.byte	-108
+ 1957 02ee A4       		.byte	-92
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 40
+
+
+ 1958 02ef 3C       		.byte	60
+ 1959 02f0 C1       		.byte	-63
+ 1960 02f1 F4       		.byte	-12
+ 1961 02f2 A1       		.byte	-95
+ 1962 02f3 3C       		.byte	60
+ 1963 02f4 36       		.byte	54
+ 1964 02f5 E6       		.byte	-26
+ 1965 02f6 83       		.byte	-125
+ 1966 02f7 3C       		.byte	60
+ 1967 02f8 93       		.byte	-109
+ 1968 02f9 D4       		.byte	-44
+ 1969 02fa 45       		.byte	69
+ 1970 02fb 3C       		.byte	60
+ 1971 02fc 16       		.byte	22
+ 1972 02fd 82       		.byte	-126
+ 1973 02fe 5F       		.byte	95
+ 1974 02ff 3C       		.byte	60
+ 1975 0300 39       		.byte	57
+ 1976 0301 F8       		.byte	-8
+ 1977 0302 56       		.byte	86
+ 1978 0303 3C       		.byte	60
+ 1979 0304 8B       		.byte	-117
+ 1980 0305 F0       		.byte	-16
+ 1981 0306 AA       		.byte	-86
+ 1982 0307 3C       		.byte	60
+ 1983 0308 68       		.byte	104
+ 1984 0309 39       		.byte	57
+ 1985 030a 66       		.byte	102
+ 1986 030b 3C       		.byte	60
+ 1987 030c 58       		.byte	88
+ 1988 030d 1E       		.byte	30
+ 1989 030e A3       		.byte	-93
+ 1990 030f 3C       		.byte	60
+ 1991 0310 D8       		.byte	-40
+ 1992 0311 1B       		.byte	27
+ 1993 0312 86       		.byte	-122
+ 1994 0313 3C       		.byte	60
+ 1995 0314 38       		.byte	56
+ 1996 0315 AD       		.byte	-83
+ 1997 0316 9A       		.byte	-102
+ 1998 0317 3C       		.byte	60
+ 1999 0318 FB       		.byte	-5
+ 2000 0319 F8       		.byte	-8
+ 2001 031a 49       		.byte	73
+ 2002 031b 99       		.byte	-103
+ 2003 031c FB       		.byte	-5
+ 2004 031d D6       		.byte	-42
+ 2005 031e 82       		.byte	-126
+ 2006 031f FF       		.byte	-1
+ 2007 0320 07       		.byte	7
+ 2008 0321 DF       		.byte	-33
+ 2009 0322 FD       		.byte	-3
+ 2010 0323 16       		.byte	22
+ 2011 0324 49       		.byte	73
+ 2012 0325 28       		.byte	40
+ 2013 0326 FD       		.byte	-3
+ 2014 0327 03       		.byte	3
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 41
+
+
+ 2015 0328 10       		.byte	16
+ 2016 0329 10       		.byte	16
+ 2017 032a 0E       		.byte	14
+ 2018 032b 13       		.byte	19
+ 2019 032c FE       		.byte	-2
+ 2020 032d 19       		.byte	25
+ 2021 032e 31       		.byte	49
+ 2022 032f 23       		.byte	35
+ 2023 0330 0D       		.byte	13
+ 2024 0331 81       		.byte	-127
+ 2025 0332 A5       		.byte	-91
+ 2026 0333 01       		.byte	1
+ 2027 0334 DE       		.byte	-34
+ 2028 0335 FB       		.byte	-5
+ 2029 0336 18       		.byte	24
+ 2030 0337 F8       		.byte	-8
+ 2031 0338 CA       		.byte	-54
+ 2032 0339 F6       		.byte	-10
+ 2033 033a E1       		.byte	-31
+ 2034 033b F2       		.byte	-14
+ 2035 033c 14       		.byte	20
+ 2036 033d F9       		.byte	-7
+ 2037 033e FF       		.byte	-1
+ 2038 033f 3D       		.byte	61
+ 2039 0340 49       		.byte	73
+ 2040 0341 1F       		.byte	31
+ 2041 0342 2D       		.byte	45
+ 2042 0343 F8       		.byte	-8
+ 2043 0344 04       		.byte	4
+ 2044 0345 42       		.byte	66
+ 2045 0346 05       		.byte	5
+ 2046 0347 13       		.byte	19
+ 2047 0348 F1       		.byte	-15
+ 2048 0349 1B       		.byte	27
+ 2049 034a 03       		.byte	3
+ 2050 034b 2A       		.byte	42
+ 2051 034c FB       		.byte	-5
+ 2052 034d 17       		.byte	23
+ 2053 034e DE       		.byte	-34
+ 2054 034f ED       		.byte	-19
+ 2055 0350 FB       		.byte	-5
+ 2056 0351 E6       		.byte	-26
+ 2057 0352 F6       		.byte	-10
+ 2058 0353 C8       		.byte	-56
+ 2059 0354 16       		.byte	22
+ 2060 0355 05       		.byte	5
+ 2061 0356 D5       		.byte	-43
+ 2062 0357 32       		.byte	50
+ 2063 0358 43       		.byte	67
+ 2064 0359 10       		.byte	16
+ 2065 035a 13       		.byte	19
+ 2066 035b 38       		.byte	56
+ 2067 035c 40       		.byte	64
+ 2068 035d E9       		.byte	-23
+ 2069 035e 05       		.byte	5
+ 2070 035f 29       		.byte	41
+ 2071 0360 A4       		.byte	-92
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 42
+
+
+ 2072 0361 AE       		.byte	-82
+ 2073 0362 2D       		.byte	45
+ 2074 0363 AB       		.byte	-85
+ 2075 0364 A1       		.byte	-95
+ 2076 0365 05       		.byte	5
+ 2077 0366 CA       		.byte	-54
+ 2078 0367 81       		.byte	-127
+ 2079 0368 4A       		.byte	74
+ 2080 0369 D0       		.byte	-48
+ 2081 036a BA       		.byte	-70
+ 2082 036b E5       		.byte	-27
+ 2083 036c 3D       		.byte	61
+ 2084 036d C8       		.byte	-56
+ 2085 036e BC       		.byte	-68
+ 2086 036f 06       		.byte	6
+ 2087 0370 EB       		.byte	-21
+ 2088 0371 2B       		.byte	43
+ 2089 0372 32       		.byte	50
+ 2090 0373 F9       		.byte	-7
+ 2091 0374 12       		.byte	18
+ 2092 0375 40       		.byte	64
+ 2093 0376 2E       		.byte	46
+ 2094 0377 CC       		.byte	-52
+ 2095 0378 10       		.byte	16
+ 2096 0379 E4       		.byte	-28
+ 2097 037a 04       		.byte	4
+ 2098 037b 5E       		.byte	94
+ 2099 037c 58       		.byte	88
+ 2100 037d 03       		.byte	3
+ 2101 037e 2F       		.byte	47
+ 2102 037f 1A       		.byte	26
+ 2103 0380 33       		.byte	51
+ 2104 0381 D2       		.byte	-46
+ 2105 0382 F5       		.byte	-11
+ 2106 0383 F4       		.byte	-12
+ 2107 0384 11       		.byte	17
+ 2108 0385 2C       		.byte	44
+ 2109 0386 08       		.byte	8
+ 2110 0387 FD       		.byte	-3
+ 2111 0388 DD       		.byte	-35
+ 2112 0389 17       		.byte	23
+ 2113 038a 11       		.byte	17
+ 2114 038b EC       		.byte	-20
+ 2115 038c 48       		.byte	72
+ 2116 038d 82       		.byte	-126
+ 2117 038e F2       		.byte	-14
+ 2118 038f 3E       		.byte	62
+ 2119 0390 E4       		.byte	-28
+ 2120 0391 22       		.byte	34
+ 2121 0392 11       		.byte	17
+ 2122 0393 2A       		.byte	42
+ 2123 0394 C8       		.byte	-56
+ 2124 0395 0E       		.byte	14
+ 2125 0396 2A       		.byte	42
+ 2126 0397 0C       		.byte	12
+ 2127 0398 53       		.byte	83
+ 2128 0399 B0       		.byte	-80
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 43
+
+
+ 2129 039a 4B       		.byte	75
+ 2130 039b 0A       		.byte	10
+ 2131 039c CB       		.byte	-53
+ 2132 039d 09       		.byte	9
+ 2133 039e F9       		.byte	-7
+ 2134 039f 42       		.byte	66
+ 2135 03a0 47       		.byte	71
+ 2136 03a1 09       		.byte	9
+ 2137 03a2 6A       		.byte	106
+ 2138 03a3 30       		.byte	48
+ 2139 03a4 E2       		.byte	-30
+ 2140 03a5 FC       		.byte	-4
+ 2141 03a6 02       		.byte	2
+ 2142 03a7 BB       		.byte	-69
+ 2143 03a8 48       		.byte	72
+ 2144 03a9 0A       		.byte	10
+ 2145 03aa F4       		.byte	-12
+ 2146 03ab DC       		.byte	-36
+ 2147 03ac 7F       		.byte	127
+ 2148 03ad D6       		.byte	-42
+ 2149 03ae 9D       		.byte	-99
+ 2150 03af FD       		.byte	-3
+ 2151 03b0 B0       		.byte	-80
+ 2152 03b1 07       		.byte	7
+ 2153 03b2 12       		.byte	18
+ 2154 03b3 61       		.byte	97
+ 2155 03b4 34       		.byte	52
+ 2156 03b5 11       		.byte	17
+ 2157 03b6 CE       		.byte	-50
+ 2158 03b7 44       		.byte	68
+ 2159 03b8 C0       		.byte	-64
+ 2160 03b9 FD       		.byte	-3
+ 2161 03ba 0D       		.byte	13
+ 2162 03bb 19       		.byte	25
+ 2163 03bc 29       		.byte	41
+ 2164 03bd CF       		.byte	-49
+ 2165 03be FB       		.byte	-5
+ 2166 03bf CD       		.byte	-51
+ 2167 03c0 E0       		.byte	-32
+ 2168 03c1 ED       		.byte	-19
+ 2169 03c2 AE       		.byte	-82
+ 2170 03c3 DE       		.byte	-34
+ 2171 03c4 E9       		.byte	-23
+ 2172 03c5 F7       		.byte	-9
+ 2173 03c6 22       		.byte	34
+ 2174 03c7 19       		.byte	25
+ 2175 03c8 11       		.byte	17
+ 2176 03c9 E9       		.byte	-23
+ 2177 03ca 19       		.byte	25
+ 2178 03cb 18       		.byte	24
+ 2179 03cc D0       		.byte	-48
+ 2180 03cd 52       		.byte	82
+ 2181 03ce 17       		.byte	23
+ 2182 03cf DA       		.byte	-38
+ 2183 03d0 1F       		.byte	31
+ 2184 03d1 B4       		.byte	-76
+ 2185 03d2 10       		.byte	16
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 44
+
+
+ 2186 03d3 23       		.byte	35
+ 2187 03d4 36       		.byte	54
+ 2188 03d5 EF       		.byte	-17
+ 2189 03d6 08       		.byte	8
+ 2190 03d7 DD       		.byte	-35
+ 2191 03d8 C2       		.byte	-62
+ 2192 03d9 E8       		.byte	-24
+ 2193 03da 30       		.byte	48
+ 2194 03db D3       		.byte	-45
+ 2195 03dc 08       		.byte	8
+ 2196 03dd 23       		.byte	35
+ 2197 03de 02       		.byte	2
+ 2198 03df 24       		.byte	36
+ 2199 03e0 99       		.byte	-103
+ 2200 03e1 1D       		.byte	29
+ 2201 03e2 ED       		.byte	-19
+ 2202 03e3 12       		.byte	18
+ 2203 03e4 03       		.byte	3
+ 2204 03e5 11       		.byte	17
+ 2205 03e6 EE       		.byte	-18
+ 2206 03e7 E5       		.byte	-27
+ 2207 03e8 DC       		.byte	-36
+ 2208 03e9 F2       		.byte	-14
+ 2209 03ea 13       		.byte	19
+ 2210 03eb 0A       		.byte	10
+ 2211 03ec 26       		.byte	38
+ 2212 03ed 1A       		.byte	26
+ 2213 03ee F2       		.byte	-14
+ 2214 03ef 02       		.byte	2
+ 2215 03f0 F8       		.byte	-8
+ 2216 03f1 FC       		.byte	-4
+ 2217 03f2 CB       		.byte	-53
+ 2218 03f3 84       		.byte	-124
+ 2219 03f4 5C       		.byte	92
+ 2220 03f5 ED       		.byte	-19
+ 2221 03f6 1D       		.byte	29
+ 2222 03f7 99       		.byte	-103
+ 2223 03f8 F2       		.byte	-14
+ 2224 03f9 57       		.byte	87
+ 2225 03fa 3E       		.byte	62
+ 2226 03fb F3       		.byte	-13
+ 2227 03fc 8A       		.byte	-118
+ 2228 03fd D6       		.byte	-42
+ 2229 03fe D6       		.byte	-42
+ 2230 03ff C1       		.byte	-63
+ 2231 0400 16       		.byte	22
+ 2232 0401 05       		.byte	5
+ 2233 0402 81       		.byte	-127
+ 2234 0403 00       		.byte	0
+ 2235 0404 FD       		.byte	-3
+ 2236 0405 92       		.byte	-110
+ 2237 0406 D9       		.byte	-39
+ 2238 0407 36       		.byte	54
+ 2239 0408 E7       		.byte	-25
+ 2240 0409 25       		.byte	37
+ 2241 040a 17       		.byte	23
+ 2242 040b E8       		.byte	-24
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 45
+
+
+ 2243 040c 05       		.byte	5
+ 2244 040d 19       		.byte	25
+ 2245 040e 33       		.byte	51
+ 2246 040f 0D       		.byte	13
+ 2247 0410 48       		.byte	72
+ 2248 0411 AC       		.byte	-84
+ 2249 0412 DF       		.byte	-33
+ 2250 0413 15       		.byte	21
+ 2251 0414 E9       		.byte	-23
+ 2252 0415 F5       		.byte	-11
+ 2253 0416 BD       		.byte	-67
+ 2254 0417 F7       		.byte	-9
+ 2255 0418 F0       		.byte	-16
+ 2256 0419 31       		.byte	49
+ 2257 041a 72       		.byte	114
+ 2258 041b 23       		.byte	35
+ 2259 041c 16       		.byte	22
+ 2260 041d 65       		.byte	101
+ 2261 041e E2       		.byte	-30
+ 2262 041f B5       		.byte	-75
+ 2263 0420 F4       		.byte	-12
+ 2264 0421 0D       		.byte	13
+ 2265 0422 EA       		.byte	-22
+ 2266 0423 BC       		.byte	-68
+ 2267 0424 F3       		.byte	-13
+ 2268 0425 3B       		.byte	59
+ 2269 0426 5A       		.byte	90
+ 2270 0427 DF       		.byte	-33
+ 2271 0428 91       		.byte	-111
+ 2272 0429 10       		.byte	16
+ 2273 042a E9       		.byte	-23
+ 2274 042b F7       		.byte	-9
+ 2275 042c 20       		.byte	32
+ 2276 042d B2       		.byte	-78
+ 2277 042e FB       		.byte	-5
+ 2278 042f E9       		.byte	-23
+ 2279 0430 FC       		.byte	-4
+ 2280 0431 0F       		.byte	15
+ 2281 0432 B6       		.byte	-74
+ 2282 0433 3B       		.byte	59
+ 2283 0434 04       		.byte	4
+ 2284 0435 04       		.byte	4
+ 2285 0436 1B       		.byte	27
+ 2286 0437 25       		.byte	37
+ 2287 0438 95       		.byte	-107
+ 2288 0439 C6       		.byte	-58
+ 2289 043a D5       		.byte	-43
+ 2290 043b FA       		.byte	-6
+ 2291 043c A1       		.byte	-95
+ 2292 043d 90       		.byte	-112
+ 2293 043e DE       		.byte	-34
+ 2294 043f B9       		.byte	-71
+ 2295 0440 8B       		.byte	-117
+ 2296 0441 39       		.byte	57
+ 2297 0442 E8       		.byte	-24
+ 2298 0443 C1       		.byte	-63
+ 2299 0444 09       		.byte	9
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 46
+
+
+ 2300 0445 F9       		.byte	-7
+ 2301 0446 05       		.byte	5
+ 2302 0447 1D       		.byte	29
+ 2303 0448 1B       		.byte	27
+ 2304 0449 0F       		.byte	15
+ 2305 044a 39       		.byte	57
+ 2306 044b FF       		.byte	-1
+ 2307 044c D5       		.byte	-43
+ 2308 044d 46       		.byte	70
+ 2309 044e F7       		.byte	-9
+ 2310 044f 29       		.byte	41
+ 2311 0450 7A       		.byte	122
+ 2312 0451 6A       		.byte	106
+ 2313 0452 FA       		.byte	-6
+ 2314 0453 F7       		.byte	-9
+ 2315 0454 08       		.byte	8
+ 2316 0455 3D       		.byte	61
+ 2317 0456 AF       		.byte	-81
+ 2318 0457 07       		.byte	7
+ 2319 0458 56       		.byte	86
+ 2320 0459 41       		.byte	65
+ 2321 045a 02       		.byte	2
+ 2322 045b D7       		.byte	-41
+ 2323 045c EC       		.byte	-20
+ 2324 045d E7       		.byte	-25
+ 2325 045e 01       		.byte	1
+ 2326 045f E0       		.byte	-32
+ 2327 0460 D1       		.byte	-47
+ 2328 0461 B9       		.byte	-71
+ 2329 0462 C1       		.byte	-63
+ 2330 0463 94       		.byte	-108
+ 2331 0464 D4       		.byte	-44
+ 2332 0465 EB       		.byte	-21
+ 2333 0466 CA       		.byte	-54
+ 2334 0467 DD       		.byte	-35
+ 2335 0468 D6       		.byte	-42
+ 2336 0469 B2       		.byte	-78
+ 2337 046a E1       		.byte	-31
+ 2338 046b E1       		.byte	-31
+ 2339 046c 0C       		.byte	12
+ 2340 046d FC       		.byte	-4
+ 2341 046e 38       		.byte	56
+ 2342 046f 11       		.byte	17
+ 2343 0470 01       		.byte	1
+ 2344 0471 EA       		.byte	-22
+ 2345 0472 DD       		.byte	-35
+ 2346 0473 23       		.byte	35
+ 2347 0474 81       		.byte	-127
+ 2348 0475 E4       		.byte	-28
+ 2349 0476 10       		.byte	16
+ 2350 0477 FF       		.byte	-1
+ 2351 0478 00       		.byte	0
+ 2352 0479 20       		.byte	32
+ 2353 047a 1A       		.byte	26
+ 2354 047b C7       		.byte	-57
+ 2355 047c F4       		.byte	-12
+ 2356 047d 3B       		.byte	59
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 47
+
+
+ 2357 047e F9       		.byte	-7
+ 2358 047f E5       		.byte	-27
+ 2359 0480 81       		.byte	-127
+ 2360 0481 E7       		.byte	-25
+ 2361 0482 12       		.byte	18
+ 2362 0483 E0       		.byte	-32
+ 2363 0484 EB       		.byte	-21
+ 2364 0485 07       		.byte	7
+ 2365 0486 0E       		.byte	14
+ 2366 0487 37       		.byte	55
+ 2367 0488 F6       		.byte	-10
+ 2368 0489 36       		.byte	54
+ 2369 048a F6       		.byte	-10
+ 2370 048b ED       		.byte	-19
+ 2371 048c 27       		.byte	39
+ 2372 048d 09       		.byte	9
+ 2373 048e 38       		.byte	56
+ 2374 048f 0C       		.byte	12
+ 2375 0490 0D       		.byte	13
+ 2376 0491 E9       		.byte	-23
+ 2377 0492 14       		.byte	20
+ 2378 0493 EE       		.byte	-18
+ 2379 0494 DE       		.byte	-34
+ 2380 0495 16       		.byte	22
+ 2381 0496 1E       		.byte	30
+ 2382 0497 2C       		.byte	44
+ 2383 0498 22       		.byte	34
+ 2384 0499 22       		.byte	34
+ 2385 049a E3       		.byte	-29
+ 2386 049b FB       		.byte	-5
+ 2387 049c 14       		.byte	20
+ 2388 049d 45       		.byte	69
+ 2389 049e 08       		.byte	8
+ 2390 049f F2       		.byte	-14
+ 2391 04a0 C7       		.byte	-57
+ 2392 04a1 F8       		.byte	-8
+ 2393 04a2 F9       		.byte	-7
+ 2394 04a3 F4       		.byte	-12
+ 2395 04a4 13       		.byte	19
+ 2396 04a5 DB       		.byte	-37
+ 2397 04a6 DE       		.byte	-34
+ 2398 04a7 10       		.byte	16
+ 2399 04a8 21       		.byte	33
+ 2400 04a9 DD       		.byte	-35
+ 2401 04aa 04       		.byte	4
+ 2402 04ab 06       		.byte	6
+ 2403 04ac 22       		.byte	34
+ 2404 04ad 0F       		.byte	15
+ 2405 04ae 1A       		.byte	26
+ 2406 04af 23       		.byte	35
+ 2407 04b0 18       		.byte	24
+ 2408 04b1 EF       		.byte	-17
+ 2409 04b2 EC       		.byte	-20
+ 2410 04b3 00       		.byte	0
+ 2411 04b4 DE       		.byte	-34
+ 2412 04b5 D9       		.byte	-39
+ 2413 04b6 C4       		.byte	-60
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 48
+
+
+ 2414 04b7 CF       		.byte	-49
+ 2415 04b8 0B       		.byte	11
+ 2416 04b9 F0       		.byte	-16
+ 2417 04ba FE       		.byte	-2
+ 2418 04bb 37       		.byte	55
+ 2419 04bc F2       		.byte	-14
+ 2420 04bd EE       		.byte	-18
+ 2421 04be F4       		.byte	-12
+ 2422 04bf 4C       		.byte	76
+ 2423 04c0 48       		.byte	72
+ 2424 04c1 EC       		.byte	-20
+ 2425 04c2 BD       		.byte	-67
+ 2426 04c3 27       		.byte	39
+ 2427 04c4 FB       		.byte	-5
+ 2428 04c5 C4       		.byte	-60
+ 2429 04c6 EA       		.byte	-22
+ 2430 04c7 09       		.byte	9
+ 2431 04c8 29       		.byte	41
+ 2432 04c9 00       		.byte	0
+ 2433 04ca 0C       		.byte	12
+ 2434 04cb 2A       		.byte	42
+ 2435 04cc 2E       		.byte	46
+ 2436 04cd DC       		.byte	-36
+ 2437 04ce F8       		.byte	-8
+ 2438 04cf 03       		.byte	3
+ 2439 04d0 D1       		.byte	-47
+ 2440 04d1 B3       		.byte	-77
+ 2441 04d2 16       		.byte	22
+ 2442 04d3 04       		.byte	4
+ 2443 04d4 81       		.byte	-127
+ 2444 04d5 D3       		.byte	-45
+ 2445 04d6 09       		.byte	9
+ 2446 04d7 F7       		.byte	-9
+ 2447 04d8 D3       		.byte	-45
+ 2448 04d9 FA       		.byte	-6
+ 2449 04da F5       		.byte	-11
+ 2450 04db D3       		.byte	-45
+ 2451 04dc E0       		.byte	-32
+ 2452 04dd E0       		.byte	-32
+ 2453 04de C6       		.byte	-58
+ 2454 04df FF       		.byte	-1
+ 2455 04e0 19       		.byte	25
+ 2456 04e1 F6       		.byte	-10
+ 2457 04e2 2F       		.byte	47
+ 2458 04e3 01       		.byte	1
+ 2459 04e4 F7       		.byte	-9
+ 2460 04e5 0A       		.byte	10
+ 2461 04e6 26       		.byte	38
+ 2462 04e7 02       		.byte	2
+ 2463 04e8 F5       		.byte	-11
+ 2464 04e9 2C       		.byte	44
+ 2465 04ea 11       		.byte	17
+ 2466 04eb 0B       		.byte	11
+ 2467 04ec 22       		.byte	34
+ 2468 04ed FF       		.byte	-1
+ 2469 04ee FC       		.byte	-4
+ 2470 04ef 06       		.byte	6
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 49
+
+
+ 2471 04f0 DD       		.byte	-35
+ 2472 04f1 FD       		.byte	-3
+ 2473 04f2 16       		.byte	22
+ 2474 04f3 D9       		.byte	-39
+ 2475 04f4 EB       		.byte	-21
+ 2476 04f5 4F       		.byte	79
+ 2477 04f6 1C       		.byte	28
+ 2478 04f7 E0       		.byte	-32
+ 2479 04f8 E1       		.byte	-31
+ 2480 04f9 E3       		.byte	-29
+ 2481 04fa D5       		.byte	-43
+ 2482 04fb 15       		.byte	21
+ 2483 04fc E8       		.byte	-24
+ 2484 04fd F6       		.byte	-10
+ 2485 04fe 64       		.byte	100
+ 2486 04ff 29       		.byte	41
+ 2487 0500 3D       		.byte	61
+ 2488 0501 C3       		.byte	-61
+ 2489 0502 23       		.byte	35
+ 2490 0503 49       		.byte	73
+ 2491 0504 E1       		.byte	-31
+ 2492 0505 CE       		.byte	-50
+ 2493 0506 DB       		.byte	-37
+ 2494 0507 BC       		.byte	-68
+ 2495 0508 DE       		.byte	-34
+ 2496 0509 D9       		.byte	-39
+ 2497 050a E3       		.byte	-29
+ 2498 050b D3       		.byte	-45
+ 2499 050c B0       		.byte	-80
+ 2500 050d 0C       		.byte	12
+ 2501 050e 22       		.byte	34
+ 2502 050f 2A       		.byte	42
+ 2503 0510 2C       		.byte	44
+ 2504 0511 08       		.byte	8
+ 2505 0512 0D       		.byte	13
+ 2506 0513 0C       		.byte	12
+ 2507 0514 7F       		.byte	127
+ 2508 0515 F6       		.byte	-10
+ 2509 0516 1B       		.byte	27
+ 2510 0517 D3       		.byte	-45
+ 2511 0518 17       		.byte	23
+ 2512 0519 E0       		.byte	-32
+ 2513 051a 11       		.byte	17
+ 2514 051b F6       		.byte	-10
+ 2515 051c DC       		.byte	-36
+ 2516 051d FD       		.byte	-3
+ 2517 051e 08       		.byte	8
+ 2518 051f CA       		.byte	-54
+ 2519 0520 F6       		.byte	-10
+ 2520 0521 28       		.byte	40
+ 2521 0522 F3       		.byte	-13
+ 2522 0523 E3       		.byte	-29
+ 2523 0524 B7       		.byte	-73
+ 2524 0525 31       		.byte	49
+ 2525 0526 09       		.byte	9
+ 2526 0527 20       		.byte	32
+ 2527 0528 14       		.byte	20
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 50
+
+
+ 2528 0529 A8       		.byte	-88
+ 2529 052a 18       		.byte	24
+ 2530 052b F2       		.byte	-14
+ 2531 052c E3       		.byte	-29
+ 2532 052d 25       		.byte	37
+ 2533 052e 3B       		.byte	59
+ 2534 052f D7       		.byte	-41
+ 2535 0530 1A       		.byte	26
+ 2536 0531 C5       		.byte	-59
+ 2537 0532 B8       		.byte	-72
+ 2538 0533 E2       		.byte	-30
+ 2539 0534 F2       		.byte	-14
+ 2540 0535 0B       		.byte	11
+ 2541 0536 F8       		.byte	-8
+ 2542 0537 1E       		.byte	30
+ 2543 0538 B9       		.byte	-71
+ 2544 0539 FA       		.byte	-6
+ 2545 053a 3F       		.byte	63
+ 2546 053b D1       		.byte	-47
+ 2547 053c F4       		.byte	-12
+ 2548 053d CD       		.byte	-51
+ 2549 053e 24       		.byte	36
+ 2550 053f DE       		.byte	-34
+ 2551 0540 03       		.byte	3
+ 2552 0541 41       		.byte	65
+ 2553 0542 11       		.byte	17
+ 2554 0543 08       		.byte	8
+ 2555 0544 FD       		.byte	-3
+ 2556 0545 E6       		.byte	-26
+ 2557 0546 DD       		.byte	-35
+ 2558 0547 FC       		.byte	-4
+ 2559 0548 22       		.byte	34
+ 2560 0549 14       		.byte	20
+ 2561 054a 0F       		.byte	15
+ 2562 054b 07       		.byte	7
+ 2563 054c 0E       		.byte	14
+ 2564 054d 25       		.byte	37
+ 2565 054e 01       		.byte	1
+ 2566 054f D8       		.byte	-40
+ 2567 0550 02       		.byte	2
+ 2568 0551 2B       		.byte	43
+ 2569 0552 F9       		.byte	-7
+ 2570 0553 94       		.byte	-108
+ 2571 0554 DC       		.byte	-36
+ 2572 0555 1F       		.byte	31
+ 2573 0556 FA       		.byte	-6
+ 2574 0557 FA       		.byte	-6
+ 2575 0558 7C       		.byte	124
+ 2576 0559 71       		.byte	113
+ 2577 055a EF       		.byte	-17
+ 2578 055b 09       		.byte	9
+ 2579 055c 4D       		.byte	77
+ 2580 055d 9F       		.byte	-97
+ 2581 055e B9       		.byte	-71
+ 2582 055f 81       		.byte	-127
+ 2583 0560 E8       		.byte	-24
+ 2584 0561 20       		.byte	32
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 51
+
+
+ 2585 0562 E6       		.byte	-26
+ 2586 0563 49       		.byte	73
+ 2587 0564 43       		.byte	67
+ 2588 0565 16       		.byte	22
+ 2589 0566 D0       		.byte	-48
+ 2590 0567 49       		.byte	73
+ 2591 0568 37       		.byte	55
+ 2592 0569 DF       		.byte	-33
+ 2593 056a 00       		.byte	0
+ 2594 056b F2       		.byte	-14
+ 2595 056c 9A       		.byte	-102
+ 2596 056d 15       		.byte	21
+ 2597 056e 9A       		.byte	-102
+ 2598 056f 8F       		.byte	-113
+ 2599 0570 D8       		.byte	-40
+ 2600 0571 D3       		.byte	-45
+ 2601 0572 46       		.byte	70
+ 2602 0573 D0       		.byte	-48
+ 2603 0574 DF       		.byte	-33
+ 2604 0575 C8       		.byte	-56
+ 2605 0576 D7       		.byte	-41
+ 2606 0577 F0       		.byte	-16
+ 2607 0578 24       		.byte	36
+ 2608 0579 12       		.byte	18
+ 2609 057a FF       		.byte	-1
+ 2610 057b 12       		.byte	18
+ 2611 057c F9       		.byte	-7
+ 2612 057d 42       		.byte	66
+ 2613 057e 15       		.byte	21
+ 2614 057f F0       		.byte	-16
+ 2615 0580 10       		.byte	16
+ 2616 0581 13       		.byte	19
+ 2617 0582 AE       		.byte	-82
+ 2618 0583 E4       		.byte	-28
+ 2619 0584 33       		.byte	51
+ 2620 0585 A6       		.byte	-90
+ 2621 0586 20       		.byte	32
+ 2622 0587 1E       		.byte	30
+ 2623 0588 B2       		.byte	-78
+ 2624 0589 DF       		.byte	-33
+ 2625 058a 24       		.byte	36
+ 2626 058b DA       		.byte	-38
+ 2627 058c 06       		.byte	6
+ 2628 058d 71       		.byte	113
+ 2629 058e 62       		.byte	98
+ 2630 058f 2A       		.byte	42
+ 2631 0590 0A       		.byte	10
+ 2632 0591 2C       		.byte	44
+ 2633 0592 34       		.byte	52
+ 2634 0593 CC       		.byte	-52
+ 2635 0594 27       		.byte	39
+ 2636 0595 EB       		.byte	-21
+ 2637 0596 3A       		.byte	58
+ 2638 0597 62       		.byte	98
+ 2639 0598 F0       		.byte	-16
+ 2640 0599 14       		.byte	20
+ 2641 059a 1F       		.byte	31
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 52
+
+
+ 2642 059b 56       		.byte	86
+ 2643 059c 2C       		.byte	44
+ 2644 059d CC       		.byte	-52
+ 2645 059e 4E       		.byte	78
+ 2646 059f 36       		.byte	54
+ 2647 05a0 48       		.byte	72
+ 2648 05a1 FC       		.byte	-4
+ 2649 05a2 90       		.byte	-112
+ 2650 05a3 1C       		.byte	28
+ 2651 05a4 0D       		.byte	13
+ 2652 05a5 CA       		.byte	-54
+ 2653 05a6 1D       		.byte	29
+ 2654 05a7 58       		.byte	88
+ 2655 05a8 16       		.byte	22
+ 2656 05a9 44       		.byte	68
+ 2657 05aa 1A       		.byte	26
+ 2658 05ab EB       		.byte	-21
+ 2659 05ac 88       		.byte	-120
+ 2660 05ad 0F       		.byte	15
+ 2661 05ae 21       		.byte	33
+ 2662 05af F9       		.byte	-7
+ 2663 05b0 FB       		.byte	-5
+ 2664 05b1 1E       		.byte	30
+ 2665 05b2 5A       		.byte	90
+ 2666 05b3 2E       		.byte	46
+ 2667 05b4 A7       		.byte	-89
+ 2668 05b5 0D       		.byte	13
+ 2669 05b6 FB       		.byte	-5
+ 2670 05b7 10       		.byte	16
+ 2671 05b8 BF       		.byte	-65
+ 2672 05b9 D1       		.byte	-47
+ 2673 05ba 3B       		.byte	59
+ 2674 05bb E7       		.byte	-25
+ 2675 05bc 11       		.byte	17
+ 2676 05bd 2B       		.byte	43
+ 2677 05be 3C       		.byte	60
+ 2678 05bf DD       		.byte	-35
+ 2679 05c0 FB       		.byte	-5
+ 2680 05c1 08       		.byte	8
+ 2681 05c2 E2       		.byte	-30
+ 2682 05c3 A2       		.byte	-94
+ 2683 05c4 81       		.byte	-127
+ 2684 05c5 D2       		.byte	-46
+ 2685 05c6 01       		.byte	1
+ 2686 05c7 C3       		.byte	-61
+ 2687 05c8 E6       		.byte	-26
+ 2688 05c9 29       		.byte	41
+ 2689 05ca AE       		.byte	-82
+ 2690 05cb DE       		.byte	-34
+ 2691 05cc 33       		.byte	51
+ 2692 05cd F1       		.byte	-15
+ 2693 05ce 05       		.byte	5
+ 2694 05cf 72       		.byte	114
+ 2695 05d0 29       		.byte	41
+ 2696 05d1 E0       		.byte	-32
+ 2697 05d2 07       		.byte	7
+ 2698 05d3 05       		.byte	5
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 53
+
+
+ 2699 05d4 C1       		.byte	-63
+ 2700 05d5 CF       		.byte	-49
+ 2701 05d6 B7       		.byte	-73
+ 2702 05d7 F2       		.byte	-14
+ 2703 05d8 EC       		.byte	-20
+ 2704 05d9 18       		.byte	24
+ 2705 05da 51       		.byte	81
+ 2706 05db FF       		.byte	-1
+ 2707 05dc E2       		.byte	-30
+ 2708 05dd 3D       		.byte	61
+ 2709 05de 35       		.byte	53
+ 2710 05df 0C       		.byte	12
+ 2711 05e0 B3       		.byte	-77
+ 2712 05e1 06       		.byte	6
+ 2713 05e2 32       		.byte	50
+ 2714 05e3 A5       		.byte	-91
+ 2715 05e4 AD       		.byte	-83
+ 2716 05e5 22       		.byte	34
+ 2717 05e6 3D       		.byte	61
+ 2718 05e7 EB       		.byte	-21
+ 2719 05e8 7F       		.byte	127
+ 2720 05e9 45       		.byte	69
+ 2721 05ea 92       		.byte	-110
+ 2722 05eb 89       		.byte	-119
+ 2723 05ec 0C       		.byte	12
+ 2724 05ed C7       		.byte	-57
+ 2725 05ee 20       		.byte	32
+ 2726 05ef 12       		.byte	18
+ 2727 05f0 3B       		.byte	59
+ 2728 05f1 00       		.byte	0
+ 2729 05f2 52       		.byte	82
+ 2730 05f3 1D       		.byte	29
+ 2731 05f4 08       		.byte	8
+ 2732 05f5 B0       		.byte	-80
+ 2733 05f6 A3       		.byte	-93
+ 2734 05f7 EE       		.byte	-18
+ 2735 05f8 DC       		.byte	-36
+ 2736 05f9 0F       		.byte	15
+ 2737 05fa 1C       		.byte	28
+ 2738 05fb FA       		.byte	-6
+ 2739 05fc 2B       		.byte	43
+ 2740 05fd 06       		.byte	6
+ 2741 05fe FA       		.byte	-6
+ 2742 05ff 03       		.byte	3
+ 2743 0600 04       		.byte	4
+ 2744 0601 E1       		.byte	-31
+ 2745 0602 D2       		.byte	-46
+ 2746 0603 16       		.byte	22
+ 2747 0604 F8       		.byte	-8
+ 2748 0605 DE       		.byte	-34
+ 2749 0606 E9       		.byte	-23
+ 2750 0607 39       		.byte	57
+ 2751 0608 22       		.byte	34
+ 2752 0609 30       		.byte	48
+ 2753 060a 3F       		.byte	63
+ 2754 060b 36       		.byte	54
+ 2755 060c 14       		.byte	20
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 54
+
+
+ 2756 060d 1F       		.byte	31
+ 2757 060e 1E       		.byte	30
+ 2758 060f CB       		.byte	-53
+ 2759 0610 3E       		.byte	62
+ 2760 0611 2B       		.byte	43
+ 2761 0612 D4       		.byte	-44
+ 2762 0613 A7       		.byte	-89
+ 2763 0614 8C       		.byte	-116
+ 2764 0615 F1       		.byte	-15
+ 2765 0616 BD       		.byte	-67
+ 2766 0617 D0       		.byte	-48
+ 2767 0618 E0       		.byte	-32
+ 2768 0619 32       		.byte	50
+ 2769 061a 21       		.byte	33
+ 2770 061b FF       		.byte	-1
+ 2771 061c 46       		.byte	70
+ 2772 061d 6B       		.byte	107
+ 2773 061e F5       		.byte	-11
+ 2774 061f FD       		.byte	-3
+ 2775 0620 51       		.byte	81
+ 2776 0621 35       		.byte	53
+ 2777 0622 C8       		.byte	-56
+ 2778 0623 CE       		.byte	-50
+ 2779 0624 A7       		.byte	-89
+ 2780 0625 06       		.byte	6
+ 2781 0626 EF       		.byte	-17
+ 2782 0627 BA       		.byte	-70
+ 2783 0628 F8       		.byte	-8
+ 2784 0629 54       		.byte	84
+ 2785 062a 1E       		.byte	30
+ 2786 062b 1D       		.byte	29
+ 2787 062c 37       		.byte	55
+ 2788 062d 27       		.byte	39
+ 2789 062e D6       		.byte	-42
+ 2790 062f D2       		.byte	-46
+ 2791 0630 81       		.byte	-127
+ 2792 0631 F6       		.byte	-10
+ 2793 0632 F9       		.byte	-7
+ 2794 0633 E0       		.byte	-32
+ 2795 0634 EA       		.byte	-22
+ 2796 0635 C4       		.byte	-60
+ 2797 0636 FD       		.byte	-3
+ 2798 0637 FA       		.byte	-6
+ 2799 0638 E4       		.byte	-28
+ 2800 0639 4C       		.byte	76
+ 2801 063a 29       		.byte	41
+ 2802 063b FB       		.byte	-5
+ 2803 063c 2A       		.byte	42
+ 2804 063d D6       		.byte	-42
+ 2805 063e C5       		.byte	-59
+ 2806 063f C6       		.byte	-58
+ 2807 0640 0C       		.byte	12
+ 2808 0641 31       		.byte	49
+ 2809 0642 24       		.byte	36
+ 2810 0643 3C       		.byte	60
+ 2811 0644 FC       		.byte	-4
+ 2812 0645 0E       		.byte	14
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 55
+
+
+ 2813 0646 02       		.byte	2
+ 2814 0647 94       		.byte	-108
+ 2815 0648 F0       		.byte	-16
+ 2816 0649 EA       		.byte	-22
+ 2817 064a 40       		.byte	64
+ 2818 064b 37       		.byte	55
+ 2819 064c 22       		.byte	34
+ 2820 064d 1F       		.byte	31
+ 2821 064e CE       		.byte	-50
+ 2822 064f C3       		.byte	-61
+ 2823 0650 E2       		.byte	-30
+ 2824 0651 F0       		.byte	-16
+ 2825 0652 2A       		.byte	42
+ 2826 0653 24       		.byte	36
+ 2827 0654 F6       		.byte	-10
+ 2828 0655 ED       		.byte	-19
+ 2829 0656 DD       		.byte	-35
+ 2830 0657 D5       		.byte	-43
+ 2831 0658 E8       		.byte	-24
+ 2832 0659 2A       		.byte	42
+ 2833 065a 4D       		.byte	77
+ 2834 065b 59       		.byte	89
+ 2835 065c 2E       		.byte	46
+ 2836 065d 16       		.byte	22
+ 2837 065e 11       		.byte	17
+ 2838 065f 1C       		.byte	28
+ 2839 0660 15       		.byte	21
+ 2840 0661 2D       		.byte	45
+ 2841 0662 18       		.byte	24
+ 2842 0663 C5       		.byte	-59
+ 2843 0664 FA       		.byte	-6
+ 2844 0665 FD       		.byte	-3
+ 2845 0666 1F       		.byte	31
+ 2846 0667 F8       		.byte	-8
+ 2847 0668 D3       		.byte	-45
+ 2848 0669 2B       		.byte	43
+ 2849 066a EB       		.byte	-21
+ 2850 066b E7       		.byte	-25
+ 2851 066c F6       		.byte	-10
+ 2852 066d C9       		.byte	-55
+ 2853 066e DC       		.byte	-36
+ 2854 066f 34       		.byte	52
+ 2855 0670 F8       		.byte	-8
+ 2856 0671 D7       		.byte	-41
+ 2857 0672 EE       		.byte	-18
+ 2858 0673 D7       		.byte	-41
+ 2859 0674 1C       		.byte	28
+ 2860 0675 0F       		.byte	15
+ 2861 0676 1D       		.byte	29
+ 2862 0677 1F       		.byte	31
+ 2863 0678 9B       		.byte	-101
+ 2864 0679 9F       		.byte	-97
+ 2865 067a D8       		.byte	-40
+ 2866 067b 03       		.byte	3
+ 2867 067c 30       		.byte	48
+ 2868 067d 3A       		.byte	58
+ 2869 067e B4       		.byte	-76
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 56
+
+
+ 2870 067f 02       		.byte	2
+ 2871 0680 CE       		.byte	-50
+ 2872 0681 1A       		.byte	26
+ 2873 0682 08       		.byte	8
+ 2874 0683 43       		.byte	67
+ 2875 0684 E5       		.byte	-27
+ 2876 0685 F8       		.byte	-8
+ 2877 0686 DF       		.byte	-33
+ 2878 0687 28       		.byte	40
+ 2879 0688 BF       		.byte	-65
+ 2880 0689 D8       		.byte	-40
+ 2881 068a A9       		.byte	-87
+ 2882 068b 92       		.byte	-110
+ 2883 068c E7       		.byte	-25
+ 2884 068d BE       		.byte	-66
+ 2885 068e 18       		.byte	24
+ 2886 068f E9       		.byte	-23
+ 2887 0690 6E       		.byte	110
+ 2888 0691 60       		.byte	96
+ 2889 0692 97       		.byte	-105
+ 2890 0693 02       		.byte	2
+ 2891 0694 2A       		.byte	42
+ 2892 0695 FB       		.byte	-5
+ 2893 0696 CF       		.byte	-49
+ 2894 0697 07       		.byte	7
+ 2895 0698 0B       		.byte	11
+ 2896 0699 E8       		.byte	-24
+ 2897 069a DC       		.byte	-36
+ 2898 069b 05       		.byte	5
+ 2899 069c 2D       		.byte	45
+ 2900 069d 43       		.byte	67
+ 2901 069e 3C       		.byte	60
+ 2902 069f 34       		.byte	52
+ 2903 06a0 47       		.byte	71
+ 2904 06a1 26       		.byte	38
+ 2905 06a2 09       		.byte	9
+ 2906 06a3 97       		.byte	-105
+ 2907 06a4 99       		.byte	-103
+ 2908 06a5 F2       		.byte	-14
+ 2909 06a6 B7       		.byte	-73
+ 2910 06a7 15       		.byte	21
+ 2911 06a8 9E       		.byte	-98
+ 2912 06a9 B4       		.byte	-76
+ 2913 06aa D6       		.byte	-42
+ 2914 06ab 8B       		.byte	-117
+ 2915 06ac 0B       		.byte	11
+ 2916 06ad BA       		.byte	-70
+ 2917 06ae BA       		.byte	-70
+ 2918 06af EA       		.byte	-22
+ 2919 06b0 D1       		.byte	-47
+ 2920 06b1 02       		.byte	2
+ 2921 06b2 7F       		.byte	127
+ 2922 06b3 38       		.byte	56
+ 2923 06b4 F1       		.byte	-15
+ 2924 06b5 30       		.byte	48
+ 2925 06b6 29       		.byte	41
+ 2926 06b7 33       		.byte	51
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 57
+
+
+ 2927 06b8 4C       		.byte	76
+ 2928 06b9 30       		.byte	48
+ 2929 06ba 52       		.byte	82
+ 2930 06bb 1D       		.byte	29
+ 2931 06bc 01       		.byte	1
+ 2932 06bd 53       		.byte	83
+ 2933 06be 32       		.byte	50
+ 2934 06bf BF       		.byte	-65
+ 2935 06c0 C9       		.byte	-55
+ 2936 06c1 E8       		.byte	-24
+ 2937 06c2 08       		.byte	8
+ 2938 06c3 D7       		.byte	-41
+ 2939 06c4 C9       		.byte	-55
+ 2940 06c5 E0       		.byte	-32
+ 2941 06c6 F9       		.byte	-7
+ 2942 06c7 C8       		.byte	-56
+ 2943 06c8 2A       		.byte	42
+ 2944 06c9 CF       		.byte	-49
+ 2945 06ca E2       		.byte	-30
+ 2946 06cb 3E       		.byte	62
+ 2947 06cc 08       		.byte	8
+ 2948 06cd 17       		.byte	23
+ 2949 06ce FD       		.byte	-3
+ 2950 06cf 05       		.byte	5
+ 2951 06d0 C9       		.byte	-55
+ 2952 06d1 EE       		.byte	-18
+ 2953 06d2 F3       		.byte	-13
+ 2954 06d3 D3       		.byte	-45
+ 2955 06d4 05       		.byte	5
+ 2956 06d5 1A       		.byte	26
+ 2957 06d6 FF       		.byte	-1
+ 2958 06d7 16       		.byte	22
+ 2959 06d8 03       		.byte	3
+ 2960 06d9 10       		.byte	16
+ 2961 06da E2       		.byte	-30
+ 2962 06db 3D       		.byte	61
+ 2963 06dc 20       		.byte	32
+ 2964 06dd EE       		.byte	-18
+ 2965 06de FF       		.byte	-1
+ 2966 06df F9       		.byte	-7
+ 2967 06e0 0A       		.byte	10
+ 2968 06e1 EF       		.byte	-17
+ 2969 06e2 09       		.byte	9
+ 2970 06e3 0A       		.byte	10
+ 2971 06e4 02       		.byte	2
+ 2972 06e5 F9       		.byte	-7
+ 2973 06e6 FD       		.byte	-3
+ 2974 06e7 DA       		.byte	-38
+ 2975 06e8 DE       		.byte	-34
+ 2976 06e9 2A       		.byte	42
+ 2977 06ea 09       		.byte	9
+ 2978 06eb 08       		.byte	8
+ 2979 06ec 07       		.byte	7
+ 2980 06ed D0       		.byte	-48
+ 2981 06ee 02       		.byte	2
+ 2982 06ef D3       		.byte	-45
+ 2983 06f0 7F       		.byte	127
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 58
+
+
+ 2984 06f1 DF       		.byte	-33
+ 2985 06f2 EE       		.byte	-18
+ 2986 06f3 2C       		.byte	44
+ 2987 06f4 27       		.byte	39
+ 2988 06f5 FF       		.byte	-1
+ 2989 06f6 E0       		.byte	-32
+ 2990 06f7 F6       		.byte	-10
+ 2991 06f8 F7       		.byte	-9
+ 2992 06f9 0F       		.byte	15
+ 2993 06fa E9       		.byte	-23
+ 2994 06fb F2       		.byte	-14
+ 2995 06fc 22       		.byte	34
+ 2996 06fd FB       		.byte	-5
+ 2997 06fe F5       		.byte	-11
+ 2998 06ff FF       		.byte	-1
+ 2999 0700 3D       		.byte	61
+ 3000 0701 53       		.byte	83
+ 3001 0702 14       		.byte	20
+ 3002 0703 EB       		.byte	-21
+ 3003 0704 15       		.byte	21
+ 3004 0705 FE       		.byte	-2
+ 3005 0706 E4       		.byte	-28
+ 3006 0707 06       		.byte	6
+ 3007 0708 DC       		.byte	-36
+ 3008 0709 27       		.byte	39
+ 3009 070a 11       		.byte	17
+ 3010 070b E3       		.byte	-29
+ 3011 070c 1B       		.byte	27
+ 3012 070d 9D       		.byte	-99
+ 3013 070e D8       		.byte	-40
+ 3014 070f 07       		.byte	7
+ 3015 0710 EC       		.byte	-20
+ 3016 0711 CD       		.byte	-51
+ 3017 0712 B0       		.byte	-80
+ 3018 0713 EE       		.byte	-18
+ 3019 0714 F8       		.byte	-8
+ 3020 0715 05       		.byte	5
+ 3021 0716 0D       		.byte	13
+ 3022 0717 2C       		.byte	44
+ 3023 0718 24       		.byte	36
+ 3024 0719 F8       		.byte	-8
+ 3025 071a DF       		.byte	-33
+ 3026 071b FE       		.byte	-2
+ 3027 071c EC       		.byte	-20
+ 3028 071d 1B       		.byte	27
+ 3029 071e 69       		.byte	105
+ 3030 071f E6       		.byte	-26
+ 3031 0720 04       		.byte	4
+ 3032 0721 DB       		.byte	-37
+ 3033 0722 04       		.byte	4
+ 3034 0723 3B       		.byte	59
+ 3035 0724 53       		.byte	83
+ 3036 0725 1B       		.byte	27
+ 3037 0726 3D       		.byte	61
+ 3038 0727 20       		.byte	32
+ 3039 0728 07       		.byte	7
+ 3040 0729 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 59
+
+
+ 3041 072a C8       		.byte	-56
+ 3042 072b DB       		.byte	-37
+ 3043 072c 47       		.byte	71
+ 3044 072d D7       		.byte	-41
+ 3045 072e E0       		.byte	-32
+ 3046 072f D8       		.byte	-40
+ 3047 0730 C7       		.byte	-57
+ 3048 0731 DE       		.byte	-34
+ 3049 0732 DC       		.byte	-36
+ 3050 0733 E6       		.byte	-26
+ 3051 0734 19       		.byte	25
+ 3052 0735 DC       		.byte	-36
+ 3053 0736 F7       		.byte	-9
+ 3054 0737 EF       		.byte	-17
+ 3055 0738 14       		.byte	20
+ 3056 0739 33       		.byte	51
+ 3057 073a F3       		.byte	-13
+ 3058 073b 2D       		.byte	45
+ 3059 073c EE       		.byte	-18
+ 3060 073d AC       		.byte	-84
+ 3061 073e E1       		.byte	-31
+ 3062 073f 9C       		.byte	-100
+ 3063 0740 FB       		.byte	-5
+ 3064 0741 D5       		.byte	-43
+ 3065 0742 FE       		.byte	-2
+ 3066 0743 FF       		.byte	-1
+ 3067 0744 14       		.byte	20
+ 3068 0745 2D       		.byte	45
+ 3069 0746 81       		.byte	-127
+ 3070 0747 FC       		.byte	-4
+ 3071 0748 F0       		.byte	-16
+ 3072 0749 03       		.byte	3
+ 3073 074a 06       		.byte	6
+ 3074 074b CC       		.byte	-52
+ 3075 074c E3       		.byte	-29
+ 3076 074d 1E       		.byte	30
+ 3077 074e DF       		.byte	-33
+ 3078 074f A2       		.byte	-94
+ 3079 0750 EF       		.byte	-17
+ 3080 0751 ED       		.byte	-19
+ 3081 0752 EB       		.byte	-21
+ 3082 0753 21       		.byte	33
+ 3083 0754 06       		.byte	6
+ 3084 0755 3C       		.byte	60
+ 3085 0756 3C       		.byte	60
+ 3086 0757 7F       		.byte	127
+ 3087 0758 43       		.byte	67
+ 3088 0759 F7       		.byte	-9
+ 3089 075a 16       		.byte	22
+ 3090 075b 01       		.byte	1
+ 3091 075c 37       		.byte	55
+ 3092 075d 2C       		.byte	44
+ 3093 075e 4D       		.byte	77
+ 3094 075f C4       		.byte	-60
+ 3095 0760 F9       		.byte	-7
+ 3096 0761 F5       		.byte	-11
+ 3097 0762 10       		.byte	16
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 60
+
+
+ 3098 0763 2B       		.byte	43
+ 3099 0764 FB       		.byte	-5
+ 3100 0765 02       		.byte	2
+ 3101 0766 D1       		.byte	-47
+ 3102 0767 0C       		.byte	12
+ 3103 0768 08       		.byte	8
+ 3104 0769 99       		.byte	-103
+ 3105 076a 2B       		.byte	43
+ 3106 076b FB       		.byte	-5
+ 3107 076c B4       		.byte	-76
+ 3108 076d FC       		.byte	-4
+ 3109 076e E3       		.byte	-29
+ 3110 076f D5       		.byte	-43
+ 3111 0770 D4       		.byte	-44
+ 3112 0771 37       		.byte	55
+ 3113 0772 CC       		.byte	-52
+ 3114 0773 04       		.byte	4
+ 3115 0774 29       		.byte	41
+ 3116 0775 FA       		.byte	-6
+ 3117 0776 51       		.byte	81
+ 3118 0777 16       		.byte	22
+ 3119 0778 18       		.byte	24
+ 3120 0779 19       		.byte	25
+ 3121 077a 03       		.byte	3
+ 3122 077b 01       		.byte	1
+ 3123 077c 0A       		.byte	10
+ 3124 077d E7       		.byte	-25
+ 3125 077e 44       		.byte	68
+ 3126 077f BF       		.byte	-65
+ 3127 0780 01       		.byte	1
+ 3128 0781 F4       		.byte	-12
+ 3129 0782 F7       		.byte	-9
+ 3130 0783 F7       		.byte	-9
+ 3131 0784 E5       		.byte	-27
+ 3132 0785 2A       		.byte	42
+ 3133 0786 6F       		.byte	111
+ 3134 0787 36       		.byte	54
+ 3135 0788 1F       		.byte	31
+ 3136 0789 4C       		.byte	76
+ 3137 078a 03       		.byte	3
+ 3138 078b 93       		.byte	-109
+ 3139 078c DB       		.byte	-37
+ 3140 078d D8       		.byte	-40
+ 3141 078e E0       		.byte	-32
+ 3142 078f 3A       		.byte	58
+ 3143 0790 18       		.byte	24
+ 3144 0791 F8       		.byte	-8
+ 3145 0792 08       		.byte	8
+ 3146 0793 0E       		.byte	14
+ 3147 0794 46       		.byte	70
+ 3148 0795 07       		.byte	7
+ 3149 0796 E3       		.byte	-29
+ 3150 0797 CE       		.byte	-50
+ 3151 0798 E8       		.byte	-24
+ 3152 0799 58       		.byte	88
+ 3153 079a 00       		.byte	0
+ 3154 079b 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 61
+
+
+ 3155 079c 38       		.byte	56
+ 3156 079d 27       		.byte	39
+ 3157 079e 00       		.byte	0
+ 3158 079f 00       		.byte	0
+ 3159 07a0 0C       		.byte	12
+ 3160 07a1 E2       		.byte	-30
+ 3161 07a2 FF       		.byte	-1
+ 3162 07a3 FF       		.byte	-1
+ 3163 07a4 DC       		.byte	-36
+ 3164 07a5 6A       		.byte	106
+ 3165 07a6 FF       		.byte	-1
+ 3166 07a7 FF       		.byte	-1
+ 3167 07a8 7E       		.byte	126
+ 3168 07a9 85       		.byte	-123
+ 3169 07aa FE       		.byte	-2
+ 3170 07ab FF       		.byte	-1
+ 3171 07ac 76       		.byte	118
+ 3172 07ad 17       		.byte	23
+ 3173 07ae 00       		.byte	0
+ 3174 07af 00       		.byte	0
+ 3175 07b0 EB       		.byte	-21
+ 3176 07b1 5A       		.byte	90
+ 3177 07b2 FF       		.byte	-1
+ 3178 07b3 FF       		.byte	-1
+ 3179 07b4 46       		.byte	70
+ 3180 07b5 CB       		.byte	-53
+ 3181 07b6 FF       		.byte	-1
+ 3182 07b7 FF       		.byte	-1
+ 3183 07b8 B6       		.byte	-74
+ 3184 07b9 80       		.byte	-128
+ 3185 07ba 00       		.byte	0
+ 3186 07bb 00       		.byte	0
+ 3187 07bc 31       		.byte	49
+ 3188 07bd AF       		.byte	-81
+ 3189 07be FF       		.byte	-1
+ 3190 07bf FF       		.byte	-1
+ 3191 07c0 DB       		.byte	-37
+ 3192 07c1 36       		.byte	54
+ 3193 07c2 00       		.byte	0
+ 3194 07c3 00       		.byte	0
+ 3195 07c4 F6       		.byte	-10
+ 3196 07c5 EF       		.byte	-17
+ 3197 07c6 FF       		.byte	-1
+ 3198 07c7 FF       		.byte	-1
+ 3199 07c8 0C       		.byte	12
+ 3200 07c9 82       		.byte	-126
+ 3201 07ca FF       		.byte	-1
+ 3202 07cb FF       		.byte	-1
+ 3203 07cc 82       		.byte	-126
+ 3204 07cd E2       		.byte	-30
+ 3205 07ce FF       		.byte	-1
+ 3206 07cf FF       		.byte	-1
+ 3207 07d0 55       		.byte	85
+ 3208 07d1 12       		.byte	18
+ 3209 07d2 FF       		.byte	-1
+ 3210 07d3 FF       		.byte	-1
+ 3211 07d4 F1       		.byte	-15
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 62
+
+
+ 3212 07d5 BF       		.byte	-65
+ 3213 07d6 00       		.byte	0
+ 3214 07d7 00       		.byte	0
+ 3215 07d8 01       		.byte	1
+ 3216 07d9 00       		.byte	0
+ 3217 07da 00       		.byte	0
+ 3218 07db 00       		.byte	0
+ 3219 07dc 30       		.byte	48
+ 3220 07dd 00       		.byte	0
+ 3221 07de 00       		.byte	0
+ 3222 07df 00       		.byte	0
+ 3223 07e0 78       		.byte	120
+ 3224 07e1 05       		.byte	5
+ 3225 07e2 00       		.byte	0
+ 3226 07e3 00       		.byte	0
+ 3227 07e4 00       		.byte	0
+ 3228 07e5 00       		.byte	0
+ 3229 07e6 00       		.byte	0
+ 3230 07e7 00       		.byte	0
+ 3231 07e8 03       		.byte	3
+ 3232 07e9 00       		.byte	0
+ 3233 07ea 02       		.byte	2
+ 3234 07eb 00       		.byte	0
+ 3235 07ec 02       		.byte	2
+ 3236 07ed 00       		.byte	0
+ 3237 07ee 10       		.byte	16
+ 3238 07ef 00       		.byte	0
+ 3239 07f0 01       		.byte	1
+ 3240 07f1 00       		.byte	0
+ 3241 07f2 01       		.byte	1
+ 3242 07f3 00       		.byte	0
+ 3243 07f4 01       		.byte	1
+ 3244 07f5 00       		.byte	0
+ 3245 07f6 10       		.byte	16
+ 3246 07f7 00       		.byte	0
+ 3247 07f8 05       		.byte	5
+ 3248 07f9 09       		.byte	9
+ 3249 07fa 68       		.byte	104
+ 3250 07fb 3D       		.byte	61
+ 3251 07fc 80       		.byte	-128
+ 3252 07fd FF       		.byte	-1
+ 3253 07fe FF       		.byte	-1
+ 3254 07ff FF       		.byte	-1
+ 3255 0800 21       		.byte	33
+ 3256 0801 1A       		.byte	26
+ 3257 0802 B7       		.byte	-73
+ 3258 0803 3C       		.byte	60
+ 3259 0804 80       		.byte	-128
+ 3260 0805 FF       		.byte	-1
+ 3261 0806 FF       		.byte	-1
+ 3262 0807 FF       		.byte	-1
+ 3263 0808 02       		.byte	2
+ 3264 0809 00       		.byte	0
+ 3265 080a 00       		.byte	0
+ 3266 080b 00       		.byte	0
+ 3267 080c 30       		.byte	48
+ 3268 080d 01       		.byte	1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 63
+
+
+ 3269 080e 00       		.byte	0
+ 3270 080f 00       		.byte	0
+ 3271 0810 00       		.byte	0
+ 3272 0811 00       		.byte	0
+ 3273 0812 00       		.byte	0
+ 3274 0813 00       		.byte	0
+ 3275 0814 A8       		.byte	-88
+ 3276 0815 05       		.byte	5
+ 3277 0816 00       		.byte	0
+ 3278 0817 00       		.byte	0
+ 3279 0818 01       		.byte	1
+ 3280 0819 00       		.byte	0
+ 3281 081a 01       		.byte	1
+ 3282 081b 00       		.byte	0
+ 3283 081c 01       		.byte	1
+ 3284 081d 00       		.byte	0
+ 3285 081e 10       		.byte	16
+ 3286 081f 00       		.byte	0
+ 3287 0820 01       		.byte	1
+ 3288 0821 00       		.byte	0
+ 3289 0822 01       		.byte	1
+ 3290 0823 00       		.byte	0
+ 3291 0824 01       		.byte	1
+ 3292 0825 00       		.byte	0
+ 3293 0826 0A       		.byte	10
+ 3294 0827 00       		.byte	0
+ 3295 0828 21       		.byte	33
+ 3296 0829 1A       		.byte	26
+ 3297 082a B7       		.byte	-73
+ 3298 082b 3C       		.byte	60
+ 3299 082c 80       		.byte	-128
+ 3300 082d FF       		.byte	-1
+ 3301 082e FF       		.byte	-1
+ 3302 082f FF       		.byte	-1
+ 3303 0830 FD       		.byte	-3
+ 3304 0831 06       		.byte	6
+ 3305 0832 1B       		.byte	27
+ 3306 0833 3E       		.byte	62
+ 3307 0834 2A       		.byte	42
+ 3308 0835 00       		.byte	0
+ 3309 0836 00       		.byte	0
+ 3310 0837 00       		.byte	0
+ 3311 0838 40       		.byte	64
+ 3312 0839 00       		.byte	0
+ 3313 083a 00       		.byte	0
+ 3314 083b 00       		.byte	0
+ 3315 083c 68       		.byte	104
+ 3316 083d 00       		.byte	0
+ 3317 083e 00       		.byte	0
+ 3318 083f 00       		.byte	0
+ 3319 0840 08       		.byte	8
+ 3320 0841 01       		.byte	1
+ 3321 0842 00       		.byte	0
+ 3322 0843 00       		.byte	0
+ 3323 0844 00       		.byte	0
+ 3324 0845 00       		.byte	0
+ 3325 0846 00       		.byte	0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 64
+
+
+ 3326 0847 00       		.byte	0
+ 3327 0848 E9       		.byte	-23
+ 3328 0849 E2       		.byte	-30
+ 3329 084a AF       		.byte	-81
+ 3330 084b 3C       		.byte	60
+ 3331 084c 00       		.byte	0
+ 3332 084d 00       		.byte	0
+ 3333 084e 00       		.byte	0
+ 3334 084f 00       		.byte	0
+ 3335 0850 00       		.byte	0
+ 3336 0851 00       		.byte	0
+ 3337 0852 00       		.byte	0
+ 3338 0853 00       		.byte	0
+ 3339 0854 00       		.byte	0
+ 3340 0855 00       		.byte	0
+ 3341 0856 00       		.byte	0
+ 3342 0857 00       		.byte	0
+ 3343 0858 00       		.byte	0
+ 3344 0859 00       		.byte	0
+ 3345 085a 00       		.byte	0
+ 3346 085b 00       		.byte	0
+ 3347 085c 00       		.byte	0
+ 3348 085d 00       		.byte	0
+ 3349 085e 00       		.byte	0
+ 3350 085f 00       		.byte	0
+ 3351 0860 00       		.byte	0
+ 3352 0861 00       		.byte	0
+ 3353 0862 00       		.byte	0
+ 3354 0863 00       		.byte	0
+ 3355 0864 00       		.byte	0
+ 3356 0865 00       		.byte	0
+ 3357 0866 00       		.byte	0
+ 3358 0867 00       		.byte	0
+ 3359 0868 00       		.byte	0
+ 3360 0869 00       		.byte	0
+ 3361 086a 00       		.byte	0
+ 3362 086b 00       		.byte	0
+ 3363 086c 00       		.byte	0
+ 3364 086d 00       		.byte	0
+ 3365 086e 00       		.byte	0
+ 3366 086f 00       		.byte	0
+ 3367 0870 2A       		.byte	42
+ 3368 0871 E2       		.byte	-30
+ 3369 0872 29       		.byte	41
+ 3370 0873 BF       		.byte	-65
+ 3371 0874 0B       		.byte	11
+ 3372 0875 DD       		.byte	-35
+ 3373 0876 09       		.byte	9
+ 3374 0877 FA       		.byte	-6
+ 3375 0878 42       		.byte	66
+ 3376 0879 B1       		.byte	-79
+ 3377 087a F9       		.byte	-7
+ 3378 087b C2       		.byte	-62
+ 3379 087c 46       		.byte	70
+ 3380 087d D2       		.byte	-46
+ 3381 087e 0F       		.byte	15
+ 3382 087f B5       		.byte	-75
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 65
+
+
+ 3383 0880 34       		.byte	52
+ 3384 0881 EA       		.byte	-22
+ 3385 0882 B3       		.byte	-77
+ 3386 0883 17       		.byte	23
+ 3387 0884 DB       		.byte	-37
+ 3388 0885 FB       		.byte	-5
+ 3389 0886 BC       		.byte	-68
+ 3390 0887 0F       		.byte	15
+ 3391 0888 24       		.byte	36
+ 3392 0889 DF       		.byte	-33
+ 3393 088a CE       		.byte	-50
+ 3394 088b F9       		.byte	-7
+ 3395 088c 1C       		.byte	28
+ 3396 088d E0       		.byte	-32
+ 3397 088e BB       		.byte	-69
+ 3398 088f 38       		.byte	56
+ 3399 0890 B7       		.byte	-73
+ 3400 0891 E2       		.byte	-30
+ 3401 0892 28       		.byte	40
+ 3402 0893 0C       		.byte	12
+ 3403 0894 04       		.byte	4
+ 3404 0895 93       		.byte	-109
+ 3405 0896 39       		.byte	57
+ 3406 0897 E3       		.byte	-29
+ 3407 0898 F5       		.byte	-11
+ 3408 0899 EE       		.byte	-18
+ 3409 089a 3C       		.byte	60
+ 3410 089b C6       		.byte	-58
+ 3411 089c 37       		.byte	55
+ 3412 089d F6       		.byte	-10
+ 3413 089e B6       		.byte	-74
+ 3414 089f 41       		.byte	65
+ 3415 08a0 CA       		.byte	-54
+ 3416 08a1 BA       		.byte	-70
+ 3417 08a2 D7       		.byte	-41
+ 3418 08a3 ED       		.byte	-19
+ 3419 08a4 C3       		.byte	-61
+ 3420 08a5 FD       		.byte	-3
+ 3421 08a6 3A       		.byte	58
+ 3422 08a7 0D       		.byte	13
+ 3423 08a8 D2       		.byte	-46
+ 3424 08a9 1D       		.byte	29
+ 3425 08aa 07       		.byte	7
+ 3426 08ab A9       		.byte	-87
+ 3427 08ac E9       		.byte	-23
+ 3428 08ad 06       		.byte	6
+ 3429 08ae 53       		.byte	83
+ 3430 08af 25       		.byte	37
+ 3431 08b0 25       		.byte	37
+ 3432 08b1 D7       		.byte	-41
+ 3433 08b2 1A       		.byte	26
+ 3434 08b3 31       		.byte	49
+ 3435 08b4 F0       		.byte	-16
+ 3436 08b5 0E       		.byte	14
+ 3437 08b6 81       		.byte	-127
+ 3438 08b7 19       		.byte	25
+ 3439 08b8 EF       		.byte	-17
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 66
+
+
+ 3440 08b9 C0       		.byte	-64
+ 3441 08ba 0A       		.byte	10
+ 3442 08bb 2D       		.byte	45
+ 3443 08bc B5       		.byte	-75
+ 3444 08bd 33       		.byte	51
+ 3445 08be FB       		.byte	-5
+ 3446 08bf E6       		.byte	-26
+ 3447 08c0 DC       		.byte	-36
+ 3448 08c1 1D       		.byte	29
+ 3449 08c2 03       		.byte	3
+ 3450 08c3 83       		.byte	-125
+ 3451 08c4 E2       		.byte	-30
+ 3452 08c5 48       		.byte	72
+ 3453 08c6 D9       		.byte	-39
+ 3454 08c7 28       		.byte	40
+ 3455 08c8 23       		.byte	35
+ 3456 08c9 31       		.byte	49
+ 3457 08ca 34       		.byte	52
+ 3458 08cb E6       		.byte	-26
+ 3459 08cc EB       		.byte	-21
+ 3460 08cd DB       		.byte	-37
+ 3461 08ce DD       		.byte	-35
+ 3462 08cf DC       		.byte	-36
+ 3463 08d0 E7       		.byte	-25
+ 3464 08d1 4E       		.byte	78
+ 3465 08d2 C0       		.byte	-64
+ 3466 08d3 CF       		.byte	-49
+ 3467 08d4 25       		.byte	37
+ 3468 08d5 3C       		.byte	60
+ 3469 08d6 98       		.byte	-104
+ 3470 08d7 B5       		.byte	-75
+ 3471 08d8 EC       		.byte	-20
+ 3472 08d9 CC       		.byte	-52
+ 3473 08da 36       		.byte	54
+ 3474 08db C3       		.byte	-61
+ 3475 08dc 3C       		.byte	60
+ 3476 08dd 08       		.byte	8
+ 3477 08de F2       		.byte	-14
+ 3478 08df E3       		.byte	-29
+ 3479 08e0 0D       		.byte	13
+ 3480 08e1 F7       		.byte	-9
+ 3481 08e2 41       		.byte	65
+ 3482 08e3 44       		.byte	68
+ 3483 08e4 90       		.byte	-112
+ 3484 08e5 1F       		.byte	31
+ 3485 08e6 22       		.byte	34
+ 3486 08e7 07       		.byte	7
+ 3487 08e8 CB       		.byte	-53
+ 3488 08e9 0B       		.byte	11
+ 3489 08ea B8       		.byte	-72
+ 3490 08eb 09       		.byte	9
+ 3491 08ec FE       		.byte	-2
+ 3492 08ed C8       		.byte	-56
+ 3493 08ee BF       		.byte	-65
+ 3494 08ef 0B       		.byte	11
+ 3495 08f0 BD       		.byte	-67
+ 3496 08f1 F5       		.byte	-11
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 67
+
+
+ 3497 08f2 06       		.byte	6
+ 3498 08f3 D2       		.byte	-46
+ 3499 08f4 4D       		.byte	77
+ 3500 08f5 CC       		.byte	-52
+ 3501 08f6 07       		.byte	7
+ 3502 08f7 DF       		.byte	-33
+ 3503 08f8 1F       		.byte	31
+ 3504 08f9 FB       		.byte	-5
+ 3505 08fa F9       		.byte	-7
+ 3506 08fb 2F       		.byte	47
+ 3507 08fc E6       		.byte	-26
+ 3508 08fd A2       		.byte	-94
+ 3509 08fe 26       		.byte	38
+ 3510 08ff 00       		.byte	0
+ 3511 0900 F0       		.byte	-16
+ 3512 0901 36       		.byte	54
+ 3513 0902 FC       		.byte	-4
+ 3514 0903 E9       		.byte	-23
+ 3515 0904 F3       		.byte	-13
+ 3516 0905 EB       		.byte	-21
+ 3517 0906 0E       		.byte	14
+ 3518 0907 B0       		.byte	-80
+ 3519 0908 BD       		.byte	-67
+ 3520 0909 3F       		.byte	63
+ 3521 090a C6       		.byte	-58
+ 3522 090b 1C       		.byte	28
+ 3523 090c CA       		.byte	-54
+ 3524 090d 4D       		.byte	77
+ 3525 090e 02       		.byte	2
+ 3526 090f F4       		.byte	-12
+ 3527 0910 BC       		.byte	-68
+ 3528 0911 B2       		.byte	-78
+ 3529 0912 FF       		.byte	-1
+ 3530 0913 FF       		.byte	-1
+ 3531 0914 1A       		.byte	26
+ 3532 0915 A5       		.byte	-91
+ 3533 0916 FF       		.byte	-1
+ 3534 0917 FF       		.byte	-1
+ 3535 0918 C5       		.byte	-59
+ 3536 0919 C3       		.byte	-61
+ 3537 091a FF       		.byte	-1
+ 3538 091b FF       		.byte	-1
+ 3539 091c 1C       		.byte	28
+ 3540 091d AA       		.byte	-86
+ 3541 091e FF       		.byte	-1
+ 3542 091f FF       		.byte	-1
+ 3543 0920 44       		.byte	68
+ 3544 0921 C4       		.byte	-60
+ 3545 0922 FF       		.byte	-1
+ 3546 0923 FF       		.byte	-1
+ 3547 0924 64       		.byte	100
+ 3548 0925 CC       		.byte	-52
+ 3549 0926 FF       		.byte	-1
+ 3550 0927 FF       		.byte	-1
+ 3551 0928 FB       		.byte	-5
+ 3552 0929 9C       		.byte	-100
+ 3553 092a FF       		.byte	-1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 68
+
+
+ 3554 092b FF       		.byte	-1
+ 3555 092c 62       		.byte	98
+ 3556 092d C3       		.byte	-61
+ 3557 092e FF       		.byte	-1
+ 3558 092f FF       		.byte	-1
+ 3559 0930 97       		.byte	-105
+ 3560 0931 BD       		.byte	-67
+ 3561 0932 FF       		.byte	-1
+ 3562 0933 FF       		.byte	-1
+ 3563 0934 E6       		.byte	-26
+ 3564 0935 C9       		.byte	-55
+ 3565 0936 FF       		.byte	-1
+ 3566 0937 FF       		.byte	-1
+ 3567 0938 03       		.byte	3
+ 3568 0939 00       		.byte	0
+ 3569 093a 01       		.byte	1
+ 3570 093b 00       		.byte	0
+ 3571 093c 30       		.byte	48
+ 3572 093d 00       		.byte	0
+ 3573 093e 00       		.byte	0
+ 3574 093f 00       		.byte	0
+ 3575 0940 A8       		.byte	-88
+ 3576 0941 05       		.byte	5
+ 3577 0942 00       		.byte	0
+ 3578 0943 00       		.byte	0
+ 3579 0944 00       		.byte	0
+ 3580 0945 00       		.byte	0
+ 3581 0946 00       		.byte	0
+ 3582 0947 00       		.byte	0
+ 3583 0948 01       		.byte	1
+ 3584 0949 00       		.byte	0
+ 3585 094a 01       		.byte	1
+ 3586 094b 00       		.byte	0
+ 3587 094c 01       		.byte	1
+ 3588 094d 00       		.byte	0
+ 3589 094e 0A       		.byte	10
+ 3590 094f 00       		.byte	0
+ 3591 0950 01       		.byte	1
+ 3592 0951 00       		.byte	0
+ 3593 0952 01       		.byte	1
+ 3594 0953 00       		.byte	0
+ 3595 0954 01       		.byte	1
+ 3596 0955 00       		.byte	0
+ 3597 0956 0A       		.byte	10
+ 3598 0957 00       		.byte	0
+ 3599 0958 FD       		.byte	-3
+ 3600 0959 06       		.byte	6
+ 3601 095a 1B       		.byte	27
+ 3602 095b 3E       		.byte	62
+ 3603 095c 2A       		.byte	42
+ 3604 095d 00       		.byte	0
+ 3605 095e 00       		.byte	0
+ 3606 095f 00       		.byte	0
+ 3607 0960 00       		.byte	0
+ 3608 0961 00       		.byte	0
+ 3609 0962 80       		.byte	-128
+ 3610 0963 3B       		.byte	59
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 69
+
+
+ 3611 0964 80       		.byte	-128
+ 3612 0965 FF       		.byte	-1
+ 3613 0966 FF       		.byte	-1
+ 3614 0967 FF       		.byte	-1
+ 3615              		.text
+ 3616              	.Letext0:
+ 3617              		.file 2 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3618              		.file 3 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3619              		.file 4 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3620              		.file 5 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3621              		.file 6 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3622              		.file 7 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3623              		.file 8 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3624              		.file 9 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
+ 3625              		.file 10 "include/tinymaix.h"
+ 3626              		.file 11 "lib/mnist/include/mnist_valid_q.h"
+ 3627              		.file 12 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v
+ 3628              		.file 13 "<built-in>"
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 70
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 main.c
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:13     .text.startup.main:0000000000000000 main
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:17     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:18     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:20     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:21     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:22     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:23     .text.startup.main:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:25     .text.startup.main:0000000000000002 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:27     .text.startup.main:0000000000000002 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:29     .text.startup.main:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:33     .text.startup.main:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:34     .text.startup.main:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:35     .text.startup.main:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:36     .text.startup.main:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:38     .text.startup.main:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:40     .text.startup.main:0000000000000012 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:43     .text.startup.main:000000000000001a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:49     .text.startup.main:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:52     .text.startup.main:0000000000000028 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:55     .text.startup.main:0000000000000030 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:57     .text.startup.main:0000000000000032 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:60     .text.startup.main:0000000000000036 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:65     .text.startup.main:000000000000003a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:66     .text.startup.main:000000000000003a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:67     .text.startup.main:000000000000003a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:71     .text.startup.main:0000000000000044 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:74     .text.startup.main:0000000000000046 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:75     .text.startup.main:0000000000000046 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:76     .text.startup.main:0000000000000046 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:79     .text.startup.main:0000000000000048 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:81     .text.startup.main:000000000000004c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:89     .text.startup.main:000000000000005c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:90     .text.startup.main:000000000000005c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:91     .text.startup.main:000000000000005c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:94     .text.startup.main:000000000000005e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:96     .text.startup.main:0000000000000060 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:98     .text.startup.main:0000000000000064 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:99     .text.startup.main:0000000000000064 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:104    .text.startup.main:000000000000006c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:107    .text.startup.main:000000000000006c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:12     .text.layer_cb:0000000000000000 layer_cb
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:16     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:18     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:19     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:20     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:21     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:22     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:23     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:24     .text.layer_cb:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:27     .text.layer_cb:0000000000000004 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:40     .text.startup.main:0000000000000000 main
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:43     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:45     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:46     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:47     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:48     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:49     .text.startup.main:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:51     .text.startup.main:0000000000000002 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:60     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:61     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:62     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:63     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:64     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:65     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:66     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:67     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:69     .text.startup.main:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:72     .text.startup.main:000000000000001a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:73     .text.startup.main:000000000000001a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:77     .text.startup.main:0000000000000022 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:80     .text.startup.main:0000000000000026 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:83     .text.startup.main:000000000000002e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:85     .text.startup.main:000000000000002e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:86     .text.startup.main:000000000000002e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:87     .text.startup.main:000000000000002e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:89     .text.startup.main:0000000000000030 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:92     .text.startup.main:0000000000000038 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:94     .text.startup.main:000000000000003a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:96     .text.startup.main:000000000000003c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:100    .text.startup.main:0000000000000040 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:106    .text.startup.main:0000000000000054 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:107    .text.startup.main:0000000000000054 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:109    .text.startup.main:0000000000000058 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:111    .text.startup.main:000000000000005c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:116    .text.startup.main:0000000000000066 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:119    .text.startup.main:0000000000000068 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:122    .text.startup.main:000000000000006c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:123    .text.startup.main:000000000000006c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:132    .text.startup.main:0000000000000084 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:133    .text.startup.main:0000000000000084 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:139    .text.startup.main:0000000000000094 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:140    .text.startup.main:0000000000000094 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1206   .rodata.mdl_data:0000000000000000 mdl_data
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:141    .text.startup.main:0000000000000094 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:146    .text.startup.main:00000000000000a4 .L0 
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 71
+
+
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:147    .text.startup.main:00000000000000a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:158    .text.startup.main:00000000000000c0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:159    .text.startup.main:00000000000000c0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:161    .text.startup.main:00000000000000c2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:167    .text.startup.main:00000000000000d2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:168    .text.startup.main:00000000000000d2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:171    .text.startup.main:00000000000000d4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:172    .text.startup.main:00000000000000d6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:173    .text.startup.main:00000000000000d6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:175    .text.startup.main:00000000000000d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:177    .text.startup.main:00000000000000da .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:179    .text.startup.main:00000000000000dc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:181    .text.startup.main:00000000000000de .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:183    .text.startup.main:00000000000000e0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:185    .text.startup.main:00000000000000e2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:187    .text.startup.main:00000000000000e4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:190    .text.startup.main:00000000000000e6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:195    .text.startup.main:00000000000000e8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:197    .text.startup.main:00000000000000e8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:198    .text.startup.main:00000000000000e8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:206    .text.startup.main:00000000000000f8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:211    .text.startup.main:0000000000000102 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:212    .text.startup.main:0000000000000102 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:213    .text.startup.main:0000000000000102 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:220    .text.startup.main:0000000000000110 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:223    .text.startup.main:0000000000000118 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:226    .text.startup.main:000000000000011a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:229    .text.startup.main:0000000000000122 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:230    .text.startup.main:0000000000000122 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:240    .text.startup.main:000000000000013e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:248    .text.startup.main:0000000000000158 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:266    .text.startup.main:0000000000000198 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:269    .text.startup.main:00000000000001a0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:270    .text.startup.main:00000000000001a0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:271    .text.startup.main:00000000000001a0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:276    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:277    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:278    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:279    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:280    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:282    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:283    .text.startup.main:00000000000001a2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:287    .text.startup.main:00000000000001a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:289    .text.startup.main:00000000000001a6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:292    .text.startup.main:00000000000001aa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:294    .text.startup.main:00000000000001ac .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:296    .text.startup.main:00000000000001b0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:300    .text.startup.main:00000000000001b2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:310    .text.startup.main:00000000000001ce .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:311    .text.startup.main:00000000000001ce .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:313    .text.startup.main:00000000000001d2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:321    .text.startup.main:00000000000001e4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:325    .text.startup.main:00000000000001e6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:329    .text.startup.main:00000000000001ea .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:332    .text.startup.main:00000000000001ee .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:346    .text.startup.main:000000000000020e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:347    .text.startup.main:000000000000020e .L0 
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 72
+
+
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:351    .text.startup.main:0000000000000218 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:352    .text.startup.main:0000000000000218 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:357    .text.startup.main:000000000000021c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:363    .text.startup.main:0000000000000230 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:388    .data.mnist_pic:0000000000000000 mnist_pic
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:370    .rodata:0000000000000000 .LANCHOR1
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:385    .data.mnist_pic:0000000000000000 .LANCHOR0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:36     .text.layer_cb:0000000000000004 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:368    .text.startup.main:0000000000000230 .L0 
                      .debug_frame:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:62     .text.startup.main:000000000000003a .L4
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:92     .text.startup.main:000000000000005e .L2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:459    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:764    .debug_str:0000000000000000 .LASF57
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:860    .debug_str:00000000000002e9 .LASF58
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:820    .debug_str:0000000000000196 .LASF59
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:748    .debug_ranges:0000000000000000 .Ldebug_ranges0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:762    .debug_line:0000000000000000 .Ldebug_line0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:840    .debug_str:000000000000027c .LASF0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:834    .debug_str:0000000000000250 .LASF1
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:886    .debug_str:0000000000000372 .LASF6
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:824    .debug_str:000000000000020f .LASF2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:788    .debug_str:00000000000000f7 .LASF3
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:844    .debug_str:0000000000000291 .LASF4
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1179   .rodata.main.str1.4:0000000000000000 .LC2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1182   .rodata.main.str1.4:000000000000000c .LC3
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1185   .rodata.main.str1.4:0000000000000014 .LC5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1175   .rodata.main.cst4:0000000000000000 .LC6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1191   .rodata.main.str1.4:0000000000000034 .LC8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1188   .rodata.main.str1.4:000000000000002c .LC7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1194   .rodata.main.str1.4:0000000000000048 .LC9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1197   .rodata.main.str1.4:0000000000000054 .LC10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:1200   .rodata.main.str1.4:0000000000000084 .LC11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:114    .text.startup.main:0000000000000066 .L3
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:98     .text.startup.main:0000000000000040 .L4
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:193    .text.startup.main:00000000000000e8 .L5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:355    .text.startup.main:000000000000021c .L7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:323    .text.startup.main:00000000000001e6 .L8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:298    .text.startup.main:00000000000001b2 .L10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:169    .text.startup.main:00000000000000d4 .L2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:343    .text.startup.main:000000000000020e .L11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:6342   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7878   .debug_str:0000000000000598 .LASF216
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7596   .debug_str:0000000000000000 .LASF217
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7712   .debug_str:0000000000000228 .LASF218
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7574   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7594   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7696   .debug_str:00000000000001cd .LASF0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7622   .debug_str:000000000000007b .LASF1
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7682   .debug_str:000000000000018f .LASF2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7858   .debug_str:000000000000054a .LASF4
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7992   .debug_str:0000000000000816 .LASF3
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7916   .debug_str:00000000000006c7 .LASF5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7954   .debug_str:0000000000000764 .LASF6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7890   .debug_str:000000000000064a .LASF7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7704   .debug_str:00000000000001fe .LASF8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7998   .debug_str:0000000000000836 .LASF9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7630   .debug_str:00000000000000a4 .LASF10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7892   .debug_str:0000000000000654 .LASF11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7956   .debug_str:0000000000000772 .LASF12
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7936   .debug_str:0000000000000712 .LASF13
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7808   .debug_str:000000000000046a .LASF14
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7744   .debug_str:0000000000000316 .LASF15
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7870   .debug_str:0000000000000577 .LASF16
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7942   .debug_str:0000000000000734 .LASF17
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8012   .debug_str:000000000000087a .LASF18
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7654   .debug_str:000000000000011a .LASF19
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7990   .debug_str:000000000000080d .LASF20
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7784   .debug_str:00000000000003f1 .LASF21
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7902   .debug_str:000000000000067e .LASF22
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7680   .debug_str:0000000000000187 .LASF23
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 73
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:798    .debug_str:0000000000000125 .LASF5
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:784    .debug_str:00000000000000e4 .LASF7
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:862    .debug_str:00000000000002f0 .LASF8
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:782    .debug_str:00000000000000d6 .LASF9
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:836    .debug_str:000000000000025c .LASF10
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:790    .debug_str:0000000000000101 .LASF11
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:838    .debug_str:0000000000000273 .LASF12
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:766    .debug_str:0000000000000088 .LASF60
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:850    .debug_str:00000000000002b6 .LASF13
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:852    .debug_str:00000000000002bf .LASF14
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:884    .debug_str:000000000000036a .LASF15
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:882    .debug_str:0000000000000361 .LASF16
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:876    .debug_str:0000000000000343 .LASF17
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:808    .debug_str:0000000000000154 .LASF18
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:810    .debug_str:000000000000015f .LASF19
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:812    .debug_str:000000000000016a .LASF20
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:814    .debug_str:0000000000000175 .LASF21
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:816    .debug_str:0000000000000180 .LASF22
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:818    .debug_str:000000000000018b .LASF23
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:796    .debug_str:000000000000011b .LASF24
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:802    .debug_str:0000000000000137 .LASF25
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:804    .debug_str:0000000000000140 .LASF26
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:872    .debug_str:000000000000032d .LASF27
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:874    .debug_str:0000000000000338 .LASF28
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:878    .debug_str:000000000000034d .LASF29
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:880    .debug_str:0000000000000357 .LASF30
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:846    .debug_str:00000000000002a4 .LASF31
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:848    .debug_str:00000000000002ad .LASF32
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:792    .debug_str:0000000000000109 .LASF33
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:794    .debug_str:0000000000000112 .LASF34
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:832    .debug_str:0000000000000247 .LASF35
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:842    .debug_str:0000000000000289 .LASF36
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:854    .debug_str:00000000000002c8 .LASF37
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:786    .debug_str:00000000000000ef .LASF38
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:768    .debug_str:0000000000000098 .LASF39
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:770    .debug_str:000000000000009f .LASF40
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:772    .debug_str:00000000000000a9 .LASF41
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:774    .debug_str:00000000000000b3 .LASF42
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:776    .debug_str:00000000000000bd .LASF43
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:778    .debug_str:00000000000000c7 .LASF44
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:828    .debug_str:0000000000000235 .LASF45
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:830    .debug_str:000000000000023e .LASF46
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:806    .debug_str:0000000000000149 .LASF47
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:800    .debug_str:000000000000012e .LASF48
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:870    .debug_str:0000000000000322 .LASF49
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:822    .debug_str:0000000000000203 .LASF50
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:780    .debug_str:00000000000000d1 .LASF61
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:14     .text.startup.main:0000000000000000 .LFB2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:105    .text.startup.main:000000000000006c .LFE2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:693    .debug_loc:0000000000000000 .LLST0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:858    .debug_str:00000000000002e4 .LASF51
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:706    .debug_loc:0000000000000020 .LLST1
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:868    .debug_str:000000000000031c .LASF52
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:723    .debug_loc:0000000000000045 .LLST2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:41     .text.startup.main:000000000000001a .LVL1
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:53     .text.startup.main:0000000000000030 .LVL2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:69     .text.startup.main:0000000000000044 .LVL4
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s 			page 6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7750   .debug_str:0000000000000331 .LASF24
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7834   .debug_str:00000000000004de .LASF25
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7818   .debug_str:0000000000000495 .LASF26
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7642   .debug_str:00000000000000d6 .LASF27
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7780   .debug_str:00000000000003dc .LASF28
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7662   .debug_str:0000000000000139 .LASF33
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7738   .debug_str:00000000000002f7 .LASF29
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7922   .debug_str:00000000000006de .LASF30
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7898   .debug_str:0000000000000672 .LASF31
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7702   .debug_str:00000000000001f9 .LASF32
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7932   .debug_str:0000000000000707 .LASF34
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7722   .debug_str:00000000000002b8 .LASF35
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7684   .debug_str:0000000000000195 .LASF36
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7674   .debug_str:000000000000016c .LASF37
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7764   .debug_str:0000000000000374 .LASF38
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7864   .debug_str:000000000000055e .LASF39
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7906   .debug_str:0000000000000698 .LASF40
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7664   .debug_str:0000000000000141 .LASF41
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7728   .debug_str:00000000000002d2 .LASF42
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7842   .debug_str:00000000000004fd .LASF43
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7602   .debug_str:0000000000000017 .LASF44
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7838   .debug_str:00000000000004f0 .LASF45
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7946   .debug_str:0000000000000743 .LASF46
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8006   .debug_str:0000000000000863 .LASF47
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8024   .debug_str:00000000000008c3 .LASF48
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7880   .debug_str:0000000000000620 .LASF49
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7732   .debug_str:00000000000002e1 .LASF50
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7656   .debug_str:0000000000000122 .LASF51
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7964   .debug_str:0000000000000795 .LASF52
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7812   .debug_str:000000000000047f .LASF53
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8008   .debug_str:000000000000086c .LASF54
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7700   .debug_str:00000000000001f1 .LASF55
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7626   .debug_str:0000000000000091 .LASF56
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7822   .debug_str:00000000000004ac .LASF57
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7624   .debug_str:0000000000000088 .LASF58
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7658   .debug_str:0000000000000127 .LASF59
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7644   .debug_str:00000000000000e8 .LASF60
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7876   .debug_str:0000000000000591 .LASF61
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8032   .debug_str:00000000000008e7 .LASF62
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7794   .debug_str:0000000000000420 .LASF63
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8040   .debug_str:0000000000000907 .LASF64
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8014   .debug_str:0000000000000881 .LASF65
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7930   .debug_str:00000000000006fe .LASF66
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7710   .debug_str:0000000000000220 .LASF67
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7900   .debug_str:0000000000000678 .LASF68
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7934   .debug_str:000000000000070c .LASF69
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7882   .debug_str:0000000000000628 .LASF70
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8020   .debug_str:00000000000008ad .LASF71
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7996   .debug_str:000000000000082f .LASF72
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7632   .debug_str:00000000000000ae .LASF73
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7804   .debug_str:0000000000000454 .LASF74
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7652   .debug_str:0000000000000112 .LASF75
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8036   .debug_str:00000000000008f6 .LASF76
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7730   .debug_str:00000000000002dc .LASF77
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7714   .debug_str:0000000000000295 .LASF78
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8018   .debug_str:0000000000000894 .LASF79
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7988   .debug_str:0000000000000805 .LASF80
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 74
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:86     .text.startup.main:000000000000005c .LVL7
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:826    .debug_str:000000000000021d .LASF53
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:866    .debug_str:0000000000000312 .LASF54
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:856    .debug_str:00000000000002d0 .LASF55
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:864    .debug_str:0000000000000302 .LASF56
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:24     .text.startup.main:0000000000000002 .LCFI0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:19     .text.startup.main:0000000000000000 .LVL0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:61     .text.startup.main:000000000000003a .LVL3
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:72     .text.startup.main:0000000000000046 .LVL5
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:77     .text.startup.main:0000000000000048 .LVL6
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:115    .debug_info:0000000000000000 .Ldebug_info0
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:47     .text.startup.main:0000000000000024 .LBB2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:50     .text.startup.main:0000000000000028 .LBE2
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:58     .text.startup.main:0000000000000036 .LBB3
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:63     .text.startup.main:000000000000003a .LBE3
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:88     .text.startup.main:000000000000005c .LBB4
-C:\Users\Jesper\AppData\Local\Temp\ccEWCgAX.s:103    .text.startup.main:000000000000006c .LBE4
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7798   .debug_str:0000000000000430 .LASF81
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7832   .debug_str:00000000000004d4 .LASF82
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7668   .debug_str:0000000000000154 .LASF83
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7694   .debug_str:00000000000001c3 .LASF84
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7752   .debug_str:0000000000000339 .LASF85
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7814   .debug_str:0000000000000485 .LASF86
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7920   .debug_str:00000000000006d6 .LASF87
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7952   .debug_str:000000000000075c .LASF88
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7918   .debug_str:00000000000006d1 .LASF89
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7770   .debug_str:0000000000000397 .LASF90
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7766   .debug_str:000000000000037e .LASF91
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7974   .debug_str:00000000000007bc .LASF92
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7896   .debug_str:000000000000066d .LASF93
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7762   .debug_str:000000000000036f .LASF94
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7706   .debug_str:0000000000000209 .LASF95
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7968   .debug_str:00000000000007a5 .LASF96
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7940   .debug_str:000000000000072d .LASF97
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7786   .debug_str:00000000000003f7 .LASF98
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7692   .debug_str:00000000000001bb .LASF99
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8026   .debug_str:00000000000008cb .LASF100
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7816   .debug_str:000000000000048f .LASF101
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7960   .debug_str:000000000000078a .LASF102
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8016   .debug_str:0000000000000887 .LASF103
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7980   .debug_str:00000000000007d9 .LASF104
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7698   .debug_str:00000000000001e4 .LASF105
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7912   .debug_str:00000000000006b0 .LASF106
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7806   .debug_str:000000000000045b .LASF107
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8028   .debug_str:00000000000008d1 .LASF108
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7614   .debug_str:0000000000000055 .LASF109
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7760   .debug_str:0000000000000362 .LASF110
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7982   .debug_str:00000000000007e6 .LASF111
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7610   .debug_str:000000000000003c .LASF112
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7924   .debug_str:00000000000006e6 .LASF113
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7620   .debug_str:000000000000006f .LASF114
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7958   .debug_str:000000000000077d .LASF115
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7646   .debug_str:00000000000000ee .LASF116
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7768   .debug_str:0000000000000388 .LASF117
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7742   .debug_str:0000000000000305 .LASF118
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7820   .debug_str:000000000000049d .LASF119
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7758   .debug_str:0000000000000351 .LASF120
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7848   .debug_str:0000000000000521 .LASF121
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7688   .debug_str:00000000000001aa .LASF122
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8038   .debug_str:00000000000008fe .LASF123
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7914   .debug_str:00000000000006bf .LASF124
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8030   .debug_str:00000000000008dc .LASF219
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7686   .debug_str:000000000000019e .LASF125
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7904   .debug_str:0000000000000685 .LASF126
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7672   .debug_str:0000000000000165 .LASF127
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7788   .debug_str:00000000000003fd .LASF128
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7872   .debug_str:0000000000000583 .LASF129
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7944   .debug_str:000000000000073b .LASF130
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7670   .debug_str:000000000000015c .LASF131
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7970   .debug_str:00000000000007ab .LASF132
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7726   .debug_str:00000000000002c8 .LASF133
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7800   .debug_str:000000000000043b .LASF134
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7608   .debug_str:0000000000000032 .LASF135
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7746   .debug_str:0000000000000321 .LASF136
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 75
+
+
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7740   .debug_str:00000000000002fd .LASF137
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7720   .debug_str:00000000000002ae .LASF138
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7718   .debug_str:00000000000002a5 .LASF139
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7966   .debug_str:000000000000079c .LASF140
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7604   .debug_str:0000000000000025 .LASF141
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7724   .debug_str:00000000000002c1 .LASF142
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7774   .debug_str:00000000000003ad .LASF143
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7778   .debug_str:00000000000003cb .LASF144
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7612   .debug_str:000000000000004a .LASF145
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7776   .debug_str:00000000000003ba .LASF146
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7782   .debug_str:00000000000003e5 .LASF147
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7792   .debug_str:0000000000000414 .LASF148
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7802   .debug_str:0000000000000445 .LASF149
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7772   .debug_str:00000000000003a0 .LASF150
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8034   .debug_str:00000000000008ed .LASF151
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7830   .debug_str:00000000000004ca .LASF152
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7616   .debug_str:000000000000005a .LASF153
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7976   .debug_str:00000000000007c4 .LASF154
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7850   .debug_str:000000000000052a .LASF155
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7708   .debug_str:0000000000000210 .LASF156
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7894   .debug_str:000000000000065d .LASF157
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7628   .debug_str:0000000000000098 .LASF158
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7926   .debug_str:00000000000006f0 .LASF159
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7756   .debug_str:0000000000000348 .LASF160
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8010   .debug_str:0000000000000872 .LASF161
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7754   .debug_str:000000000000033e .LASF162
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7824   .debug_str:00000000000004b2 .LASF163
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7734   .debug_str:00000000000002e6 .LASF164
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7676   .debug_str:0000000000000176 .LASF165
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7938   .debug_str:0000000000000724 .LASF166
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7638   .debug_str:00000000000000c3 .LASF167
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7598   .debug_str:0000000000000007 .LASF168
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7928   .debug_str:00000000000006f6 .LASF169
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7984   .debug_str:00000000000007f4 .LASF170
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8004   .debug_str:0000000000000857 .LASF171
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7826   .debug_str:00000000000004bd .LASF172
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7866   .debug_str:0000000000000567 .LASF173
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8002   .debug_str:000000000000084f .LASF174
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7640   .debug_str:00000000000000cb .LASF175
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7910   .debug_str:00000000000006a7 .LASF176
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7860   .debug_str:0000000000000553 .LASF177
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7828   .debug_str:00000000000004c4 .LASF178
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7648   .debug_str:00000000000000fc .LASF179
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7666   .debug_str:000000000000014b .LASF180
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7950   .debug_str:0000000000000757 .LASF181
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7854   .debug_str:000000000000053e .LASF182
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7840   .debug_str:00000000000004f8 .LASF183
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7606   .debug_str:000000000000002b .LASF184
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7748   .debug_str:0000000000000329 .LASF185
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7634   .debug_str:00000000000000b5 .LASF186
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7862   .debug_str:0000000000000558 .LASF187
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7962   .debug_str:000000000000078f .LASF188
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7736   .debug_str:00000000000002f0 .LASF189
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7884   .debug_str:0000000000000631 .LASF190
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7636   .debug_str:00000000000000ba .LASF191
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7690   .debug_str:00000000000001b1 .LASF192
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7874   .debug_str:000000000000058c .LASF220
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 76
+
+
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:41     .text.startup.main:0000000000000000 .LFB28
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:364    .text.startup.main:0000000000000230 .LFE28
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7225   .debug_loc:0000000000000000 .LLST2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7856   .debug_str:0000000000000545 .LASF193
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7248   .debug_loc:000000000000003a .LLST3
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7868   .debug_str:0000000000000572 .LASF194
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7262   .debug_loc:000000000000005b .LLST4
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7978   .debug_str:00000000000007d2 .LASF195
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7276   .debug_loc:000000000000007c .LLST5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7678   .debug_str:000000000000017f .LASF196
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7327   .debug_loc:00000000000000ce .LLST6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7888   .debug_str:0000000000000644 .LASF197
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7354   .debug_loc:00000000000000fb .LLST7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7796   .debug_str:0000000000000427 .LASF198
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7908   .debug_str:00000000000006a2 .LASF199
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7411   .debug_loc:000000000000014f .LLST8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7434   .debug_loc:000000000000018e .LLST9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:104    .text.startup.main:0000000000000054 .LVL6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:113    .text.startup.main:0000000000000066 .LVL7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:274    .text.startup.main:00000000000001a2 .LBB8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:345    .text.startup.main:000000000000020e .LBE8
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7446   .debug_loc:00000000000001ad .LLST10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:275    .text.startup.main:00000000000001a2 .LBB9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:344    .text.startup.main:000000000000020e .LBE9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7455   .debug_loc:00000000000001c3 .LLST11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7467   .debug_loc:00000000000001db .LLST12
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7475   .debug_loc:00000000000001ef .LLST13
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7488   .debug_loc:0000000000000212 .LLST14
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7505   .debug_loc:000000000000023d .LLST15
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:308    .text.startup.main:00000000000001ce .LVL38
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:341    .text.startup.main:000000000000020e .LVL44
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:70     .text.startup.main:000000000000001a .LVL3
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:81     .text.startup.main:000000000000002e .LVL4
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:130    .text.startup.main:0000000000000084 .LVL10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:137    .text.startup.main:0000000000000094 .LVL11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:144    .text.startup.main:00000000000000a4 .LVL12
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:154    .text.startup.main:00000000000000be .LVL13
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:165    .text.startup.main:00000000000000d2 .LVL16
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:204    .text.startup.main:00000000000000f8 .LVL19
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:207    .text.startup.main:0000000000000100 .LVL20
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:218    .text.startup.main:0000000000000110 .LVL23
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:227    .text.startup.main:0000000000000122 .LVL25
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:264    .text.startup.main:0000000000000198 .LVL32
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:267    .text.startup.main:00000000000001a0 .LVL33
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:349    .text.startup.main:0000000000000218 .LVL45
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:361    .text.startup.main:000000000000022e .LVL47
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7994   .debug_str:0000000000000822 .LASF221
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7852   .debug_str:0000000000000539 .LASF200
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7986   .debug_str:0000000000000800 .LASF201
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7618   .debug_str:0000000000000066 .LASF222
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:13     .text.layer_cb:0000000000000000 .LFB26
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:28     .text.layer_cb:0000000000000004 .LFE26
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7517   .debug_loc:000000000000025c .LLST0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7600   .debug_str:0000000000000010 .LASF202
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7531   .debug_loc:000000000000027d .LLST1
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7810   .debug_str:0000000000000478 .LASF203
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7886   .debug_str:000000000000063c .LASF205
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 77
+
+
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7846   .debug_str:000000000000050f .LASF207
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8000   .debug_str:0000000000000849 .LASF204
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7716   .debug_str:00000000000002a0 .LASF206
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7790   .debug_str:0000000000000405 .LASF208
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7836   .debug_str:00000000000004e9 .LASF209
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7650   .debug_str:0000000000000101 .LASF210
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7948   .debug_str:000000000000074f .LASF211
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7972   .debug_str:00000000000007b4 .LASF212
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:8022   .debug_str:00000000000008b5 .LASF213
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7844   .debug_str:0000000000000508 .LASF214
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:7660   .debug_str:000000000000012f .LASF215
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:50     .text.startup.main:0000000000000002 .LCFI0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:189    .text.startup.main:00000000000000e6 .LCFI1
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:194    .text.startup.main:00000000000000e8 .LCFI2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:44     .text.startup.main:0000000000000000 .LVL2
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:209    .text.startup.main:0000000000000102 .LVL21
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:216    .text.startup.main:0000000000000108 .LVL22
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:235    .text.startup.main:0000000000000134 .LVL26
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:156    .text.startup.main:00000000000000c0 .LVL14
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:162    .text.startup.main:00000000000000c6 .LVL15
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:192    .text.startup.main:00000000000000e8 .LVL17
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:202    .text.startup.main:00000000000000f0 .LVL18
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:224    .text.startup.main:000000000000011a .LVL24
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:284    .text.startup.main:00000000000001a4 .LVL35
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:354    .text.startup.main:000000000000021c .LVL46
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:97     .text.startup.main:0000000000000040 .LVL5
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:125    .text.startup.main:0000000000000074 .LVL9
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:273    .text.startup.main:00000000000001a2 .LVL34
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:297    .text.startup.main:00000000000001b2 .LVL36
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:319    .text.startup.main:00000000000001e4 .LVL40
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:322    .text.startup.main:00000000000001e6 .LVL41
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:17     .text.layer_cb:0000000000000000 .LVL0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:25     .text.layer_cb:0000000000000002 .LVL1
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:3630   .debug_info:0000000000000000 .Ldebug_info0
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:75     .text.startup.main:0000000000000022 .LBB6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:78     .text.startup.main:0000000000000026 .LBE6
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:84     .text.startup.main:000000000000002e .LBB7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:120    .text.startup.main:000000000000006c .LBE7
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:281    .text.startup.main:00000000000001a2 .LBB10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:285    .text.startup.main:00000000000001a4 .LBE10
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:290    .text.startup.main:00000000000001aa .LBB11
+C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s:330    .text.startup.main:00000000000001ee .LBE11
 
 UNDEFINED SYMBOLS
-rcu_periph_clock_enable
-gpio_init
-gpio_input_port_get
-gpio_port_write
+__udivdi3
+__divdi3
+__floatunsisf
+__divsf3
+__extendsfdf2
+__gtsf2
+clock
+puts
+printf
+putchar
+memcpy
+tm_stat
+tm_load
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cc3uLv2S.s 			page 78
+
+
+tm_preprocess
+tm_run
+tm_unload
