@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 1
 
 
    1              		.file	"tm_stat.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
   36:lib/tinymaix/src/tm_stat.c ****     sizeof(tml_conv2d_dw_t),
   37:lib/tinymaix/src/tm_stat.c ****     sizeof(tml_gap_t),
   38:lib/tinymaix/src/tm_stat.c ****     sizeof(tml_fc_t),
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 2
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 2
 
 
   39:lib/tinymaix/src/tm_stat.c ****     sizeof(tml_softmax_t),
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
   62              		.loc 1 48 5 is_stmt 1
   63 002c 83454900 		lbu	a1,4(s2)
   64 0030 B7070000 		lui	a5,%hi(.LANCHOR0)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 3
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 3
 
 
   65 0034 93870700 		addi	a5,a5,%lo(.LANCHOR0)
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
   56:lib/tinymaix/src/tm_stat.c ****     printf("main buf size %d; sub buf size %d\n", \
  107              		.loc 1 56 5
  108 00c0 03260901 		lw	a2,16(s2)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 4
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 4
 
 
  109 00c4 8325C900 		lw	a1,12(s2)
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  136 0110 B70B0000 		lui	s7,%hi(.LANCHOR1)
   80:lib/tinymaix/src/tm_stat.c ****             int ops = 0;
   81:lib/tinymaix/src/tm_stat.c ****             switch(h->type){
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 5
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 5
 
 
  137              		.loc 1 81 13
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  152              		.loc 1 71 9
  153 0126 B70A0000 		lui	s5,%hi(.LC10)
  154              	.LBE12:
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 6
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 6
 
 
   61:lib/tinymaix/src/tm_stat.c ****         idim[1],idim[2],idim[3], (long int)(idim[1]*idim[2]*idim[3]*sizeof(mtype_t)));
@@ -358,7 +358,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  185 0152 37040000 		lui	s0,%hi(.LC18)
  186              	.LVL12:
  187 0156 3E95     		add	a0,a0,a5
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 7
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 7
 
 
  188 0158 97000000 		call	__floatunsidf
@@ -418,7 +418,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  233 01d2 9A44     		lw	s1,132(sp)
  234              		.cfi_restore 9
  235 01d4 0A49     		lw	s2,128(sp)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 8
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 8
 
 
  236              		.cfi_restore 18
@@ -478,7 +478,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  282      E7800000 
  283              	.LVL27:
   72:lib/tinymaix/src/tm_stat.c ****                 h->type,h->is_out,h->size,h->in_oft,h->out_oft,\
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 9
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 9
 
 
  284              		.loc 1 72 9
@@ -538,7 +538,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
   76:lib/tinymaix/src/tm_stat.c ****         if(h->type < TML_MAXCNT) {
  335              		.loc 1 76 75
   77:lib/tinymaix/src/tm_stat.c ****             int memout = h->out_dims[1]*h->out_dims[2]*h->out_dims[3];
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 10
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 10
 
 
  336              		.loc 1 77 9
@@ -598,7 +598,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  375              		.align	2
  376              		.align	2
  377              	.L6:
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 11
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 11
 
 
  378 0000 00000000 		.word	.L10
@@ -658,7 +658,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  419 031e 5C5C     		lw	a5,60(s0)
  420 0320 3EC8     		sw	a5,16(sp)
  421 0322 8347B403 		lbu	a5,59(s0)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 12
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 12
 
 
  422 0326 3EC6     		sw	a5,12(sp)
@@ -718,7 +718,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  465              	.L8:
  466              	.LBB6:
   94:lib/tinymaix/src/tm_stat.c ****                 ops = (h->out_dims[3])*(h->in_dims[3]);         //MAC as ops
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 13
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 13
 
 
  467              		.loc 1 94 17
@@ -778,7 +778,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  506 03bc B307F740 		sub	a5,a4,a5
  507 03c0 3EC0     		sw	a5,0(sp)
  508 03c2 8357E401 		lhu	a5,30(s0)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 14
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 14
 
 
  509 03c6 8328C400 		lw	a7,12(s0)
@@ -838,7 +838,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  551              	.LBB7:
  103:lib/tinymaix/src/tm_stat.c ****                 ops = memout*(l->kernel_w)*(l->kernel_h)*1;   //MAC as ops
  552              		.loc 1 103 17 is_stmt 1
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 15
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 15
 
 
  553              	.LVL50:
@@ -898,7 +898,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  597 0470 DDB5     		j	.L15
  598              	.LVL53:
  599              	.L13:
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 16
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 16
 
 
  600              	.LBE7:
@@ -958,7 +958,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  649 0038 696E7431 		.string	"int16"
  649      3600
  650 003e 0000     		.zero	2
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 17
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 17
 
 
  651              	.LC30:
@@ -1018,7 +1018,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  684              	.LC4:
  685 00a0 696E7075 		.string	"input %ddims: (%d, %d, %d)\n"
  685      74202564 
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 18
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 18
 
 
  685      64696D73 
@@ -1078,7 +1078,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  708              	.LC13:
  709 0254 436F6E76 		.string	"Conv2d: kw=%d, kh=%d, sw=%d, sh=%d, dw=%d, dh=%d, act=%d, pad=[%d,%d,%d,%d], dmul=%d, ws_
  709      32643A20 
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 19
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 19
 
 
  709      6B773D25 
@@ -1138,7 +1138,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  748 0014 00000000 		.word	.LC26
  749 0018 00000000 		.word	.LC27
  750              		.text
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 20
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 20
 
 
  751              	.Letext0:
@@ -1153,556 +1153,556 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 1
  760              		.file 10 "include/tinymaix.h"
  761              		.file 11 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v
  762              		.file 12 "<built-in>"
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 21
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 21
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 tm_stat.c
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:18     .text.tm_stat:0000000000000000 tm_stat
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:22     .text.tm_stat:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:24     .text.tm_stat:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:25     .text.tm_stat:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:26     .text.tm_stat:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:28     .text.tm_stat:0000000000000002 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:30     .text.tm_stat:0000000000000004 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:33     .text.tm_stat:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:37     .text.tm_stat:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:48     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:49     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:50     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:51     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:52     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:53     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:54     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:55     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:56     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:57     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:58     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:60     .text.tm_stat:0000000000000024 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:63     .text.tm_stat:000000000000002c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:74     .text.tm_stat:0000000000000050 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:80     .text.tm_stat:0000000000000064 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:88     .text.tm_stat:0000000000000080 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:89     .text.tm_stat:0000000000000080 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:98     .text.tm_stat:00000000000000a0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:99     .text.tm_stat:00000000000000a0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:108    .text.tm_stat:00000000000000c0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:115    .text.tm_stat:00000000000000d8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:120    .text.tm_stat:00000000000000e8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:125    .text.tm_stat:00000000000000f8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:130    .text.tm_stat:0000000000000108 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:132    .text.tm_stat:000000000000010c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:136    .text.tm_stat:0000000000000110 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:138    .text.tm_stat:0000000000000114 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:140    .text.tm_stat:0000000000000118 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:144    .text.tm_stat:000000000000011c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:146    .text.tm_stat:0000000000000120 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:148    .text.tm_stat:0000000000000122 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:150    .text.tm_stat:0000000000000124 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:153    .text.tm_stat:0000000000000126 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:156    .text.tm_stat:000000000000012a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:160    .text.tm_stat:000000000000012e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:162    .text.tm_stat:0000000000000132 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:164    .text.tm_stat:0000000000000136 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:168    .text.tm_stat:000000000000013a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:171    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:172    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:173    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:174    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:176    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:177    .text.tm_stat:0000000000000142 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:179    .text.tm_stat:0000000000000146 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:181    .text.tm_stat:000000000000014a .L0 
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 22
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:18     .text.tm_stat:0000000000000000 tm_stat
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:22     .text.tm_stat:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:24     .text.tm_stat:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:25     .text.tm_stat:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:26     .text.tm_stat:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:28     .text.tm_stat:0000000000000002 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:30     .text.tm_stat:0000000000000004 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:33     .text.tm_stat:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:37     .text.tm_stat:000000000000000e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:48     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:49     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:50     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:51     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:52     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:53     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:54     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:55     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:56     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:57     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:58     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:60     .text.tm_stat:0000000000000024 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:63     .text.tm_stat:000000000000002c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:74     .text.tm_stat:0000000000000050 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:80     .text.tm_stat:0000000000000064 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:88     .text.tm_stat:0000000000000080 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:89     .text.tm_stat:0000000000000080 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:98     .text.tm_stat:00000000000000a0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:99     .text.tm_stat:00000000000000a0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:108    .text.tm_stat:00000000000000c0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:115    .text.tm_stat:00000000000000d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:120    .text.tm_stat:00000000000000e8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:125    .text.tm_stat:00000000000000f8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:130    .text.tm_stat:0000000000000108 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:132    .text.tm_stat:000000000000010c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:136    .text.tm_stat:0000000000000110 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:138    .text.tm_stat:0000000000000114 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:140    .text.tm_stat:0000000000000118 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:144    .text.tm_stat:000000000000011c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:146    .text.tm_stat:0000000000000120 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:148    .text.tm_stat:0000000000000122 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:150    .text.tm_stat:0000000000000124 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:153    .text.tm_stat:0000000000000126 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:156    .text.tm_stat:000000000000012a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:160    .text.tm_stat:000000000000012e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:162    .text.tm_stat:0000000000000132 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:164    .text.tm_stat:0000000000000136 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:168    .text.tm_stat:000000000000013a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:171    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:172    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:173    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:174    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:176    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:177    .text.tm_stat:0000000000000142 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:179    .text.tm_stat:0000000000000146 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:181    .text.tm_stat:000000000000014a .L0 
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 22
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:182    .text.tm_stat:000000000000014a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:185    .text.tm_stat:0000000000000152 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:224    .text.tm_stat:00000000000001cc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:225    .text.tm_stat:00000000000001cc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:228    .text.tm_stat:00000000000001ce .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:229    .text.tm_stat:00000000000001d0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:230    .text.tm_stat:00000000000001d0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:232    .text.tm_stat:00000000000001d2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:234    .text.tm_stat:00000000000001d4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:236    .text.tm_stat:00000000000001d6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:239    .text.tm_stat:00000000000001d8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:241    .text.tm_stat:00000000000001da .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:244    .text.tm_stat:00000000000001dc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:246    .text.tm_stat:00000000000001de .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:249    .text.tm_stat:00000000000001e0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:251    .text.tm_stat:00000000000001e2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:254    .text.tm_stat:00000000000001e4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:256    .text.tm_stat:00000000000001e6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:259    .text.tm_stat:00000000000001e8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:264    .text.tm_stat:00000000000001ea .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:267    .text.tm_stat:00000000000001ea .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:268    .text.tm_stat:00000000000001ea .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:273    .text.tm_stat:00000000000001fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:279    .text.tm_stat:000000000000020e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:280    .text.tm_stat:000000000000020e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:285    .text.tm_stat:000000000000021e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:336    .text.tm_stat:00000000000002a6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:337    .text.tm_stat:00000000000002a6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:338    .text.tm_stat:00000000000002a6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:340    .text.tm_stat:00000000000002aa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:344    .text.tm_stat:00000000000002b0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:345    .text.tm_stat:00000000000002b0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:347    .text.tm_stat:00000000000002b4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:349    .text.tm_stat:00000000000002b8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:351    .text.tm_stat:00000000000002bc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:353    .text.tm_stat:00000000000002c0 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:357    .text.tm_stat:00000000000002c4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:360    .text.tm_stat:00000000000002cc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:363    .text.tm_stat:00000000000002d2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:365    .text.tm_stat:00000000000002d4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:368    .text.tm_stat:00000000000002d8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:369    .text.tm_stat:00000000000002d8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:370    .text.tm_stat:00000000000002d8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:389    .text.tm_stat:00000000000002e2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:390    .text.tm_stat:00000000000002e2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:391    .text.tm_stat:00000000000002e2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:393    .text.tm_stat:00000000000002e6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:395    .text.tm_stat:00000000000002ea .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:397    .text.tm_stat:00000000000002ee .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:399    .text.tm_stat:00000000000002f2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:401    .text.tm_stat:00000000000002f6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:403    .text.tm_stat:00000000000002fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:405    .text.tm_stat:00000000000002fe .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:408    .text.tm_stat:0000000000000302 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:411    .text.tm_stat:000000000000030a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:441    .text.tm_stat:0000000000000356 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:444    .text.tm_stat:000000000000035e .L0 
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 23
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:182    .text.tm_stat:000000000000014a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:185    .text.tm_stat:0000000000000152 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:224    .text.tm_stat:00000000000001cc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:225    .text.tm_stat:00000000000001cc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:228    .text.tm_stat:00000000000001ce .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:229    .text.tm_stat:00000000000001d0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:230    .text.tm_stat:00000000000001d0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:232    .text.tm_stat:00000000000001d2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:234    .text.tm_stat:00000000000001d4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:236    .text.tm_stat:00000000000001d6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:239    .text.tm_stat:00000000000001d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:241    .text.tm_stat:00000000000001da .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:244    .text.tm_stat:00000000000001dc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:246    .text.tm_stat:00000000000001de .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:249    .text.tm_stat:00000000000001e0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:251    .text.tm_stat:00000000000001e2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:254    .text.tm_stat:00000000000001e4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:256    .text.tm_stat:00000000000001e6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:259    .text.tm_stat:00000000000001e8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:264    .text.tm_stat:00000000000001ea .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:267    .text.tm_stat:00000000000001ea .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:268    .text.tm_stat:00000000000001ea .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:273    .text.tm_stat:00000000000001fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:279    .text.tm_stat:000000000000020e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:280    .text.tm_stat:000000000000020e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:285    .text.tm_stat:000000000000021e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:336    .text.tm_stat:00000000000002a6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:337    .text.tm_stat:00000000000002a6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:338    .text.tm_stat:00000000000002a6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:340    .text.tm_stat:00000000000002aa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:344    .text.tm_stat:00000000000002b0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:345    .text.tm_stat:00000000000002b0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:347    .text.tm_stat:00000000000002b4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:349    .text.tm_stat:00000000000002b8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:351    .text.tm_stat:00000000000002bc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:353    .text.tm_stat:00000000000002c0 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:357    .text.tm_stat:00000000000002c4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:360    .text.tm_stat:00000000000002cc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:363    .text.tm_stat:00000000000002d2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:365    .text.tm_stat:00000000000002d4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:368    .text.tm_stat:00000000000002d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:369    .text.tm_stat:00000000000002d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:370    .text.tm_stat:00000000000002d8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:389    .text.tm_stat:00000000000002e2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:390    .text.tm_stat:00000000000002e2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:391    .text.tm_stat:00000000000002e2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:393    .text.tm_stat:00000000000002e6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:395    .text.tm_stat:00000000000002ea .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:397    .text.tm_stat:00000000000002ee .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:399    .text.tm_stat:00000000000002f2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:401    .text.tm_stat:00000000000002f6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:403    .text.tm_stat:00000000000002fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:405    .text.tm_stat:00000000000002fe .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:408    .text.tm_stat:0000000000000302 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:411    .text.tm_stat:000000000000030a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:441    .text.tm_stat:0000000000000356 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:444    .text.tm_stat:000000000000035e .L0 
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 23
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:445    .text.tm_stat:000000000000035e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:450    .text.tm_stat:0000000000000360 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:451    .text.tm_stat:0000000000000360 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:453    .text.tm_stat:0000000000000364 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:455    .text.tm_stat:0000000000000368 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:457    .text.tm_stat:000000000000036c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:460    .text.tm_stat:0000000000000370 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:463    .text.tm_stat:0000000000000374 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:468    .text.tm_stat:0000000000000376 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:469    .text.tm_stat:0000000000000376 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:470    .text.tm_stat:0000000000000376 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:472    .text.tm_stat:000000000000037a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:475    .text.tm_stat:0000000000000382 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:478    .text.tm_stat:0000000000000386 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:481    .text.tm_stat:000000000000038e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:489    .text.tm_stat:00000000000003a4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:492    .text.tm_stat:00000000000003a4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:493    .text.tm_stat:00000000000003a4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:494    .text.tm_stat:00000000000003a4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:496    .text.tm_stat:00000000000003a8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:501    .text.tm_stat:00000000000003b2 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:503    .text.tm_stat:00000000000003b4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:518    .text.tm_stat:00000000000003e4 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:525    .text.tm_stat:00000000000003f6 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:528    .text.tm_stat:00000000000003f8 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:531    .text.tm_stat:00000000000003fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:533    .text.tm_stat:00000000000003fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:535    .text.tm_stat:00000000000003fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:536    .text.tm_stat:00000000000003fa .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:540    .text.tm_stat:00000000000003fc .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:547    .text.tm_stat:0000000000000400 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:548    .text.tm_stat:0000000000000400 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:554    .text.tm_stat:0000000000000404 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:555    .text.tm_stat:0000000000000404 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:556    .text.tm_stat:0000000000000404 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:558    .text.tm_stat:0000000000000408 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:560    .text.tm_stat:000000000000040c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:562    .text.tm_stat:0000000000000410 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:564    .text.tm_stat:0000000000000414 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:566    .text.tm_stat:0000000000000418 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:569    .text.tm_stat:000000000000041c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:572    .text.tm_stat:0000000000000424 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:602    .text.tm_stat:0000000000000472 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:608    .text.tm_stat:0000000000000476 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:611    .text.tm_stat:000000000000047a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:616    .rodata.mdl_type_str:0000000000000000 .LANCHOR0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:619    .rodata.mdl_type_str:0000000000000000 mdl_type_str
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:726    .rodata.tml_headsize_tbl:0000000000000000 .LANCHOR1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:729    .rodata.tml_headsize_tbl:0000000000000000 tml_headsize_tbl
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:739    .rodata.tml_str_tbl:0000000000000000 .LANCHOR2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:742    .rodata.tml_str_tbl:0000000000000000 tml_str_tbl
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:614    .text.tm_stat:000000000000047a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:445    .text.tm_stat:000000000000035e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:450    .text.tm_stat:0000000000000360 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:451    .text.tm_stat:0000000000000360 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:453    .text.tm_stat:0000000000000364 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:455    .text.tm_stat:0000000000000368 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:457    .text.tm_stat:000000000000036c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:460    .text.tm_stat:0000000000000370 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:463    .text.tm_stat:0000000000000374 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:468    .text.tm_stat:0000000000000376 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:469    .text.tm_stat:0000000000000376 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:470    .text.tm_stat:0000000000000376 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:472    .text.tm_stat:000000000000037a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:475    .text.tm_stat:0000000000000382 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:478    .text.tm_stat:0000000000000386 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:481    .text.tm_stat:000000000000038e .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:489    .text.tm_stat:00000000000003a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:492    .text.tm_stat:00000000000003a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:493    .text.tm_stat:00000000000003a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:494    .text.tm_stat:00000000000003a4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:496    .text.tm_stat:00000000000003a8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:501    .text.tm_stat:00000000000003b2 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:503    .text.tm_stat:00000000000003b4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:518    .text.tm_stat:00000000000003e4 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:525    .text.tm_stat:00000000000003f6 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:528    .text.tm_stat:00000000000003f8 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:531    .text.tm_stat:00000000000003fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:533    .text.tm_stat:00000000000003fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:535    .text.tm_stat:00000000000003fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:536    .text.tm_stat:00000000000003fa .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:540    .text.tm_stat:00000000000003fc .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:547    .text.tm_stat:0000000000000400 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:548    .text.tm_stat:0000000000000400 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:554    .text.tm_stat:0000000000000404 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:555    .text.tm_stat:0000000000000404 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:556    .text.tm_stat:0000000000000404 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:558    .text.tm_stat:0000000000000408 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:560    .text.tm_stat:000000000000040c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:562    .text.tm_stat:0000000000000410 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:564    .text.tm_stat:0000000000000414 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:566    .text.tm_stat:0000000000000418 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:569    .text.tm_stat:000000000000041c .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:572    .text.tm_stat:0000000000000424 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:602    .text.tm_stat:0000000000000472 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:608    .text.tm_stat:0000000000000476 .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:611    .text.tm_stat:000000000000047a .L0 
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:616    .rodata.mdl_type_str:0000000000000000 .LANCHOR0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:619    .rodata.mdl_type_str:0000000000000000 mdl_type_str
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:726    .rodata.tml_headsize_tbl:0000000000000000 .LANCHOR1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:729    .rodata.tml_headsize_tbl:0000000000000000 tml_headsize_tbl
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:739    .rodata.tml_str_tbl:0000000000000000 .LANCHOR2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:742    .rodata.tml_str_tbl:0000000000000000 tml_str_tbl
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:614    .text.tm_stat:000000000000047a .L0 
                      .debug_frame:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:672    .rodata.tm_stat.str1.4:0000000000000000 .LC0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:675    .rodata.tm_stat.str1.4:0000000000000050 .LC1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:678    .rodata.tm_stat.str1.4:0000000000000064 .LC2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:681    .rodata.tm_stat.str1.4:0000000000000074 .LC3
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 24
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:672    .rodata.tm_stat.str1.4:0000000000000000 .LC0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:675    .rodata.tm_stat.str1.4:0000000000000050 .LC1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:678    .rodata.tm_stat.str1.4:0000000000000064 .LC2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:681    .rodata.tm_stat.str1.4:0000000000000074 .LC3
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 24
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:684    .rodata.tm_stat.str1.4:00000000000000a0 .LC4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:686    .rodata.tm_stat.str1.4:00000000000000bc .LC5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:689    .rodata.tm_stat.str1.4:00000000000000dc .LC6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:692    .rodata.tm_stat.str1.4:0000000000000100 .LC7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:694    .rodata.tm_stat.str1.4:000000000000013c .LC8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:697    .rodata.tm_stat.str1.4:0000000000000178 .LC9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:377    .rodata.tm_stat:0000000000000000 .L6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:699    .rodata.tm_stat.str1.4:00000000000001a8 .LC10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:664    .rodata.tm_stat.cst8:0000000000000000 .LC18
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:667    .rodata.tm_stat.cst8:0000000000000008 .LC19
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:722    .rodata.tm_stat.str1.4:0000000000000398 .LC20
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:702    .rodata.tm_stat.str1.4:00000000000001b4 .LC11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:705    .rodata.tm_stat.str1.4:00000000000001c4 .LC12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:708    .rodata.tm_stat.str1.4:0000000000000254 .LC13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:711    .rodata.tm_stat.str1.4:00000000000002cc .LC14
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:717    .rodata.tm_stat.str1.4:0000000000000368 .LC16
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:719    .rodata.tm_stat.str1.4:0000000000000390 .LC17
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:714    .rodata.tm_stat.str1.4:00000000000002f0 .LC15
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:262    .text.tm_stat:00000000000001ea .L11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:605    .text.tm_stat:0000000000000476 .L12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:599    .text.tm_stat:0000000000000472 .L13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:490    .text.tm_stat:00000000000003a4 .L4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:175    .text.tm_stat:0000000000000142 .L2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:458    .text.tm_stat:0000000000000370 .L16
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:437    .text.tm_stat:0000000000000356 .L15
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:226    .text.tm_stat:00000000000001ce .L1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:385    .text.tm_stat:00000000000002e2 .L10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:447    .text.tm_stat:0000000000000360 .L9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:465    .text.tm_stat:0000000000000376 .L8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:544    .text.tm_stat:0000000000000400 .L7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:550    .text.tm_stat:0000000000000404 .L5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:645    .rodata.str1.4:0000000000000030 .LC28
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:648    .rodata.str1.4:0000000000000038 .LC29
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:651    .rodata.str1.4:0000000000000040 .LC30
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:654    .rodata.str1.4:0000000000000048 .LC31
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:657    .rodata.str1.4:0000000000000050 .LC32
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:660    .rodata.str1.4:000000000000005c .LC33
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:628    .rodata.str1.4:0000000000000000 .LC21
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:631    .rodata.str1.4:0000000000000008 .LC22
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:633    .rodata.str1.4:000000000000000c .LC23
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:636    .rodata.str1.4:0000000000000010 .LC24
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:638    .rodata.str1.4:0000000000000018 .LC25
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:640    .rodata.str1.4:0000000000000020 .LC26
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:643    .rodata.str1.4:000000000000002c .LC27
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:3342   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4521   .debug_str:0000000000000556 .LASF200
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4371   .debug_str:000000000000026c .LASF201
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4369   .debug_str:00000000000001ff .LASF202
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4223   .debug_ranges:0000000000000000 .Ldebug_ranges0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4259   .debug_line:0000000000000000 .Ldebug_line0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4629   .debug_str:00000000000007b8 .LASF0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4555   .debug_str:0000000000000672 .LASF3
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4597   .debug_str:000000000000071d .LASF1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4531   .debug_str:0000000000000604 .LASF2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4363   .debug_str:00000000000001e5 .LASF4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4633   .debug_str:00000000000007cb .LASF5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4301   .debug_str:00000000000000ca .LASF6
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 25
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:684    .rodata.tm_stat.str1.4:00000000000000a0 .LC4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:686    .rodata.tm_stat.str1.4:00000000000000bc .LC5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:689    .rodata.tm_stat.str1.4:00000000000000dc .LC6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:692    .rodata.tm_stat.str1.4:0000000000000100 .LC7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:694    .rodata.tm_stat.str1.4:000000000000013c .LC8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:697    .rodata.tm_stat.str1.4:0000000000000178 .LC9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:377    .rodata.tm_stat:0000000000000000 .L6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:699    .rodata.tm_stat.str1.4:00000000000001a8 .LC10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:664    .rodata.tm_stat.cst8:0000000000000000 .LC18
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:667    .rodata.tm_stat.cst8:0000000000000008 .LC19
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:722    .rodata.tm_stat.str1.4:0000000000000398 .LC20
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:702    .rodata.tm_stat.str1.4:00000000000001b4 .LC11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:705    .rodata.tm_stat.str1.4:00000000000001c4 .LC12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:708    .rodata.tm_stat.str1.4:0000000000000254 .LC13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:711    .rodata.tm_stat.str1.4:00000000000002cc .LC14
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:717    .rodata.tm_stat.str1.4:0000000000000368 .LC16
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:719    .rodata.tm_stat.str1.4:0000000000000390 .LC17
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:714    .rodata.tm_stat.str1.4:00000000000002f0 .LC15
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:262    .text.tm_stat:00000000000001ea .L11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:605    .text.tm_stat:0000000000000476 .L12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:599    .text.tm_stat:0000000000000472 .L13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:490    .text.tm_stat:00000000000003a4 .L4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:175    .text.tm_stat:0000000000000142 .L2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:458    .text.tm_stat:0000000000000370 .L16
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:437    .text.tm_stat:0000000000000356 .L15
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:226    .text.tm_stat:00000000000001ce .L1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:385    .text.tm_stat:00000000000002e2 .L10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:447    .text.tm_stat:0000000000000360 .L9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:465    .text.tm_stat:0000000000000376 .L8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:544    .text.tm_stat:0000000000000400 .L7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:550    .text.tm_stat:0000000000000404 .L5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:645    .rodata.str1.4:0000000000000030 .LC28
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:648    .rodata.str1.4:0000000000000038 .LC29
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:651    .rodata.str1.4:0000000000000040 .LC30
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:654    .rodata.str1.4:0000000000000048 .LC31
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:657    .rodata.str1.4:0000000000000050 .LC32
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:660    .rodata.str1.4:000000000000005c .LC33
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:628    .rodata.str1.4:0000000000000000 .LC21
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:631    .rodata.str1.4:0000000000000008 .LC22
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:633    .rodata.str1.4:000000000000000c .LC23
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:636    .rodata.str1.4:0000000000000010 .LC24
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:638    .rodata.str1.4:0000000000000018 .LC25
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:640    .rodata.str1.4:0000000000000020 .LC26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:643    .rodata.str1.4:000000000000002c .LC27
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:3342   .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4521   .debug_str:0000000000000556 .LASF200
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4371   .debug_str:000000000000026c .LASF201
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4369   .debug_str:00000000000001ff .LASF202
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4223   .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4259   .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4629   .debug_str:00000000000007b8 .LASF0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4555   .debug_str:0000000000000672 .LASF3
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4597   .debug_str:000000000000071d .LASF1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4531   .debug_str:0000000000000604 .LASF2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4363   .debug_str:00000000000001e5 .LASF4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4633   .debug_str:00000000000007cb .LASF5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4301   .debug_str:00000000000000ca .LASF6
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 25
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4533   .debug_str:000000000000060e .LASF7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4599   .debug_str:000000000000072b .LASF8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4575   .debug_str:00000000000006bd .LASF9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4477   .debug_str:0000000000000493 .LASF10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4353   .debug_str:00000000000001af .LASF11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4291   .debug_str:000000000000009c .LASF12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4459   .debug_str:000000000000042f .LASF13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4517   .debug_str:0000000000000546 .LASF14
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4585   .debug_str:00000000000006ef .LASF15
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4333   .debug_str:0000000000000157 .LASF16
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4381   .debug_str:00000000000002b1 .LASF17
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4515   .debug_str:000000000000053a .LASF18
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4583   .debug_str:00000000000006e8 .LASF19
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4645   .debug_str:0000000000000809 .LASF20
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4321   .debug_str:0000000000000128 .LASF21
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4627   .debug_str:00000000000007af .LASF22
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4455   .debug_str:0000000000000423 .LASF23
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4541   .debug_str:0000000000000628 .LASF24
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4339   .debug_str:0000000000000173 .LASF25
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4415   .debug_str:000000000000034a .LASF26
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4497   .debug_str:00000000000004f0 .LASF27
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4487   .debug_str:00000000000004be .LASF28
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4311   .debug_str:00000000000000f3 .LASF29
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4451   .debug_str:000000000000040e .LASF30
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4327   .debug_str:000000000000013d .LASF35
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4405   .debug_str:000000000000031c .LASF31
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4561   .debug_str:0000000000000689 .LASF32
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4537   .debug_str:000000000000061c .LASF33
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4359   .debug_str:00000000000001db .LASF34
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4571   .debug_str:00000000000006b2 .LASF36
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4385   .debug_str:00000000000002c5 .LASF37
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4343   .debug_str:0000000000000181 .LASF38
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4335   .debug_str:0000000000000160 .LASF39
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4429   .debug_str:000000000000038d .LASF40
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4513   .debug_str:0000000000000531 .LASF41
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4545   .debug_str:0000000000000642 .LASF42
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4329   .debug_str:0000000000000145 .LASF43
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4391   .debug_str:00000000000002df .LASF44
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4503   .debug_str:0000000000000508 .LASF45
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4271   .debug_str:000000000000002c .LASF46
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4499   .debug_str:00000000000004fb .LASF47
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4591   .debug_str:0000000000000704 .LASF48
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4639   .debug_str:00000000000007f2 .LASF49
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4655   .debug_str:0000000000000844 .LASF50
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4525   .debug_str:00000000000005e8 .LASF51
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4395   .debug_str:00000000000002ee .LASF52
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4323   .debug_str:0000000000000130 .LASF53
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4609   .debug_str:0000000000000759 .LASF54
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4481   .debug_str:00000000000004a8 .LASF55
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4641   .debug_str:00000000000007fb .LASF56
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4357   .debug_str:00000000000001d3 .LASF57
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4297   .debug_str:00000000000000bb .LASF58
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4491   .debug_str:00000000000004d5 .LASF59
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4295   .debug_str:00000000000000b2 .LASF60
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4325   .debug_str:0000000000000135 .LASF61
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4315   .debug_str:000000000000010c .LASF62
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4519   .debug_str:000000000000054f .LASF63
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4533   .debug_str:000000000000060e .LASF7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4599   .debug_str:000000000000072b .LASF8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4575   .debug_str:00000000000006bd .LASF9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4477   .debug_str:0000000000000493 .LASF10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4353   .debug_str:00000000000001af .LASF11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4291   .debug_str:000000000000009c .LASF12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4459   .debug_str:000000000000042f .LASF13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4517   .debug_str:0000000000000546 .LASF14
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4585   .debug_str:00000000000006ef .LASF15
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4333   .debug_str:0000000000000157 .LASF16
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4381   .debug_str:00000000000002b1 .LASF17
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4515   .debug_str:000000000000053a .LASF18
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4583   .debug_str:00000000000006e8 .LASF19
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4645   .debug_str:0000000000000809 .LASF20
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4321   .debug_str:0000000000000128 .LASF21
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4627   .debug_str:00000000000007af .LASF22
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4455   .debug_str:0000000000000423 .LASF23
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4541   .debug_str:0000000000000628 .LASF24
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4339   .debug_str:0000000000000173 .LASF25
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4415   .debug_str:000000000000034a .LASF26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4497   .debug_str:00000000000004f0 .LASF27
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4487   .debug_str:00000000000004be .LASF28
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4311   .debug_str:00000000000000f3 .LASF29
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4451   .debug_str:000000000000040e .LASF30
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4327   .debug_str:000000000000013d .LASF35
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4405   .debug_str:000000000000031c .LASF31
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4561   .debug_str:0000000000000689 .LASF32
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4537   .debug_str:000000000000061c .LASF33
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4359   .debug_str:00000000000001db .LASF34
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4571   .debug_str:00000000000006b2 .LASF36
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4385   .debug_str:00000000000002c5 .LASF37
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4343   .debug_str:0000000000000181 .LASF38
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4335   .debug_str:0000000000000160 .LASF39
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4429   .debug_str:000000000000038d .LASF40
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4513   .debug_str:0000000000000531 .LASF41
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4545   .debug_str:0000000000000642 .LASF42
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4329   .debug_str:0000000000000145 .LASF43
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4391   .debug_str:00000000000002df .LASF44
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4503   .debug_str:0000000000000508 .LASF45
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4271   .debug_str:000000000000002c .LASF46
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4499   .debug_str:00000000000004fb .LASF47
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4591   .debug_str:0000000000000704 .LASF48
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4639   .debug_str:00000000000007f2 .LASF49
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4655   .debug_str:0000000000000844 .LASF50
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4525   .debug_str:00000000000005e8 .LASF51
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4395   .debug_str:00000000000002ee .LASF52
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4323   .debug_str:0000000000000130 .LASF53
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4609   .debug_str:0000000000000759 .LASF54
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4481   .debug_str:00000000000004a8 .LASF55
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4641   .debug_str:00000000000007fb .LASF56
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4357   .debug_str:00000000000001d3 .LASF57
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4297   .debug_str:00000000000000bb .LASF58
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4491   .debug_str:00000000000004d5 .LASF59
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4295   .debug_str:00000000000000b2 .LASF60
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4325   .debug_str:0000000000000135 .LASF61
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4315   .debug_str:000000000000010c .LASF62
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4519   .debug_str:000000000000054f .LASF63
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 26
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4665   .debug_str:0000000000000871 .LASF64
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4465   .debug_str:0000000000000452 .LASF65
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4673   .debug_str:0000000000000891 .LASF66
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4647   .debug_str:0000000000000810 .LASF67
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4569   .debug_str:00000000000006a9 .LASF68
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4367   .debug_str:00000000000001f7 .LASF69
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4539   .debug_str:0000000000000622 .LASF70
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4573   .debug_str:00000000000006b7 .LASF71
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4527   .debug_str:00000000000005f0 .LASF72
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4653   .debug_str:000000000000083c .LASF73
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4631   .debug_str:00000000000007c4 .LASF74
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4303   .debug_str:00000000000000d4 .LASF75
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4473   .debug_str:000000000000047d .LASF76
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4319   .debug_str:0000000000000120 .LASF77
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4669   .debug_str:0000000000000880 .LASF78
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4393   .debug_str:00000000000002e9 .LASF79
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4375   .debug_str:0000000000000298 .LASF80
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4651   .debug_str:0000000000000823 .LASF81
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4625   .debug_str:00000000000007a7 .LASF82
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4467   .debug_str:0000000000000459 .LASF83
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4495   .debug_str:00000000000004e6 .LASF84
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4331   .debug_str:000000000000014f .LASF85
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4351   .debug_str:00000000000001a5 .LASF86
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4417   .debug_str:0000000000000352 .LASF87
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4483   .debug_str:00000000000004ae .LASF88
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4559   .debug_str:0000000000000681 .LASF89
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4595   .debug_str:0000000000000715 .LASF90
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4557   .debug_str:000000000000067c .LASF91
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4435   .debug_str:00000000000003b0 .LASF92
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4431   .debug_str:0000000000000397 .LASF93
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4617   .debug_str:0000000000000778 .LASF94
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4535   .debug_str:0000000000000617 .LASF95
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4427   .debug_str:0000000000000388 .LASF96
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4365   .debug_str:00000000000001f0 .LASF97
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4613   .debug_str:0000000000000769 .LASF98
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4581   .debug_str:00000000000006e1 .LASF99
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4457   .debug_str:0000000000000429 .LASF100
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4349   .debug_str:000000000000019d .LASF101
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4659   .debug_str:0000000000000855 .LASF102
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4485   .debug_str:00000000000004b8 .LASF103
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4605   .debug_str:000000000000074e .LASF104
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4649   .debug_str:0000000000000816 .LASF105
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4619   .debug_str:0000000000000780 .LASF106
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4355   .debug_str:00000000000001c6 .LASF107
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4551   .debug_str:000000000000065b .LASF108
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4475   .debug_str:0000000000000484 .LASF109
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4661   .debug_str:000000000000085b .LASF110
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4285   .debug_str:000000000000007f .LASF111
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4425   .debug_str:000000000000037b .LASF112
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4621   .debug_str:000000000000078d .LASF113
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4277   .debug_str:000000000000004a .LASF114
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4563   .debug_str:0000000000000691 .LASF115
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4289   .debug_str:0000000000000090 .LASF116
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4601   .debug_str:0000000000000736 .LASF117
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4317   .debug_str:0000000000000112 .LASF118
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4433   .debug_str:00000000000003a1 .LASF119
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4407   .debug_str:0000000000000322 .LASF120
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 27
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4665   .debug_str:0000000000000871 .LASF64
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4465   .debug_str:0000000000000452 .LASF65
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4673   .debug_str:0000000000000891 .LASF66
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4647   .debug_str:0000000000000810 .LASF67
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4569   .debug_str:00000000000006a9 .LASF68
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4367   .debug_str:00000000000001f7 .LASF69
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4539   .debug_str:0000000000000622 .LASF70
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4573   .debug_str:00000000000006b7 .LASF71
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4527   .debug_str:00000000000005f0 .LASF72
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4653   .debug_str:000000000000083c .LASF73
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4631   .debug_str:00000000000007c4 .LASF74
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4303   .debug_str:00000000000000d4 .LASF75
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4473   .debug_str:000000000000047d .LASF76
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4319   .debug_str:0000000000000120 .LASF77
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4669   .debug_str:0000000000000880 .LASF78
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4393   .debug_str:00000000000002e9 .LASF79
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4375   .debug_str:0000000000000298 .LASF80
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4651   .debug_str:0000000000000823 .LASF81
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4625   .debug_str:00000000000007a7 .LASF82
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4467   .debug_str:0000000000000459 .LASF83
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4495   .debug_str:00000000000004e6 .LASF84
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4331   .debug_str:000000000000014f .LASF85
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4351   .debug_str:00000000000001a5 .LASF86
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4417   .debug_str:0000000000000352 .LASF87
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4483   .debug_str:00000000000004ae .LASF88
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4559   .debug_str:0000000000000681 .LASF89
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4595   .debug_str:0000000000000715 .LASF90
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4557   .debug_str:000000000000067c .LASF91
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4435   .debug_str:00000000000003b0 .LASF92
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4431   .debug_str:0000000000000397 .LASF93
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4617   .debug_str:0000000000000778 .LASF94
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4535   .debug_str:0000000000000617 .LASF95
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4427   .debug_str:0000000000000388 .LASF96
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4365   .debug_str:00000000000001f0 .LASF97
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4613   .debug_str:0000000000000769 .LASF98
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4581   .debug_str:00000000000006e1 .LASF99
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4457   .debug_str:0000000000000429 .LASF100
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4349   .debug_str:000000000000019d .LASF101
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4659   .debug_str:0000000000000855 .LASF102
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4485   .debug_str:00000000000004b8 .LASF103
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4605   .debug_str:000000000000074e .LASF104
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4649   .debug_str:0000000000000816 .LASF105
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4619   .debug_str:0000000000000780 .LASF106
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4355   .debug_str:00000000000001c6 .LASF107
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4551   .debug_str:000000000000065b .LASF108
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4475   .debug_str:0000000000000484 .LASF109
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4661   .debug_str:000000000000085b .LASF110
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4285   .debug_str:000000000000007f .LASF111
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4425   .debug_str:000000000000037b .LASF112
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4621   .debug_str:000000000000078d .LASF113
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4277   .debug_str:000000000000004a .LASF114
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4563   .debug_str:0000000000000691 .LASF115
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4289   .debug_str:0000000000000090 .LASF116
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4601   .debug_str:0000000000000736 .LASF117
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4317   .debug_str:0000000000000112 .LASF118
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4433   .debug_str:00000000000003a1 .LASF119
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4407   .debug_str:0000000000000322 .LASF120
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 27
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4489   .debug_str:00000000000004c6 .LASF121
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4423   .debug_str:000000000000036a .LASF122
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4505   .debug_str:0000000000000513 .LASF123
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4347   .debug_str:0000000000000196 .LASF124
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4671   .debug_str:0000000000000888 .LASF125
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4553   .debug_str:000000000000066a .LASF126
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4663   .debug_str:0000000000000866 .LASF203
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4345   .debug_str:000000000000018a .LASF127
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4543   .debug_str:000000000000062f .LASF128
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4389   .debug_str:00000000000002d5 .LASF129
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4469   .debug_str:0000000000000464 .LASF130
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4275   .debug_str:0000000000000040 .LASF131
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4411   .debug_str:000000000000033a .LASF132
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4379   .debug_str:00000000000002a8 .LASF133
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4611   .debug_str:0000000000000760 .LASF134
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4341   .debug_str:000000000000017b .LASF135
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4273   .debug_str:000000000000003a .LASF136
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4387   .debug_str:00000000000002ce .LASF137
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4441   .debug_str:00000000000003d0 .LASF138
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4447   .debug_str:00000000000003f7 .LASF139
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4281   .debug_str:0000000000000064 .LASF140
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4443   .debug_str:00000000000003dd .LASF141
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4453   .debug_str:0000000000000417 .LASF142
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4463   .debug_str:0000000000000446 .LASF143
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4471   .debug_str:000000000000046e .LASF144
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4439   .debug_str:00000000000003c3 .LASF145
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4667   .debug_str:0000000000000877 .LASF146
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4401   .debug_str:0000000000000304 .LASF147
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4589   .debug_str:00000000000006fc .LASF148
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4549   .debug_str:0000000000000654 .LASF149
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4637   .debug_str:00000000000007e6 .LASF150
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4279   .debug_str:0000000000000058 .LASF151
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4403   .debug_str:000000000000030f .LASF152
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4509   .debug_str:0000000000000523 .LASF153
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4603   .debug_str:0000000000000743 .LASF154
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4565   .debug_str:000000000000069b .LASF155
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4421   .debug_str:0000000000000361 .LASF156
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4643   .debug_str:0000000000000801 .LASF157
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4419   .debug_str:0000000000000357 .LASF158
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4493   .debug_str:00000000000004db .LASF159
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4397   .debug_str:00000000000002f3 .LASF160
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4337   .debug_str:000000000000016a .LASF161
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4577   .debug_str:00000000000006cf .LASF162
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4307   .debug_str:00000000000000e0 .LASF163
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4267   .debug_str:0000000000000018 .LASF164
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4567   .debug_str:00000000000006a1 .LASF165
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4623   .debug_str:000000000000079b .LASF166
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4287   .debug_str:0000000000000084 .LASF167
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4593   .debug_str:0000000000000710 .LASF168
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4507   .debug_str:000000000000051c .LASF169
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4501   .debug_str:0000000000000503 .LASF170
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4409   .debug_str:0000000000000333 .LASF171
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4413   .debug_str:0000000000000342 .LASF172
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4305   .debug_str:00000000000000db .LASF173
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4511   .debug_str:000000000000052b .LASF174
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4607   .debug_str:0000000000000753 .LASF175
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4399   .debug_str:00000000000002fd .LASF176
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 28
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4489   .debug_str:00000000000004c6 .LASF121
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4423   .debug_str:000000000000036a .LASF122
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4505   .debug_str:0000000000000513 .LASF123
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4347   .debug_str:0000000000000196 .LASF124
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4671   .debug_str:0000000000000888 .LASF125
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4553   .debug_str:000000000000066a .LASF126
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4663   .debug_str:0000000000000866 .LASF203
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4345   .debug_str:000000000000018a .LASF127
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4543   .debug_str:000000000000062f .LASF128
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4389   .debug_str:00000000000002d5 .LASF129
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4469   .debug_str:0000000000000464 .LASF130
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4275   .debug_str:0000000000000040 .LASF131
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4411   .debug_str:000000000000033a .LASF132
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4379   .debug_str:00000000000002a8 .LASF133
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4611   .debug_str:0000000000000760 .LASF134
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4341   .debug_str:000000000000017b .LASF135
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4273   .debug_str:000000000000003a .LASF136
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4387   .debug_str:00000000000002ce .LASF137
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4441   .debug_str:00000000000003d0 .LASF138
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4447   .debug_str:00000000000003f7 .LASF139
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4281   .debug_str:0000000000000064 .LASF140
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4443   .debug_str:00000000000003dd .LASF141
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4453   .debug_str:0000000000000417 .LASF142
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4463   .debug_str:0000000000000446 .LASF143
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4471   .debug_str:000000000000046e .LASF144
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4439   .debug_str:00000000000003c3 .LASF145
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4667   .debug_str:0000000000000877 .LASF146
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4401   .debug_str:0000000000000304 .LASF147
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4589   .debug_str:00000000000006fc .LASF148
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4549   .debug_str:0000000000000654 .LASF149
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4637   .debug_str:00000000000007e6 .LASF150
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4279   .debug_str:0000000000000058 .LASF151
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4403   .debug_str:000000000000030f .LASF152
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4509   .debug_str:0000000000000523 .LASF153
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4603   .debug_str:0000000000000743 .LASF154
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4565   .debug_str:000000000000069b .LASF155
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4421   .debug_str:0000000000000361 .LASF156
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4643   .debug_str:0000000000000801 .LASF157
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4419   .debug_str:0000000000000357 .LASF158
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4493   .debug_str:00000000000004db .LASF159
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4397   .debug_str:00000000000002f3 .LASF160
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4337   .debug_str:000000000000016a .LASF161
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4577   .debug_str:00000000000006cf .LASF162
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4307   .debug_str:00000000000000e0 .LASF163
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4267   .debug_str:0000000000000018 .LASF164
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4567   .debug_str:00000000000006a1 .LASF165
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4623   .debug_str:000000000000079b .LASF166
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4287   .debug_str:0000000000000084 .LASF167
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4593   .debug_str:0000000000000710 .LASF168
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4507   .debug_str:000000000000051c .LASF169
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4501   .debug_str:0000000000000503 .LASF170
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4409   .debug_str:0000000000000333 .LASF171
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4413   .debug_str:0000000000000342 .LASF172
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4305   .debug_str:00000000000000db .LASF173
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4511   .debug_str:000000000000052b .LASF174
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4607   .debug_str:0000000000000753 .LASF175
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4399   .debug_str:00000000000002fd .LASF176
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 28
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4529   .debug_str:00000000000005f9 .LASF177
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4579   .debug_str:00000000000006d8 .LASF178
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4615   .debug_str:000000000000076f .LASF179
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4445   .debug_str:00000000000003ee .LASF180
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4657   .debug_str:000000000000084c .LASF181
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4269   .debug_str:0000000000000021 .LASF182
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4265   .debug_str:000000000000000d .LASF183
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4523   .debug_str:00000000000005de .LASF184
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4313   .debug_str:0000000000000105 .LASF185
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4263   .debug_str:0000000000000007 .LASF186
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4449   .debug_str:0000000000000408 .LASF187
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4283   .debug_str:000000000000006f .LASF188
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4293   .debug_str:00000000000000a9 .LASF189
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4383   .debug_str:00000000000002b8 .LASF190
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4675   .debug_str:0000000000000897 .LASF191
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4373   .debug_str:0000000000000287 .LASF192
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4635   .debug_str:00000000000007de .LASF204
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:19     .text.tm_stat:0000000000000000 .LFB26
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:612    .text.tm_stat:000000000000047a .LFE26
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:3976   .debug_loc:0000000000000000 .LLST0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:3999   .debug_loc:000000000000003a .LLST1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4587   .debug_str:00000000000006f7 .LASF193
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4021   .debug_loc:0000000000000071 .LLST2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4361   .debug_str:00000000000001e0 .LASF194
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4045   .debug_loc:00000000000000a3 .LLST3
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4437   .debug_str:00000000000003b9 .LASF195
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4069   .debug_loc:00000000000000d5 .LLST4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4547   .debug_str:000000000000064c .LASF196
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4084   .debug_loc:00000000000000fe .LLST5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4309   .debug_str:00000000000000e8 .LASF197
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4095   .debug_loc:000000000000011c .LLST6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4299   .debug_str:00000000000000c2 .LASF198
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4106   .debug_loc:000000000000013a .LLST7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4127   .debug_loc:0000000000000170 .LLST8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4261   .debug_str:0000000000000000 .LASF199
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4138   .debug_loc:000000000000018e .LLST9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4145   .debug_loc:00000000000001a1 .LLST10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:386    .text.tm_stat:00000000000002e2 .LBB4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:438    .text.tm_stat:0000000000000356 .LBE4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4189   .debug_loc:0000000000000211 .LLST11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:409    .text.tm_stat:000000000000030a .LVL35
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:466    .text.tm_stat:0000000000000376 .LBB6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:491    .text.tm_stat:00000000000003a4 .LBE6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4196   .debug_loc:0000000000000224 .LLST13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:479    .text.tm_stat:000000000000038e .LVL42
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:487    .text.tm_stat:00000000000003a4 .LVL43
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4203   .debug_loc:0000000000000237 .LLST12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:442    .text.tm_stat:000000000000035e .LVL37
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:570    .text.tm_stat:0000000000000424 .LVL52
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:516    .text.tm_stat:00000000000003e4 .LVL44
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:522    .text.tm_stat:00000000000003f6 .LVL45
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:271    .text.tm_stat:00000000000001fa .LVL25
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:277    .text.tm_stat:000000000000020e .LVL26
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:283    .text.tm_stat:000000000000021e .LVL27
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:334    .text.tm_stat:00000000000002a6 .LVL30
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:61     .text.tm_stat:000000000000002c .LVL2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:72     .text.tm_stat:0000000000000050 .LVL3
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 29
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4529   .debug_str:00000000000005f9 .LASF177
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4579   .debug_str:00000000000006d8 .LASF178
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4615   .debug_str:000000000000076f .LASF179
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4445   .debug_str:00000000000003ee .LASF180
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4657   .debug_str:000000000000084c .LASF181
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4269   .debug_str:0000000000000021 .LASF182
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4265   .debug_str:000000000000000d .LASF183
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4523   .debug_str:00000000000005de .LASF184
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4313   .debug_str:0000000000000105 .LASF185
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4263   .debug_str:0000000000000007 .LASF186
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4449   .debug_str:0000000000000408 .LASF187
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4283   .debug_str:000000000000006f .LASF188
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4293   .debug_str:00000000000000a9 .LASF189
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4383   .debug_str:00000000000002b8 .LASF190
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4675   .debug_str:0000000000000897 .LASF191
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4373   .debug_str:0000000000000287 .LASF192
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4635   .debug_str:00000000000007de .LASF204
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:19     .text.tm_stat:0000000000000000 .LFB26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:612    .text.tm_stat:000000000000047a .LFE26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:3976   .debug_loc:0000000000000000 .LLST0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:3999   .debug_loc:000000000000003a .LLST1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4587   .debug_str:00000000000006f7 .LASF193
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4021   .debug_loc:0000000000000071 .LLST2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4361   .debug_str:00000000000001e0 .LASF194
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4045   .debug_loc:00000000000000a3 .LLST3
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4437   .debug_str:00000000000003b9 .LASF195
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4069   .debug_loc:00000000000000d5 .LLST4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4547   .debug_str:000000000000064c .LASF196
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4084   .debug_loc:00000000000000fe .LLST5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4309   .debug_str:00000000000000e8 .LASF197
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4095   .debug_loc:000000000000011c .LLST6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4299   .debug_str:00000000000000c2 .LASF198
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4106   .debug_loc:000000000000013a .LLST7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4127   .debug_loc:0000000000000170 .LLST8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4261   .debug_str:0000000000000000 .LASF199
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4138   .debug_loc:000000000000018e .LLST9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4145   .debug_loc:00000000000001a1 .LLST10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:386    .text.tm_stat:00000000000002e2 .LBB4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:438    .text.tm_stat:0000000000000356 .LBE4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4189   .debug_loc:0000000000000211 .LLST11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:409    .text.tm_stat:000000000000030a .LVL35
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:466    .text.tm_stat:0000000000000376 .LBB6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:491    .text.tm_stat:00000000000003a4 .LBE6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4196   .debug_loc:0000000000000224 .LLST13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:479    .text.tm_stat:000000000000038e .LVL42
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:487    .text.tm_stat:00000000000003a4 .LVL43
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4203   .debug_loc:0000000000000237 .LLST12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:442    .text.tm_stat:000000000000035e .LVL37
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:570    .text.tm_stat:0000000000000424 .LVL52
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:516    .text.tm_stat:00000000000003e4 .LVL44
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:522    .text.tm_stat:00000000000003f6 .LVL45
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:271    .text.tm_stat:00000000000001fa .LVL25
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:277    .text.tm_stat:000000000000020e .LVL26
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:283    .text.tm_stat:000000000000021e .LVL27
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:334    .text.tm_stat:00000000000002a6 .LVL30
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:61     .text.tm_stat:000000000000002c .LVL2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:72     .text.tm_stat:0000000000000050 .LVL3
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 29
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:78     .text.tm_stat:0000000000000064 .LVL4
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:86     .text.tm_stat:0000000000000080 .LVL5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:96     .text.tm_stat:00000000000000a0 .LVL6
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:106    .text.tm_stat:00000000000000c0 .LVL7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:113    .text.tm_stat:00000000000000d8 .LVL8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:118    .text.tm_stat:00000000000000e8 .LVL9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:123    .text.tm_stat:00000000000000f8 .LVL10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:169    .text.tm_stat:0000000000000142 .LVL11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:222    .text.tm_stat:00000000000001cc .LVL19
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4479   .debug_str:00000000000004a1 .LASF205
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4377   .debug_str:00000000000002a3 .LASF206
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:4461   .debug_str:0000000000000437 .LASF207
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:27     .text.tm_stat:0000000000000002 .LCFI0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:258    .text.tm_stat:00000000000001e8 .LCFI1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:263    .text.tm_stat:00000000000001ea .LCFI2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:23     .text.tm_stat:0000000000000000 .LVL0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:34     .text.tm_stat:000000000000000a .LVL1
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:237    .text.tm_stat:00000000000001d6 .LVL20
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:261    .text.tm_stat:00000000000001ea .LVL24
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:242    .text.tm_stat:00000000000001da .LVL21
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:355    .text.tm_stat:00000000000002c4 .LVL31
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:366    .text.tm_stat:00000000000002d8 .LVL32
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:252    .text.tm_stat:00000000000001e2 .LVL23
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:186    .text.tm_stat:0000000000000156 .LVL12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:247    .text.tm_stat:00000000000001de .LVL22
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:537    .text.tm_stat:00000000000003fc .LVL47
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:541    .text.tm_stat:00000000000003fe .LVL48
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:543    .text.tm_stat:0000000000000400 .LVL49
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:604    .text.tm_stat:0000000000000476 .LVL54
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:406    .text.tm_stat:0000000000000302 .LVL34
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:446    .text.tm_stat:0000000000000360 .LVL38
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:461    .text.tm_stat:0000000000000374 .LVL39
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:464    .text.tm_stat:0000000000000376 .LVL40
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:476    .text.tm_stat:0000000000000386 .LVL41
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:567    .text.tm_stat:000000000000041c .LVL51
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:598    .text.tm_stat:0000000000000472 .LVL53
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:388    .text.tm_stat:00000000000002e2 .LVL33
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:436    .text.tm_stat:0000000000000356 .LVL36
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:553    .text.tm_stat:0000000000000404 .LVL50
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:764    .debug_info:0000000000000000 .Ldebug_info0
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:133    .text.tm_stat:0000000000000110 .LBB2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:142    .text.tm_stat:000000000000011c .LBE2
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:151    .text.tm_stat:0000000000000126 .LBB12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:154    .text.tm_stat:000000000000012a .LBE12
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:157    .text.tm_stat:000000000000012e .LBB13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:166    .text.tm_stat:000000000000013a .LBE13
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:265    .text.tm_stat:00000000000001ea .LBB14
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:534    .text.tm_stat:00000000000003fa .LBE14
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:538    .text.tm_stat:00000000000003fc .LBB15
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:610    .text.tm_stat:000000000000047a .LBE15
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:134    .text.tm_stat:0000000000000110 .LBB3
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:141    .text.tm_stat:000000000000011c .LBE3
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:158    .text.tm_stat:000000000000012e .LBB8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:165    .text.tm_stat:000000000000013a .LBE8
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:342    .text.tm_stat:00000000000002b0 .LBB9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:523    .text.tm_stat:00000000000003f6 .LBE9
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:526    .text.tm_stat:00000000000003f8 .LBB10
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s 			page 30
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:78     .text.tm_stat:0000000000000064 .LVL4
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:86     .text.tm_stat:0000000000000080 .LVL5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:96     .text.tm_stat:00000000000000a0 .LVL6
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:106    .text.tm_stat:00000000000000c0 .LVL7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:113    .text.tm_stat:00000000000000d8 .LVL8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:118    .text.tm_stat:00000000000000e8 .LVL9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:123    .text.tm_stat:00000000000000f8 .LVL10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:169    .text.tm_stat:0000000000000142 .LVL11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:222    .text.tm_stat:00000000000001cc .LVL19
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4479   .debug_str:00000000000004a1 .LASF205
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4377   .debug_str:00000000000002a3 .LASF206
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:4461   .debug_str:0000000000000437 .LASF207
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:27     .text.tm_stat:0000000000000002 .LCFI0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:258    .text.tm_stat:00000000000001e8 .LCFI1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:263    .text.tm_stat:00000000000001ea .LCFI2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:23     .text.tm_stat:0000000000000000 .LVL0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:34     .text.tm_stat:000000000000000a .LVL1
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:237    .text.tm_stat:00000000000001d6 .LVL20
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:261    .text.tm_stat:00000000000001ea .LVL24
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:242    .text.tm_stat:00000000000001da .LVL21
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:355    .text.tm_stat:00000000000002c4 .LVL31
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:366    .text.tm_stat:00000000000002d8 .LVL32
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:252    .text.tm_stat:00000000000001e2 .LVL23
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:186    .text.tm_stat:0000000000000156 .LVL12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:247    .text.tm_stat:00000000000001de .LVL22
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:537    .text.tm_stat:00000000000003fc .LVL47
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:541    .text.tm_stat:00000000000003fe .LVL48
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:543    .text.tm_stat:0000000000000400 .LVL49
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:604    .text.tm_stat:0000000000000476 .LVL54
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:406    .text.tm_stat:0000000000000302 .LVL34
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:446    .text.tm_stat:0000000000000360 .LVL38
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:461    .text.tm_stat:0000000000000374 .LVL39
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:464    .text.tm_stat:0000000000000376 .LVL40
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:476    .text.tm_stat:0000000000000386 .LVL41
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:567    .text.tm_stat:000000000000041c .LVL51
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:598    .text.tm_stat:0000000000000472 .LVL53
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:388    .text.tm_stat:00000000000002e2 .LVL33
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:436    .text.tm_stat:0000000000000356 .LVL36
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:553    .text.tm_stat:0000000000000404 .LVL50
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:764    .debug_info:0000000000000000 .Ldebug_info0
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:133    .text.tm_stat:0000000000000110 .LBB2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:142    .text.tm_stat:000000000000011c .LBE2
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:151    .text.tm_stat:0000000000000126 .LBB12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:154    .text.tm_stat:000000000000012a .LBE12
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:157    .text.tm_stat:000000000000012e .LBB13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:166    .text.tm_stat:000000000000013a .LBE13
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:265    .text.tm_stat:00000000000001ea .LBB14
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:534    .text.tm_stat:00000000000003fa .LBE14
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:538    .text.tm_stat:00000000000003fc .LBB15
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:610    .text.tm_stat:000000000000047a .LBE15
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:134    .text.tm_stat:0000000000000110 .LBB3
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:141    .text.tm_stat:000000000000011c .LBE3
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:158    .text.tm_stat:000000000000012e .LBB8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:165    .text.tm_stat:000000000000013a .LBE8
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:342    .text.tm_stat:00000000000002b0 .LBB9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:523    .text.tm_stat:00000000000003f6 .LBE9
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:526    .text.tm_stat:00000000000003f8 .LBB10
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s 			page 30
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:532    .text.tm_stat:00000000000003fa .LBE10
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:545    .text.tm_stat:0000000000000400 .LBB11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:606    .text.tm_stat:0000000000000476 .LBE11
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:439    .text.tm_stat:0000000000000356 .LBB5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:448    .text.tm_stat:0000000000000360 .LBE5
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:551    .text.tm_stat:0000000000000404 .LBB7
-C:\Users\Jesper\AppData\Local\Temp\ccjhfN0u.s:600    .text.tm_stat:0000000000000472 .LBE7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:532    .text.tm_stat:00000000000003fa .LBE10
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:545    .text.tm_stat:0000000000000400 .LBB11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:606    .text.tm_stat:0000000000000476 .LBE11
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:439    .text.tm_stat:0000000000000356 .LBB5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:448    .text.tm_stat:0000000000000360 .LBE5
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:551    .text.tm_stat:0000000000000404 .LBB7
+C:\Users\Jesper\AppData\Local\Temp\cctnWJNc.s:600    .text.tm_stat:0000000000000472 .LBE7
 
 UNDEFINED SYMBOLS
 __extendsfdf2

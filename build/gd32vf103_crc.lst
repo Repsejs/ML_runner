@@ -1,4 +1,4 @@
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 1
 
 
    1              		.file	"gd32vf103_crc.c"
@@ -58,7 +58,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
   41:./../../firmware/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c **** /*!
   42:./../../firmware/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c ****     \brief      deinit CRC calculation unit
   43:./../../firmware/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c ****     \param[in]  none
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 2
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 2
 
 
   44:./../../firmware/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c ****     \param[out] none
@@ -118,7 +118,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
   52              	.LFE3:
   54              		.section	.text.crc_data_register_read,"ax",@progbits
   55              		.align	1
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 3
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 3
 
 
   56              		.globl	crc_data_register_read
@@ -178,7 +178,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
   88              		.loc 1 88 5 is_stmt 1
   89:./../../firmware/GD32VF103_standard_peripheral/Source/gd32vf103_crc.c **** }
   89              		.loc 1 89 1 is_stmt 0
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 4
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 4
 
 
   90 0006 1375F50F 		andi	a0,a0,0xff
@@ -238,7 +238,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
  126              		.loc 1 111 5 is_stmt 1
  127              		.loc 1 111 13 is_stmt 0
  128 0006 8843     		lw	a0,0(a5)
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 5
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 5
 
 
  129              	.LVL4:
@@ -298,7 +298,7 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
  165              		.loc 1 125 25 is_stmt 0 discriminator 3
  166 0012 13972700 		slli	a4,a5,2
  167 0016 2A97     		add	a4,a0,a4
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 6
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 6
 
 
  168 0018 1843     		lw	a4,0(a4)
@@ -317,154 +317,154 @@ GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 1
  180              		.file 2 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
  181              		.file 3 "c:\\users\\jesper\\documents\\ml_sommarjobb\\toolchain-gd32v-v201-win\\toolchain-gd32v-v2
  182              		.file 4 "./../../firmware/GD32VF103_standard_peripheral/system_gd32vf103.h"
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 7
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gd32vf103_crc.c
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:13     .text.crc_deinit:0000000000000000 crc_deinit
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:17     .text.crc_deinit:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:18     .text.crc_deinit:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:19     .text.crc_deinit:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:20     .text.crc_deinit:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:24     .text.crc_deinit:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:25     .text.crc_deinit:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:27     .text.crc_deinit:000000000000000c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:28     .text.crc_deinit:000000000000000c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:31     .text.crc_deinit:0000000000000010 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:32     .text.crc_deinit:0000000000000012 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:39     .text.crc_data_register_reset:0000000000000000 crc_data_register_reset
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:42     .text.crc_data_register_reset:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:43     .text.crc_data_register_reset:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:44     .text.crc_data_register_reset:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:45     .text.crc_data_register_reset:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:50     .text.crc_data_register_reset:000000000000000c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:51     .text.crc_data_register_reset:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:58     .text.crc_data_register_read:0000000000000000 crc_data_register_read
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:61     .text.crc_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:62     .text.crc_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:63     .text.crc_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:64     .text.crc_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:65     .text.crc_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:69     .text.crc_data_register_read:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:70     .text.crc_data_register_read:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:71     .text.crc_data_register_read:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:78     .text.crc_free_data_register_read:0000000000000000 crc_free_data_register_read
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:81     .text.crc_free_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:82     .text.crc_free_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:83     .text.crc_free_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:84     .text.crc_free_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:85     .text.crc_free_data_register_read:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:89     .text.crc_free_data_register_read:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:90     .text.crc_free_data_register_read:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:92     .text.crc_free_data_register_read:000000000000000c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:99     .text.crc_free_data_register_write:0000000000000000 crc_free_data_register_write
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:102    .text.crc_free_data_register_write:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:104    .text.crc_free_data_register_write:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:105    .text.crc_free_data_register_write:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:106    .text.crc_free_data_register_write:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:109    .text.crc_free_data_register_write:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:110    .text.crc_free_data_register_write:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:117    .text.crc_single_data_calculate:0000000000000000 crc_single_data_calculate
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:120    .text.crc_single_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:122    .text.crc_single_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:123    .text.crc_single_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:124    .text.crc_single_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:127    .text.crc_single_data_calculate:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:128    .text.crc_single_data_calculate:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:131    .text.crc_single_data_calculate:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:132    .text.crc_single_data_calculate:000000000000000a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:139    .text.crc_block_data_calculate:0000000000000000 crc_block_data_calculate
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:142    .text.crc_block_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:144    .text.crc_block_data_calculate:0000000000000000 .L0 
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:13     .text.crc_deinit:0000000000000000 crc_deinit
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:17     .text.crc_deinit:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:18     .text.crc_deinit:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:19     .text.crc_deinit:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:20     .text.crc_deinit:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:24     .text.crc_deinit:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:25     .text.crc_deinit:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:27     .text.crc_deinit:000000000000000c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:28     .text.crc_deinit:000000000000000c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:31     .text.crc_deinit:0000000000000010 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:32     .text.crc_deinit:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:39     .text.crc_data_register_reset:0000000000000000 crc_data_register_reset
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:42     .text.crc_data_register_reset:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:43     .text.crc_data_register_reset:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:44     .text.crc_data_register_reset:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:45     .text.crc_data_register_reset:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:50     .text.crc_data_register_reset:000000000000000c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:51     .text.crc_data_register_reset:000000000000000e .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:58     .text.crc_data_register_read:0000000000000000 crc_data_register_read
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:61     .text.crc_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:62     .text.crc_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:63     .text.crc_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:64     .text.crc_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:65     .text.crc_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:69     .text.crc_data_register_read:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:70     .text.crc_data_register_read:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:71     .text.crc_data_register_read:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:78     .text.crc_free_data_register_read:0000000000000000 crc_free_data_register_read
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:81     .text.crc_free_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:82     .text.crc_free_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:83     .text.crc_free_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:84     .text.crc_free_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:85     .text.crc_free_data_register_read:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:89     .text.crc_free_data_register_read:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:90     .text.crc_free_data_register_read:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:92     .text.crc_free_data_register_read:000000000000000c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:99     .text.crc_free_data_register_write:0000000000000000 crc_free_data_register_write
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:102    .text.crc_free_data_register_write:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:104    .text.crc_free_data_register_write:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:105    .text.crc_free_data_register_write:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:106    .text.crc_free_data_register_write:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:109    .text.crc_free_data_register_write:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:110    .text.crc_free_data_register_write:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:117    .text.crc_single_data_calculate:0000000000000000 crc_single_data_calculate
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:120    .text.crc_single_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:122    .text.crc_single_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:123    .text.crc_single_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:124    .text.crc_single_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:127    .text.crc_single_data_calculate:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:128    .text.crc_single_data_calculate:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:131    .text.crc_single_data_calculate:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:132    .text.crc_single_data_calculate:000000000000000a .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:139    .text.crc_block_data_calculate:0000000000000000 crc_block_data_calculate
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:142    .text.crc_block_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:144    .text.crc_block_data_calculate:0000000000000000 .L0 
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 8
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:145    .text.crc_block_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:146    .text.crc_block_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:147    .text.crc_block_data_calculate:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:149    .text.crc_block_data_calculate:0000000000000002 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:153    .text.crc_block_data_calculate:0000000000000006 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:155    .text.crc_block_data_calculate:000000000000000a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:156    .text.crc_block_data_calculate:000000000000000a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:161    .text.crc_block_data_calculate:0000000000000010 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:165    .text.crc_block_data_calculate:0000000000000012 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:166    .text.crc_block_data_calculate:0000000000000012 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:170    .text.crc_block_data_calculate:000000000000001a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:173    .text.crc_block_data_calculate:000000000000001c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:175    .text.crc_block_data_calculate:0000000000000020 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:35     .text.crc_deinit:0000000000000012 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:54     .text.crc_data_register_reset:000000000000000e .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:74     .text.crc_data_register_read:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:95     .text.crc_free_data_register_read:000000000000000c .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:113    .text.crc_free_data_register_write:0000000000000008 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:135    .text.crc_single_data_calculate:000000000000000a .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:178    .text.crc_block_data_calculate:0000000000000020 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:145    .text.crc_block_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:146    .text.crc_block_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:147    .text.crc_block_data_calculate:0000000000000000 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:149    .text.crc_block_data_calculate:0000000000000002 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:153    .text.crc_block_data_calculate:0000000000000006 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:155    .text.crc_block_data_calculate:000000000000000a .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:156    .text.crc_block_data_calculate:000000000000000a .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:161    .text.crc_block_data_calculate:0000000000000010 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:165    .text.crc_block_data_calculate:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:166    .text.crc_block_data_calculate:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:170    .text.crc_block_data_calculate:000000000000001a .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:173    .text.crc_block_data_calculate:000000000000001c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:175    .text.crc_block_data_calculate:0000000000000020 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:35     .text.crc_deinit:0000000000000012 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:54     .text.crc_data_register_reset:000000000000000e .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:74     .text.crc_data_register_read:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:95     .text.crc_free_data_register_read:000000000000000c .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:113    .text.crc_free_data_register_write:0000000000000008 .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:135    .text.crc_single_data_calculate:000000000000000a .L0 
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:178    .text.crc_block_data_calculate:0000000000000020 .L0 
                      .debug_frame:0000000000000000 .L0 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:163    .text.crc_block_data_calculate:0000000000000012 .L9
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:151    .text.crc_block_data_calculate:0000000000000006 .L8
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:437    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:817    .debug_str:0000000000000195 .LASF27
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:805    .debug_str:0000000000000109 .LASF28
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:821    .debug_str:0000000000000226 .LASF29
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:747    .debug_ranges:0000000000000000 .Ldebug_ranges0
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:765    .debug_line:0000000000000000 .Ldebug_line0
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:789    .debug_str:0000000000000097 .LASF0
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:825    .debug_str:000000000000029f .LASF1
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:767    .debug_str:0000000000000000 .LASF6
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:783    .debug_str:0000000000000062 .LASF2
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:815    .debug_str:000000000000018b .LASF3
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:779    .debug_str:0000000000000049 .LASF4
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:769    .debug_str:000000000000000a .LASF5
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:787    .debug_str:000000000000008c .LASF7
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:777    .debug_str:0000000000000037 .LASF8
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:807    .debug_str:000000000000014f .LASF9
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:795    .debug_str:00000000000000b4 .LASF10
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:797    .debug_str:00000000000000cb .LASF11
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:819    .debug_str:000000000000021d .LASF12
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:809    .debug_str:000000000000015d .LASF30
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:823    .debug_str:0000000000000293 .LASF13
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:803    .debug_str:00000000000000f0 .LASF16
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:140    .text.crc_block_data_calculate:0000000000000000 .LFB8
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:176    .text.crc_block_data_calculate:0000000000000020 .LFE8
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:781    .debug_str:000000000000005c .LASF14
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:676    .debug_loc:0000000000000000 .LLST1
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:775    .debug_str:0000000000000032 .LASF15
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:811    .debug_str:000000000000016d .LASF21
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:694    .debug_loc:000000000000002c .LLST2
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:771    .debug_str:0000000000000013 .LASF17
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:118    .text.crc_single_data_calculate:0000000000000000 .LFB7
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:133    .text.crc_single_data_calculate:000000000000000a .LFE7
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:799    .debug_str:00000000000000d3 .LASF18
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:710    .debug_loc:0000000000000056 .LLST0
-GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s 			page 9
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:163    .text.crc_block_data_calculate:0000000000000012 .L9
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:151    .text.crc_block_data_calculate:0000000000000006 .L8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:437    .debug_abbrev:0000000000000000 .Ldebug_abbrev0
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:817    .debug_str:0000000000000195 .LASF27
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:805    .debug_str:0000000000000109 .LASF28
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:821    .debug_str:0000000000000226 .LASF29
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:747    .debug_ranges:0000000000000000 .Ldebug_ranges0
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:765    .debug_line:0000000000000000 .Ldebug_line0
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:789    .debug_str:0000000000000097 .LASF0
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:825    .debug_str:000000000000029f .LASF1
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:767    .debug_str:0000000000000000 .LASF6
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:783    .debug_str:0000000000000062 .LASF2
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:815    .debug_str:000000000000018b .LASF3
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:779    .debug_str:0000000000000049 .LASF4
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:769    .debug_str:000000000000000a .LASF5
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:787    .debug_str:000000000000008c .LASF7
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:777    .debug_str:0000000000000037 .LASF8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:807    .debug_str:000000000000014f .LASF9
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:795    .debug_str:00000000000000b4 .LASF10
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:797    .debug_str:00000000000000cb .LASF11
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:819    .debug_str:000000000000021d .LASF12
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:809    .debug_str:000000000000015d .LASF30
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:823    .debug_str:0000000000000293 .LASF13
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:803    .debug_str:00000000000000f0 .LASF16
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:140    .text.crc_block_data_calculate:0000000000000000 .LFB8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:176    .text.crc_block_data_calculate:0000000000000020 .LFE8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:781    .debug_str:000000000000005c .LASF14
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:676    .debug_loc:0000000000000000 .LLST1
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:775    .debug_str:0000000000000032 .LASF15
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:811    .debug_str:000000000000016d .LASF21
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:694    .debug_loc:000000000000002c .LLST2
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:771    .debug_str:0000000000000013 .LASF17
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:118    .text.crc_single_data_calculate:0000000000000000 .LFB7
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:133    .text.crc_single_data_calculate:000000000000000a .LFE7
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:799    .debug_str:00000000000000d3 .LASF18
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:710    .debug_loc:0000000000000056 .LLST0
+GAS LISTING C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s 			page 9
 
 
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:829    .debug_str:00000000000002b6 .LASF31
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:100    .text.crc_free_data_register_write:0000000000000000 .LFB6
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:111    .text.crc_free_data_register_write:0000000000000008 .LFE6
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:791    .debug_str:00000000000000a4 .LASF19
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:785    .debug_str:0000000000000070 .LASF20
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:79     .text.crc_free_data_register_read:0000000000000000 .LFB5
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:93     .text.crc_free_data_register_read:000000000000000c .LFE5
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:793    .debug_str:00000000000000ae .LASF22
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:801    .debug_str:00000000000000d9 .LASF23
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:59     .text.crc_data_register_read:0000000000000000 .LFB4
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:72     .text.crc_data_register_read:0000000000000008 .LFE4
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:773    .debug_str:000000000000002d .LASF24
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:813    .debug_str:0000000000000173 .LASF25
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:40     .text.crc_data_register_reset:0000000000000000 .LFB3
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:52     .text.crc_data_register_reset:000000000000000e .LFE3
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:827    .debug_str:00000000000002ab .LASF26
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:14     .text.crc_deinit:0000000000000000 .LFB2
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:33     .text.crc_deinit:0000000000000012 .LFE2
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:143    .text.crc_block_data_calculate:0000000000000000 .LVL5
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:159    .text.crc_block_data_calculate:0000000000000010 .LVL8
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:162    .text.crc_block_data_calculate:0000000000000012 .LVL9
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:150    .text.crc_block_data_calculate:0000000000000006 .LVL6
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:157    .text.crc_block_data_calculate:000000000000000e .LVL7
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:121    .text.crc_single_data_calculate:0000000000000000 .LVL3
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:129    .text.crc_single_data_calculate:0000000000000008 .LVL4
-C:\Users\Jesper\AppData\Local\Temp\ccKO3SFk.s:184    .debug_info:0000000000000000 .Ldebug_info0
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:829    .debug_str:00000000000002b6 .LASF31
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:100    .text.crc_free_data_register_write:0000000000000000 .LFB6
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:111    .text.crc_free_data_register_write:0000000000000008 .LFE6
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:791    .debug_str:00000000000000a4 .LASF19
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:785    .debug_str:0000000000000070 .LASF20
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:79     .text.crc_free_data_register_read:0000000000000000 .LFB5
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:93     .text.crc_free_data_register_read:000000000000000c .LFE5
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:793    .debug_str:00000000000000ae .LASF22
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:801    .debug_str:00000000000000d9 .LASF23
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:59     .text.crc_data_register_read:0000000000000000 .LFB4
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:72     .text.crc_data_register_read:0000000000000008 .LFE4
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:773    .debug_str:000000000000002d .LASF24
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:813    .debug_str:0000000000000173 .LASF25
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:40     .text.crc_data_register_reset:0000000000000000 .LFB3
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:52     .text.crc_data_register_reset:000000000000000e .LFE3
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:827    .debug_str:00000000000002ab .LASF26
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:14     .text.crc_deinit:0000000000000000 .LFB2
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:33     .text.crc_deinit:0000000000000012 .LFE2
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:143    .text.crc_block_data_calculate:0000000000000000 .LVL5
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:159    .text.crc_block_data_calculate:0000000000000010 .LVL8
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:162    .text.crc_block_data_calculate:0000000000000012 .LVL9
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:150    .text.crc_block_data_calculate:0000000000000006 .LVL6
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:157    .text.crc_block_data_calculate:000000000000000e .LVL7
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:121    .text.crc_single_data_calculate:0000000000000000 .LVL3
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:129    .text.crc_single_data_calculate:0000000000000008 .LVL4
+C:\Users\Jesper\AppData\Local\Temp\ccbdS8sk.s:184    .debug_info:0000000000000000 .Ldebug_info0
 
 NO UNDEFINED SYMBOLS
