@@ -10,8 +10,13 @@ See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
 
+#include "gd32vf103.h"
 #include "stdio.h"
 #include "tinymaix.h"
+#include "usb_serial_if.h"
+#include "usb_delay.h"
+#include "usart.h"
+#include "get_time.h"
 
 #if TM_MDL_TYPE == TM_MDL_INT8
 #include "mnist_valid_q.h"
@@ -98,7 +103,7 @@ static tm_err_t layer_cb(tm_mdl_t* mdl, tml_head_t* lh)
     int ch= lh->out_dims[3];
     mtype_t* output = TML_GET_OUTPUT(mdl, lh);
     return TM_OK;
-    TM_PRINTF("Layer %d callback ========\n", mdl->layer_i);
+    TM_PRINTF("Layer %d callback ========\r\n", mdl->layer_i);
     #if 1
     for(int y=0; y<h; y++){
         TM_PRINTF("[");
@@ -113,9 +118,9 @@ static tm_err_t layer_cb(tm_mdl_t* mdl, tml_head_t* lh)
             }
             TM_PRINTF("],");
         }
-        TM_PRINTF("],\n");
+        TM_PRINTF("],\r\n");
     }
-    TM_PRINTF("\n");
+    TM_PRINTF("\r\n");
     #endif
     return TM_OK;
 }
@@ -127,24 +132,53 @@ static void parse_output(tm_mat_t* outs)
     float maxp = 0;
     int maxi = -1;
     for(int i=0; i<10; i++){
-        printf("%d: %.3f\n", i, data[i]);
+        printf("%d: %.3f\r\n", i, data[i]);
         if(data[i] > maxp) {
             maxi = i;
             maxp = data[i];
         }
     }
-    TM_PRINTF("### Predict output is: Number %d, prob %.3f\n", maxi, maxp);
+    TM_PRINTF("### Predict output is: Number %d, prob %.3f\r\n", maxi, maxp);
     return;
 }
 
+void ledInit (void){
+    rcu_periph_clock_enable(RCU_GPIOB);
+	gpio_init(GPIOB, GPIO_MODE_OUT_PP, GPIO_OSPEED_50MHZ, GPIO_PIN_0 | GPIO_PIN_1);
+}
+
+void ledOnOff(int set){
+    gpio_bit_write(GPIOB, GPIO_PIN_0, set);
+}
+
 int main(int argc, char** argv)
-{   TM_DBGT_INIT();
-    TM_PRINTF("mnist demo\n");
+{   
+    uint32_t count = 0;
+    char usb_data_buffer[512] = {'\0'};
+    char usb_read_buf[80] = {'\0'};
+
+    configure_usb_serial();
+    usb_delay_1ms(1);
+
+    while (!usb_serial_available()) {
+        usb_delay_1ms(100);
+    }
+
+    TM_PRINTF("\r\nReady\r\n");
+    ledInit();
+
+    ledOnOff(1);
+    get_time();
+    TM_DBGT_INIT(); 
+    
+
+    printf("\r\nmnist demo\r\n");
+    fflush(0);
     tm_mdl_t mdl;
 
     for(int i=0; i<28*28; i++){
         TM_PRINTF("%3d,", mnist_pic[i]);
-        if(i%28==27)TM_PRINTF("\n");
+        if(i%28==27)TM_PRINTF("\r\n");
     }
 
     tm_mat_t in_uint8 = {3,28,28,1, {(mtype_t*)mnist_pic}};
@@ -152,10 +186,9 @@ int main(int argc, char** argv)
     tm_mat_t outs[1];
     tm_err_t res;
     tm_stat((tm_mdlbin_t*)mdl_data); 
-
     res = tm_load(&mdl, mdl_data, NULL, layer_cb, &in);
     if(res != TM_OK) {
-        TM_PRINTF("tm model load err %d\n", res);
+        TM_PRINTF("tm model load err %d\r\n", res);
         return -1;
     }
 
@@ -165,10 +198,14 @@ int main(int argc, char** argv)
     res = tm_preprocess(&mdl, TMPP_UINT2FP01, &in_uint8, &in); 
 #endif
     TM_DBGT_START();
-    res = tm_run(&mdl, &in, outs);
+    TM_DBGL();
+    res = tm_run(&mdl, &in, outs); 
+    TM_DBGL();
     TM_DBGT("tm_run");
     if(res==TM_OK) parse_output(outs);  
-    else TM_PRINTF("tm run error: %d\n", res);
-    tm_unload(&mdl);                 
+    else TM_PRINTF("tm run error: %d\r\n", res);
+    tm_unload(&mdl);                
+    printf("\r\nunloaded\r\n");
+    fflush(0);
     return 0;
 }

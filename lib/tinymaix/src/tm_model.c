@@ -86,6 +86,7 @@ tm_err_t TM_WEAK tm_preprocess(tm_mdl_t* mdl, tm_pp_t pp_type, tm_mat_t* in, tm_
 //mdl: model handle; in: input mat; out: output mat
 tm_err_t TM_WEAK tm_run(tm_mdl_t* mdl, tm_mat_t* in, tm_mat_t* out)
 {
+    TM_DBG(" in tm_run\r\n")
     tm_mat_t _in, _in1, _out;
     tm_err_t res = TM_OK;
     int out_idx = 0;
@@ -99,9 +100,11 @@ tm_err_t TM_WEAK tm_run(tm_mdl_t* mdl, tm_mat_t* in, tm_mat_t* out)
         }
         _out.data = (mtype_t *)(mdl->buf + h->out_oft);
         memcpy((void*)&_out, (void*)(h->out_dims), sizeof(uint16_t)*4);
+        TM_DBG(" before switch in tm_run\r\n")
         switch(h->type){
         case TML_CONV2D: 
         case TML_DWCONV2D:{ 
+            TM_DBG("DWCONV2D\r\n")
             tml_conv2d_dw_t* l = (tml_conv2d_dw_t*)(mdl->layer_body);
             res = tml_conv2d_dwconv2d(&_in, &_out, (wtype_t*)(mdl->layer_body + l->w_oft), (btype_t*)(mdl->layer_body + l->b_oft), \
                 l->kernel_w, l->kernel_h, l->stride_w, l->stride_h, l->dilation_w, l->dilation_h, \
@@ -109,32 +112,39 @@ tm_err_t TM_WEAK tm_run(tm_mdl_t* mdl, tm_mat_t* in, tm_mat_t* out)
                 (sctype_t*)(mdl->layer_body + l->ws_oft), h->in_s, h->in_zp, h->out_s, h->out_zp); 
             break;}
         case TML_GAP: {
+            TM_DBG("GAP\r\n")
             tml_gap_t* l = (tml_gap_t*)(mdl->layer_body);
             res = tml_gap(&_in, &_out, h->in_s, h->in_zp, h->out_s, h->out_zp);
             break;}
         case TML_FC: {
+            TM_DBG("FC\r\n")
             tml_fc_t* l = (tml_fc_t*)(mdl->layer_body);
             res = tml_fc(&_in, &_out, (wtype_t*)(mdl->layer_body + l->w_oft), (btype_t*)(mdl->layer_body + l->b_oft), \
                 (sctype_t*)(mdl->layer_body + l->ws_oft), h->in_s, h->in_zp, h->out_s, h->out_zp);
             break;}
         case TML_SOFTMAX: {
+            TM_DBG("SOFTMAX\r\n")
             tml_softmax_t* l = (tml_softmax_t*)(mdl->layer_body);
             res = tml_softmax(&_in, &_out, h->in_s, h->in_zp, h->out_s, h->out_zp);
             break; }
         case TML_RESHAPE: {
+            TM_DBG("RESHAPE\r\n")
             tml_reshape_t* l = (tml_reshape_t*)(mdl->layer_body);
             res = tml_reshape(&_in, &_out, h->in_s, h->in_zp, h->out_s, h->out_zp);
             break; }
         case TML_ADD: {
+            TM_DBG("ADD\r\n")
             tml_add_t* l = (tml_add_t*)(mdl->layer_body);
             memcpy((void*)&_in1, (void*)(h->in_dims), sizeof(uint16_t)*4);
             _in1.data = (mtype_t *)(mdl->buf + l->in_oft1);
             res = tml_add(&_in, &_in1, &_out, h->in_s, h->in_zp, l->in_s1, l->in_zp1, h->out_s, h->out_zp);
             break; }
         default:
+            TM_DBG("DEFAULT\r\n")
             res = TM_ERR_LAYERTYPE;
             break;
         }
+        TM_DBG(" After switch in tm_run \r\n")
         if(res != TM_OK) return res;
         if(mdl->cb) ((tm_cb_t)mdl->cb)(mdl, h);    //layer callback
         if(h->is_out) {
@@ -151,7 +161,9 @@ tm_err_t TM_WEAK tm_run(tm_mdl_t* mdl, tm_mat_t* in, tm_mat_t* out)
             out_idx += 1;
         }
         mdl->layer_body += (h->size);
+        TM_DBG(" Layer done in tm_run \r\n")
     }
+    TM_DBG(" done with run, returning \r\n")
     return TM_OK;
 }
 

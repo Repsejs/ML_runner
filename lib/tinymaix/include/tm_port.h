@@ -9,6 +9,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
+#include "get_time.h"
 
 #ifndef __TM_PORT_H
 #define __TM_PORT_H
@@ -31,8 +32,8 @@ limitations under the License.
 #define TM_OPT_LEVEL    TM_OPT0
 #define TM_MDL_TYPE     TM_MDL_INT8
 #define TM_FASTSCALE    (1)         //enable if your chip don't have FPU, may speed up 1/3, but decrease accuracy
-#define TM_LOCAL_MATH   (1)         //use local math func (like exp()) to avoid libm
-#define TM_ENABLE_STAT  (0)         //enable mdl stat functions
+#define TM_LOCAL_MATH   (0)         //use local math func (like exp()) to avoid libm
+#define TM_ENABLE_STAT  (1)         //enable mdl stat functions
 #define TM_MAX_CSIZE    (1000)      //max channel num //used if INT8 mdl  //cost TM_MAX_CSIZE*4 Byte
 #define TM_MAX_KSIZE    (5*5)       //max kernel_size   //cost TM_MAX_KSIZE*4 Byte
 #define TM_MAX_KCSIZE   (3*3*256)   //max kernel_size*channels //cost TM_MAX_KSIZE*sizeof(mtype_t) Byte
@@ -44,20 +45,21 @@ limitations under the License.
 #define tm_free(x)      free(x)
 
 
-#define TM_PRINTF(...) printf(__VA_ARGS__)
+#define TM_PRINTF(...) printf(__VA_ARGS__); fflush(0);
 #define TM_DBG(...)    TM_PRINTF("###L%d: ",__LINE__);TM_PRINTF(__VA_ARGS__);
-#define TM_DBGL()      TM_PRINTF("###L%d\n",__LINE__);
+#define TM_DBGL()      TM_PRINTF("###L%d\r\n",__LINE__);
 
 /******************************* DBG TIME CONFIG  ************************************/
 #include <sys/time.h>
 #include <time.h>
-#define  TM_GET_US()       ((uint32_t)((uint64_t)clock()*1000000/CLOCKS_PER_SEC))
+//#define  TM_GET_US()       ((uint32_t)((uint64_t)clock()*1000000/CLOCKS_PER_SEC))
+#define  TM_GET_US()         (get_time())
 
-#define TM_DBGT_INIT()     uint32_t _start,_finish;float _time;_start=TM_GET_US();
+#define TM_DBGT_INIT()     uint32_t _start,_finish;float _time; _start=TM_GET_US();
 #define TM_DBGT_START()    _start=TM_GET_US();
 #define TM_DBGT(x)         {_finish=TM_GET_US();\
                             _time = (float)(_finish-_start)/1000.0;\
-                            TM_PRINTF("===%s use %.3f ms\n", (x), _time);\
+                            TM_PRINTF("===%s use %.3f ms\r\n", (x), _time);\
                             _start=TM_GET_US();}
 
 /******************************* DBG PERFORMANCE CONFIG  ************************************/

@@ -44,32 +44,32 @@ static const int tml_headsize_tbl[TML_MAXCNT] = {
 
 tm_err_t tm_stat(tm_mdlbin_t* b)
 {   
-    printf("================================ model stat ================================\n");
-    printf("mdl_type=%d (%s))\n", b->mdl_type, mdl_type_str[b->mdl_type]);
-    printf("out_deq=%d \n", b->out_deq);
-    printf("input_cnt=%d, output_cnt=%d, layer_cnt=%d\n", b->input_cnt, b->output_cnt, b->layer_cnt);
+    printf("================================ model stat ================================\r\n");
+    printf("mdl_type=%d (%s))\r\n", b->mdl_type, mdl_type_str[b->mdl_type]);
+    printf("out_deq=%d \r\n", b->out_deq);
+    printf("input_cnt=%d, output_cnt=%d, layer_cnt=%d\r\n", b->input_cnt, b->output_cnt, b->layer_cnt);
     uint16_t* idim = b->in_dims;
-    printf("input %ddims: (%d, %d, %d)\n", idim[0],idim[1],idim[2],idim[3]);
+    printf("input %ddims: (%d, %d, %d)\r\n", idim[0],idim[1],idim[2],idim[3]);
     uint16_t* odim = b->out_dims;
-    printf("output %ddims: (%d, %d, %d)\n", odim[0],odim[1],odim[2],odim[3]);
-    //printf("model param bin addr: 0x%x\n", (uint32_t)(b->layers_body));
-    printf("main buf size %d; sub buf size %d\n", \
+    printf("output %ddims: (%d, %d, %d)\r\n", odim[0],odim[1],odim[2],odim[3]);
+    //printf("model param bin addr: 0x%x\r\n", (uint32_t)(b->layers_body));
+    printf("main buf size %d; sub buf size %d\r\n", \
         b->buf_size,b->sub_size);
 
     printf("//Note: PARAM is layer param size, include align padding\r\n\r\n");
-    printf("Idx\tLayer\t         outshape\tinoft\toutoft\tPARAM\tMEMOUT OPS\n");
-    printf("---\tInput    \t%3d,%3d,%3d\t-   \t0    \t0 \t%ld \t0\n",\
+    printf("Idx\tLayer\t         outshape\tinoft\toutoft\tPARAM\tMEMOUT OPS\r\n");
+    printf("---\tInput    \t%3d,%3d,%3d\t-   \t0    \t0 \t%ld \t0\r\n",\
         idim[1],idim[2],idim[3], (long int)(idim[1]*idim[2]*idim[3]*sizeof(mtype_t)));
     //      000  Input    -     224,224,3  0x40001234 0x40004000 100000 500000 200000
-    //printf("000  Input    -     %3d,%3d,%d  0x%08x   0x%08x     %6d %6d %6d\n",) 
+    //printf("000  Input    -     %3d,%3d,%d  0x%08x   0x%08x     %6d %6d %6d\r\n",) 
     int sum_param = 0;
     int sum_ops   = 0;
     uint8_t*layer_body  = (uint8_t*)b->layers_body;
     int layer_i;
     for(layer_i = 0; layer_i < b->layer_cnt; layer_i++){
         tml_head_t* h = (tml_head_t*)(layer_body);
-        TM_DBG("body oft = %d\n", (uint32_t)((size_t)h - (size_t)(b)));
-        TM_DBG("type=%d, is_out=%d, size=%d, in_oft=%d, out_oft=%d, in_dims=[%d,%d,%d,%d], out_dims=[%d,%d,%d,%d], in_s=%.3f, in_zp=%d, out_s=%.3f, out_zp=%d\n",\
+        TM_DBG("body oft = %d\r\n", (uint32_t)((size_t)h - (size_t)(b)));
+        TM_DBG("type=%d, is_out=%d, size=%d, in_oft=%d, out_oft=%d, in_dims=[%d,%d,%d,%d], out_dims=[%d,%d,%d,%d], in_s=%.3f, in_zp=%d, out_s=%.3f, out_zp=%d\r\n",\
                 h->type,h->is_out,h->size,h->in_oft,h->out_oft,\
                 h->in_dims[0],h->in_dims[1],h->in_dims[2],h->in_dims[3],\
                 h->out_dims[0],h->out_dims[1],h->out_dims[2],h->out_dims[3],\
@@ -82,7 +82,7 @@ tm_err_t tm_stat(tm_mdlbin_t* b)
             case TML_CONV2D: {
                 tml_conv2d_dw_t* l = (tml_conv2d_dw_t*)(layer_body);
                 ops = memout*(l->kernel_w)*(l->kernel_h)*(h->in_dims[3]);   //MAC as ops
-                TM_DBG("Conv2d: kw=%d, kh=%d, sw=%d, sh=%d, dw=%d, dh=%d, act=%d, pad=[%d,%d,%d,%d], dmul=%d, ws_oft=%d, w_oft=%d, b_oft=%d\n",\
+                TM_DBG("Conv2d: kw=%d, kh=%d, sw=%d, sh=%d, dw=%d, dh=%d, act=%d, pad=[%d,%d,%d,%d], dmul=%d, ws_oft=%d, w_oft=%d, b_oft=%d\r\n",\
                     l->kernel_w, l->kernel_h, l->stride_w, l->stride_h, l->dilation_w, l->dilation_h, \
                     l->act, l->pad[0], l->pad[1], l->pad[2], l->pad[3], l->depth_mul, \
                     l->ws_oft, l->w_oft, l->b_oft);
@@ -93,7 +93,7 @@ tm_err_t tm_stat(tm_mdlbin_t* b)
             case TML_FC: {
                 tml_fc_t* l = (tml_fc_t*)(layer_body);
                 ops = (h->out_dims[3])*(h->in_dims[3]);         //MAC as ops
-                TM_DBG("FC: ws_oft=%d, w_oft=%d, b_oft=%d\n",\
+                TM_DBG("FC: ws_oft=%d, w_oft=%d, b_oft=%d\r\n",\
                     l->ws_oft, l->w_oft, l->b_oft);
                 break;}
             case TML_SOFTMAX:
@@ -102,7 +102,7 @@ tm_err_t tm_stat(tm_mdlbin_t* b)
             case TML_DWCONV2D: {
                 tml_conv2d_dw_t* l = (tml_conv2d_dw_t*)(layer_body);
                 ops = memout*(l->kernel_w)*(l->kernel_h)*1;   //MAC as ops
-                TM_DBG("DWConv2d: kw=%d, kh=%d, sw=%d, sh=%d, dw=%d, dh=%d, act=%d, pad=[%d,%d,%d,%d], dmul=%d, ws_oft=%d, w_oft=%d, b_oft=%d\n",\
+                TM_DBG("DWConv2d: kw=%d, kh=%d, sw=%d, sh=%d, dw=%d, dh=%d, act=%d, pad=[%d,%d,%d,%d], dmul=%d, ws_oft=%d, w_oft=%d, b_oft=%d\r\n",\
                     l->kernel_w, l->kernel_h, l->stride_w, l->stride_h, l->dilation_w, l->dilation_h, \
                     l->act, l->pad[0], l->pad[1], l->pad[2], l->pad[3], l->depth_mul,\
                     l->ws_oft, l->w_oft, l->b_oft);
