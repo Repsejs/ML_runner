@@ -2002,402 +2002,400 @@ END GROUP
  .rodata.ep_type
                 0x00000000080008c4       0x10 build/usbd_core.o
                 0x00000000080008c4                ep_type
- *fill*         0x00000000080008d4        0x4 
- .rodata        0x00000000080008d8       0xcb build/main.o
- *fill*         0x00000000080009a3        0x1 
+ .rodata        0x00000000080008d4       0xc3 build/main.o
+ *fill*         0x0000000008000997        0x1 
  .rodata.mdl_data
-                0x00000000080009a4      0x968 build/main.o
-                0x00000000080009a4                mdl_data
- *fill*         0x000000000800130c        0x4 
- .rodata        0x0000000008001310       0x30 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-e_exp.o)
- .rodata        0x0000000008001340       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divdf3.o)
- .rodata        0x000000000800137c       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(muldf3.o)
- .rodata        0x00000000080013b8       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divsf3.o)
- .rodata        0x00000000080013f4       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(mulsf3.o)
- .rodata        0x0000000008001430      0x100 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clz.o)
-                0x0000000008001430                __clz_tab
+                0x0000000008000998      0x968 build/main.o
+                0x0000000008000998                mdl_data
+ .rodata        0x0000000008001300       0x30 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-e_exp.o)
+ .rodata        0x0000000008001330       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divdf3.o)
+ .rodata        0x000000000800136c       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(muldf3.o)
+ .rodata        0x00000000080013a8       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divsf3.o)
+ .rodata        0x00000000080013e4       0x3c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(mulsf3.o)
+ .rodata        0x0000000008001420      0x100 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clz.o)
+                0x0000000008001420                __clz_tab
  .rodata.__sf_fake_stderr
-                0x0000000008001530       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
-                0x0000000008001530                __sf_fake_stderr
+                0x0000000008001520       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
+                0x0000000008001520                __sf_fake_stderr
  .rodata.__sf_fake_stdin
-                0x0000000008001550       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
-                0x0000000008001550                __sf_fake_stdin
+                0x0000000008001540       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
+                0x0000000008001540                __sf_fake_stdin
  .rodata.__sf_fake_stdout
-                0x0000000008001570       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
-                0x0000000008001570                __sf_fake_stdout
+                0x0000000008001560       0x20 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-findfp.o)
+                0x0000000008001560                __sf_fake_stdout
  .rodata._vfprintf_r.str1.4
-                0x0000000008001590       0x13 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-nano-vfprintf.o)
- *fill*         0x00000000080015a3        0x1 
+                0x0000000008001580       0x13 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-nano-vfprintf.o)
+ *fill*         0x0000000008001593        0x1 
  .rodata._printf_i.str1.4
-                0x00000000080015a4       0x28 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-nano-vfprintf_i.o)
+                0x0000000008001594       0x28 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-nano-vfprintf_i.o)
                                          0x25 (size before relaxing)
  *(.text.unlikely .text.unlikely.*)
  *(.text.startup .text.startup.*)
  .text.startup.main
-                0x00000000080015cc      0x21a build/main.o
-                0x00000000080015cc                main
+                0x00000000080015bc      0x21a build/main.o
+                0x00000000080015bc                main
  *(.text .text.*)
  .text.exti_init
-                0x00000000080017e6       0xa0 build/gd32vf103_exti.o
-                0x00000000080017e6                exti_init
+                0x00000000080017d6       0xa0 build/gd32vf103_exti.o
+                0x00000000080017d6                exti_init
  .text.exti_interrupt_enable
-                0x0000000008001886       0x10 build/gd32vf103_exti.o
-                0x0000000008001886                exti_interrupt_enable
+                0x0000000008001876       0x10 build/gd32vf103_exti.o
+                0x0000000008001876                exti_interrupt_enable
  .text.exti_interrupt_flag_clear
-                0x0000000008001896        0xa build/gd32vf103_exti.o
-                0x0000000008001896                exti_interrupt_flag_clear
+                0x0000000008001886        0xa build/gd32vf103_exti.o
+                0x0000000008001886                exti_interrupt_flag_clear
  .text.rcu_periph_clock_enable
-                0x00000000080018a0       0x18 build/gd32vf103_rcu.o
-                0x00000000080018a0                rcu_periph_clock_enable
+                0x0000000008001890       0x18 build/gd32vf103_rcu.o
+                0x0000000008001890                rcu_periph_clock_enable
  .text.rcu_usb_clock_config
-                0x00000000080018b8       0x14 build/gd32vf103_rcu.o
-                0x00000000080018b8                rcu_usb_clock_config
+                0x00000000080018a8       0x14 build/gd32vf103_rcu.o
+                0x00000000080018a8                rcu_usb_clock_config
  .text.rcu_clock_freq_get
-                0x00000000080018cc      0x13a build/gd32vf103_rcu.o
-                0x00000000080018cc                rcu_clock_freq_get
+                0x00000000080018bc      0x13a build/gd32vf103_rcu.o
+                0x00000000080018bc                rcu_clock_freq_get
  .text.eclic_global_interrupt_enable
-                0x0000000008001a06        0x6 build/gd32vf103_eclic.o
-                0x0000000008001a06                eclic_global_interrupt_enable
+                0x00000000080019f6        0x6 build/gd32vf103_eclic.o
+                0x00000000080019f6                eclic_global_interrupt_enable
  .text.eclic_priority_group_set
-                0x0000000008001a0c        0x8 build/gd32vf103_eclic.o
-                0x0000000008001a0c                eclic_priority_group_set
+                0x00000000080019fc        0x8 build/gd32vf103_eclic.o
+                0x00000000080019fc                eclic_priority_group_set
  .text.eclic_irq_enable
-                0x0000000008001a14       0x34 build/gd32vf103_eclic.o
-                0x0000000008001a14                eclic_irq_enable
+                0x0000000008001a04       0x34 build/gd32vf103_eclic.o
+                0x0000000008001a04                eclic_irq_enable
  .text.SystemInit
-                0x0000000008001a48      0x11c build/system_gd32vf103.o
-                0x0000000008001a48                SystemInit
+                0x0000000008001a38      0x11c build/system_gd32vf103.o
+                0x0000000008001a38                SystemInit
  .text.SystemCoreClockUpdate
-                0x0000000008001b64       0xca build/system_gd32vf103.o
-                0x0000000008001b64                SystemCoreClockUpdate
+                0x0000000008001b54       0xca build/system_gd32vf103.o
+                0x0000000008001b54                SystemCoreClockUpdate
  .text.write_hex
-                0x0000000008001c2e       0x7c build/write_hex.o
-                0x0000000008001c2e                write_hex
- .text._sbrk    0x0000000008001caa       0x2e build/sbrk.o
-                0x0000000008001caa                _sbrk
- .text._close   0x0000000008001cd8        0x4 build/close.o
-                0x0000000008001cd8                _close
- .text._lseek   0x0000000008001cdc       0x1a build/lseek.o
-                0x0000000008001cdc                _lseek
- .text._exit    0x0000000008001cf6       0x4c build/_exit.o
-                0x0000000008001cf6                _exit
- .text._isatty  0x0000000008001d42        0x8 build/isatty.o
-                0x0000000008001d42                _isatty
- .text._fstat   0x0000000008001d4a       0x22 build/fstat.o
-                0x0000000008001d4a                _fstat
- .text._read    0x0000000008001d6c        0x4 build/read.o
-                0x0000000008001d6c                _read
+                0x0000000008001c1e       0x7c build/write_hex.o
+                0x0000000008001c1e                write_hex
+ .text._sbrk    0x0000000008001c9a       0x2e build/sbrk.o
+                0x0000000008001c9a                _sbrk
+ .text._close   0x0000000008001cc8        0x4 build/close.o
+                0x0000000008001cc8                _close
+ .text._lseek   0x0000000008001ccc       0x1a build/lseek.o
+                0x0000000008001ccc                _lseek
+ .text._exit    0x0000000008001ce6       0x4c build/_exit.o
+                0x0000000008001ce6                _exit
+ .text._isatty  0x0000000008001d32        0x8 build/isatty.o
+                0x0000000008001d32                _isatty
+ .text._fstat   0x0000000008001d3a       0x22 build/fstat.o
+                0x0000000008001d3a                _fstat
+ .text._read    0x0000000008001d5c        0x4 build/read.o
+                0x0000000008001d5c                _read
  .text.get_timer_value
-                0x0000000008001d70       0x10 build/n200_func.o
-                0x0000000008001d70                get_timer_value
+                0x0000000008001d60       0x10 build/n200_func.o
+                0x0000000008001d60                get_timer_value
  .text.eclic_init
-                0x0000000008001d80       0x22 build/n200_func.o
-                0x0000000008001d80                eclic_init
+                0x0000000008001d70       0x22 build/n200_func.o
+                0x0000000008001d70                eclic_init
  .text.eclic_enable_interrupt
-                0x0000000008001da2       0x12 build/n200_func.o
-                0x0000000008001da2                eclic_enable_interrupt
+                0x0000000008001d92       0x12 build/n200_func.o
+                0x0000000008001d92                eclic_enable_interrupt
  .text.eclic_set_nlbits
-                0x0000000008001db4       0x18 build/n200_func.o
-                0x0000000008001db4                eclic_set_nlbits
+                0x0000000008001da4       0x18 build/n200_func.o
+                0x0000000008001da4                eclic_set_nlbits
  .text.eclic_get_nlbits
-                0x0000000008001dcc        0xe build/n200_func.o
-                0x0000000008001dcc                eclic_get_nlbits
+                0x0000000008001dbc        0xe build/n200_func.o
+                0x0000000008001dbc                eclic_get_nlbits
  .text.eclic_set_irq_lvl_abs
-                0x0000000008001dda       0x58 build/n200_func.o
-                0x0000000008001dda                eclic_set_irq_lvl_abs
+                0x0000000008001dca       0x58 build/n200_func.o
+                0x0000000008001dca                eclic_set_irq_lvl_abs
  .text.eclic_set_irq_priority
-                0x0000000008001e32       0x52 build/n200_func.o
-                0x0000000008001e32                eclic_set_irq_priority
+                0x0000000008001e22       0x52 build/n200_func.o
+                0x0000000008001e22                eclic_set_irq_priority
  .text.eclic_mode_enable
-                0x0000000008001e84       0x12 build/n200_func.o
-                0x0000000008001e84                eclic_mode_enable
+                0x0000000008001e74       0x12 build/n200_func.o
+                0x0000000008001e74                eclic_mode_enable
  .text.handle_nmi
-                0x0000000008001e96       0x22 build/handlers.o
-                0x0000000008001e96                handle_nmi
+                0x0000000008001e86       0x22 build/handlers.o
+                0x0000000008001e86                handle_nmi
  .text.handle_trap
-                0x0000000008001eb8       0x38 build/handlers.o
-                0x0000000008001eb8                handle_trap
- .text._init    0x0000000008001ef0       0x2c build/init.o
-                0x0000000008001ef0                _init
- .text._fini    0x0000000008001f1c        0x2 build/init.o
-                0x0000000008001f1c                _fini
+                0x0000000008001ea8       0x38 build/handlers.o
+                0x0000000008001ea8                handle_trap
+ .text._init    0x0000000008001ee0       0x2c build/init.o
+                0x0000000008001ee0                _init
+ .text._fini    0x0000000008001f0c        0x2 build/init.o
+                0x0000000008001f0c                _fini
  .text.eclic_mtip_handler
-                0x0000000008001f1e       0x52 build/eclicw.o
-                0x0000000008001f1e                eclic_mtip_handler
+                0x0000000008001f0e       0x52 build/eclicw.o
+                0x0000000008001f0e                eclic_mtip_handler
  .text.USART0_IRQHandler
-                0x0000000008001f70       0x52 build/eclicw.o
-                0x0000000008001f70                USART0_IRQHandler
+                0x0000000008001f60       0x52 build/eclicw.o
+                0x0000000008001f60                USART0_IRQHandler
  .text.get_time
-                0x0000000008001fc2       0x36 build/get_time.o
-                0x0000000008001fc2                get_time
- .text.tm_load  0x0000000008001ff8       0x94 build/tm_model.o
-                0x0000000008001ff8                tm_load
+                0x0000000008001fb2       0x36 build/get_time.o
+                0x0000000008001fb2                get_time
+ .text.tm_load  0x0000000008001fe8       0x94 build/tm_model.o
+                0x0000000008001fe8                tm_load
  .text.tm_unload
-                0x000000000800208c       0x12 build/tm_model.o
-                0x000000000800208c                tm_unload
+                0x000000000800207c       0x12 build/tm_model.o
+                0x000000000800207c                tm_unload
  .text.tm_preprocess
-                0x000000000800209e       0xc8 build/tm_model.o
-                0x000000000800209e                tm_preprocess
- .text.tm_run   0x0000000008002166      0x278 build/tm_model.o
-                0x0000000008002166                tm_run
+                0x000000000800208e       0xc8 build/tm_model.o
+                0x000000000800208e                tm_preprocess
+ .text.tm_run   0x0000000008002156      0x278 build/tm_model.o
+                0x0000000008002156                tm_run
  .text.tml_conv2d_dwconv2d
-                0x00000000080023de      0x8b8 build/tm_layers.o
-                0x00000000080023de                tml_conv2d_dwconv2d
- .text.tml_gap  0x0000000008002c96       0xd6 build/tm_layers.o
-                0x0000000008002c96                tml_gap
- .text.tml_fc   0x0000000008002d6c      0x176 build/tm_layers.o
-                0x0000000008002d6c                tml_fc
+                0x00000000080023ce      0x8b8 build/tm_layers.o
+                0x00000000080023ce                tml_conv2d_dwconv2d
+ .text.tml_gap  0x0000000008002c86       0xd6 build/tm_layers.o
+                0x0000000008002c86                tml_gap
+ .text.tml_fc   0x0000000008002d5c      0x176 build/tm_layers.o
+                0x0000000008002d5c                tml_fc
  .text.tml_softmax
-                0x0000000008002ee2      0x172 build/tm_layers.o
-                0x0000000008002ee2                tml_softmax
+                0x0000000008002ed2      0x172 build/tm_layers.o
+                0x0000000008002ed2                tml_softmax
  .text.tml_reshape
-                0x0000000008003054        0x4 build/tm_layers.o
-                0x0000000008003054                tml_reshape
- .text.tml_add  0x0000000008003058      0x2e4 build/tm_layers.o
-                0x0000000008003058                tml_add
- .text.tm_stat  0x000000000800333c      0x5a6 build/tm_stat.o
-                0x000000000800333c                tm_stat
+                0x0000000008003044        0x4 build/tm_layers.o
+                0x0000000008003044                tml_reshape
+ .text.tml_add  0x0000000008003048      0x2e4 build/tm_layers.o
+                0x0000000008003048                tml_add
+ .text.tm_stat  0x000000000800332c      0x5a6 build/tm_stat.o
+                0x000000000800332c                tm_stat
  .text._usb_std_reserved
-                0x00000000080038e2        0x4 build/usbd_enum.o
+                0x00000000080038d2        0x4 build/usbd_enum.o
  .text._usb_dev_desc_get
-                0x00000000080038e6        0xe build/usbd_enum.o
+                0x00000000080038d6        0xe build/usbd_enum.o
  .text._usb_config_desc_get
-                0x00000000080038f4        0xe build/usbd_enum.o
+                0x00000000080038e4        0xe build/usbd_enum.o
  .text._usb_str_desc_get
-                0x0000000008003902       0x14 build/usbd_enum.o
+                0x00000000080038f2       0x14 build/usbd_enum.o
  .text._usb_std_getdescriptor
-                0x0000000008003916       0xfa build/usbd_enum.o
+                0x0000000008003906       0xfa build/usbd_enum.o
  .text._usb_std_setconfiguration
-                0x0000000008003a10       0xa8 build/usbd_enum.o
+                0x0000000008003a00       0xa8 build/usbd_enum.o
  .text._usb_std_getstatus
-                0x0000000008003ab8       0xba build/usbd_enum.o
+                0x0000000008003aa8       0xba build/usbd_enum.o
  .text._usb_std_getconfiguration
-                0x0000000008003b72       0x3c build/usbd_enum.o
+                0x0000000008003b62       0x3c build/usbd_enum.o
  .text._usb_std_getinterface
-                0x0000000008003bae       0x2c build/usbd_enum.o
+                0x0000000008003b9e       0x2c build/usbd_enum.o
  .text._usb_std_setinterface
-                0x0000000008003bda       0x2a build/usbd_enum.o
+                0x0000000008003bca       0x2a build/usbd_enum.o
  .text._usb_std_setaddress
-                0x0000000008003c04       0x64 build/usbd_enum.o
+                0x0000000008003bf4       0x64 build/usbd_enum.o
  .text._usb_std_setfeature
-                0x0000000008003c68       0x80 build/usbd_enum.o
+                0x0000000008003c58       0x80 build/usbd_enum.o
  .text._usb_std_clearfeature
-                0x0000000008003ce8       0x98 build/usbd_enum.o
+                0x0000000008003cd8       0x98 build/usbd_enum.o
  .text._usb_std_setdescriptor
-                0x0000000008003d80        0x4 build/usbd_enum.o
+                0x0000000008003d70        0x4 build/usbd_enum.o
  .text._usb_std_synchframe
-                0x0000000008003d84        0x4 build/usbd_enum.o
+                0x0000000008003d74        0x4 build/usbd_enum.o
  .text.usbd_standard_request
-                0x0000000008003d88       0x18 build/usbd_enum.o
-                0x0000000008003d88                usbd_standard_request
+                0x0000000008003d78       0x18 build/usbd_enum.o
+                0x0000000008003d78                usbd_standard_request
  .text.usbd_class_request
-                0x0000000008003da0       0x2c build/usbd_enum.o
-                0x0000000008003da0                usbd_class_request
+                0x0000000008003d90       0x2c build/usbd_enum.o
+                0x0000000008003d90                usbd_class_request
  .text.usbd_vendor_request
-                0x0000000008003dcc        0x4 build/usbd_enum.o
-                0x0000000008003dcc                usbd_vendor_request
+                0x0000000008003dbc        0x4 build/usbd_enum.o
+                0x0000000008003dbc                usbd_vendor_request
  .text.usbd_enum_error
-                0x0000000008003dd0       0x30 build/usbd_enum.o
-                0x0000000008003dd0                usbd_enum_error
+                0x0000000008003dc0       0x30 build/usbd_enum.o
+                0x0000000008003dc0                usbd_enum_error
  .text.usb_delay_1ms
-                0x0000000008003e00       0x72 build/usb_delay.o
-                0x0000000008003e00                usb_delay_1ms
+                0x0000000008003df0       0x72 build/usb_delay.o
+                0x0000000008003df0                usb_delay_1ms
  .text.usb_delay_1us
-                0x0000000008003e72       0x74 build/usb_delay.o
-                0x0000000008003e72                usb_delay_1us
+                0x0000000008003e62       0x74 build/usb_delay.o
+                0x0000000008003e62                usb_delay_1us
  .text.USBFS_IRQHandler
-                0x0000000008003ee6       0x10 build/gd32vf103_usb_it.o
-                0x0000000008003ee6                USBFS_IRQHandler
+                0x0000000008003ed6       0x10 build/gd32vf103_usb_it.o
+                0x0000000008003ed6                USBFS_IRQHandler
  .text.USBFS_WKUP_IRQHandler
-                0x0000000008003ef6       0x56 build/gd32vf103_usb_it.o
-                0x0000000008003ef6                USBFS_WKUP_IRQHandler
+                0x0000000008003ee6       0x56 build/gd32vf103_usb_it.o
+                0x0000000008003ee6                USBFS_WKUP_IRQHandler
  .text.usbd_ctl_send
-                0x0000000008003f4c       0x38 build/usbd_transc.o
-                0x0000000008003f4c                usbd_ctl_send
+                0x0000000008003f3c       0x38 build/usbd_transc.o
+                0x0000000008003f3c                usbd_ctl_send
  .text.usbd_ctl_recev
-                0x0000000008003f84       0x38 build/usbd_transc.o
-                0x0000000008003f84                usbd_ctl_recev
+                0x0000000008003f74       0x38 build/usbd_transc.o
+                0x0000000008003f74                usbd_ctl_recev
  .text.usbd_ctl_status_send
-                0x0000000008003fbc       0x30 build/usbd_transc.o
-                0x0000000008003fbc                usbd_ctl_status_send
+                0x0000000008003fac       0x30 build/usbd_transc.o
+                0x0000000008003fac                usbd_ctl_status_send
  .text.usbd_ctl_status_recev
-                0x0000000008003fec       0x30 build/usbd_transc.o
-                0x0000000008003fec                usbd_ctl_status_recev
+                0x0000000008003fdc       0x30 build/usbd_transc.o
+                0x0000000008003fdc                usbd_ctl_status_recev
  .text.usbd_setup_transc
-                0x000000000800401c       0x94 build/usbd_transc.o
-                0x000000000800401c                usbd_setup_transc
+                0x000000000800400c       0x94 build/usbd_transc.o
+                0x000000000800400c                usbd_setup_transc
  .text.usbd_out_transc
-                0x00000000080040b0       0xe6 build/usbd_transc.o
-                0x00000000080040b0                usbd_out_transc
+                0x00000000080040a0       0xe6 build/usbd_transc.o
+                0x00000000080040a0                usbd_out_transc
  .text.usbd_in_transc
-                0x0000000008004196      0x10c build/usbd_transc.o
-                0x0000000008004196                usbd_in_transc
+                0x0000000008004186      0x10c build/usbd_transc.o
+                0x0000000008004186                usbd_in_transc
  .text.usb_basic_init
-                0x00000000080042a2       0xe8 build/drv_usb_core.o
-                0x00000000080042a2                usb_basic_init
+                0x0000000008004292       0xe8 build/drv_usb_core.o
+                0x0000000008004292                usb_basic_init
  .text.usb_core_init
-                0x000000000800438a       0xca build/drv_usb_core.o
-                0x000000000800438a                usb_core_init
+                0x000000000800437a       0xca build/drv_usb_core.o
+                0x000000000800437a                usb_core_init
  .text.usb_txfifo_write
-                0x0000000008004454       0x3a build/drv_usb_core.o
-                0x0000000008004454                usb_txfifo_write
+                0x0000000008004444       0x3a build/drv_usb_core.o
+                0x0000000008004444                usb_txfifo_write
  .text.usb_rxfifo_read
-                0x000000000800448e       0x32 build/drv_usb_core.o
-                0x000000000800448e                usb_rxfifo_read
+                0x000000000800447e       0x32 build/drv_usb_core.o
+                0x000000000800447e                usb_rxfifo_read
  .text.usb_txfifo_flush
-                0x00000000080044c0       0x28 build/drv_usb_core.o
-                0x00000000080044c0                usb_txfifo_flush
+                0x00000000080044b0       0x28 build/drv_usb_core.o
+                0x00000000080044b0                usb_txfifo_flush
  .text.usb_rxfifo_flush
-                0x00000000080044e8       0x22 build/drv_usb_core.o
-                0x00000000080044e8                usb_rxfifo_flush
+                0x00000000080044d8       0x22 build/drv_usb_core.o
+                0x00000000080044d8                usb_rxfifo_flush
  .text.usb_rcu_config
-                0x000000000800450a       0x7e build/gd32vf103_hw.o
-                0x000000000800450a                usb_rcu_config
+                0x00000000080044fa       0x7e build/gd32vf103_hw.o
+                0x00000000080044fa                usb_rcu_config
  .text.usb_intr_config
-                0x0000000008004588       0x5c build/gd32vf103_hw.o
-                0x0000000008004588                usb_intr_config
+                0x0000000008004578       0x5c build/gd32vf103_hw.o
+                0x0000000008004578                usb_intr_config
  .text.usb_timer_init
-                0x00000000080045e4        0x2 build/gd32vf103_hw.o
-                0x00000000080045e4                usb_timer_init
+                0x00000000080045d4        0x2 build/gd32vf103_hw.o
+                0x00000000080045d4                usb_timer_init
  .text.usb_udelay
-                0x00000000080045e6        0x8 build/gd32vf103_hw.o
-                0x00000000080045e6                usb_udelay
+                0x00000000080045d6        0x8 build/gd32vf103_hw.o
+                0x00000000080045d6                usb_udelay
  .text.usb_mdelay
-                0x00000000080045ee        0x8 build/gd32vf103_hw.o
-                0x00000000080045ee                usb_mdelay
+                0x00000000080045de        0x8 build/gd32vf103_hw.o
+                0x00000000080045de                usb_mdelay
  .text.usbd_isr
-                0x00000000080045f6      0x140 build/drv_usbd_int.o
-                0x00000000080045f6                usbd_isr
+                0x00000000080045e6      0x140 build/drv_usbd_int.o
+                0x00000000080045e6                usbd_isr
  .text.usbd_int_epout
-                0x0000000008004736       0xfe build/drv_usbd_int.o
+                0x0000000008004726       0xfe build/drv_usbd_int.o
  .text.usbd_int_epin
-                0x0000000008004834       0xbc build/drv_usbd_int.o
+                0x0000000008004824       0xbc build/drv_usbd_int.o
  .text.usbd_int_rxfifo
-                0x00000000080048f0       0xc6 build/drv_usbd_int.o
+                0x00000000080048e0       0xc6 build/drv_usbd_int.o
  .text.usbd_int_reset
-                0x00000000080049b6       0xd2 build/drv_usbd_int.o
+                0x00000000080049a6       0xd2 build/drv_usbd_int.o
  .text.usbd_int_enumfinish
-                0x0000000008004a88       0x68 build/drv_usbd_int.o
+                0x0000000008004a78       0x68 build/drv_usbd_int.o
  .text.usbd_emptytxfifo_write
-                0x0000000008004af0       0xe6 build/drv_usbd_int.o
+                0x0000000008004ae0       0xe6 build/drv_usbd_int.o
  .text.configure_usb_serial
-                0x0000000008004bd6       0x58 build/usb_serial_if.o
-                0x0000000008004bd6                configure_usb_serial
+                0x0000000008004bc6       0x58 build/usb_serial_if.o
+                0x0000000008004bc6                configure_usb_serial
  .text.usb_serial_available
-                0x0000000008004c2e       0x14 build/usb_serial_if.o
-                0x0000000008004c2e                usb_serial_available
- .text._write   0x0000000008004c42       0xb0 build/usb_serial_if.o
-                0x0000000008004c42                _write
+                0x0000000008004c1e       0x14 build/usb_serial_if.o
+                0x0000000008004c1e                usb_serial_available
+ .text._write   0x0000000008004c32       0xb0 build/usb_serial_if.o
+                0x0000000008004c32                _write
  .text.set_usb_clock_96m_hxtal
-                0x0000000008004cf2       0xee build/usb_serial_if.o
-                0x0000000008004cf2                set_usb_clock_96m_hxtal
+                0x0000000008004ce2       0xee build/usb_serial_if.o
+                0x0000000008004ce2                set_usb_clock_96m_hxtal
  .text.cdc_acm_init
-                0x0000000008004de0       0x46 build/cdc_acm_core.o
-                0x0000000008004de0                cdc_acm_init
+                0x0000000008004dd0       0x46 build/cdc_acm_core.o
+                0x0000000008004dd0                cdc_acm_init
  .text.cdc_acm_deinit
-                0x0000000008004e26       0x38 build/cdc_acm_core.o
-                0x0000000008004e26                cdc_acm_deinit
+                0x0000000008004e16       0x38 build/cdc_acm_core.o
+                0x0000000008004e16                cdc_acm_deinit
  .text.cdc_acm_data_out_handler
-                0x0000000008004e5e       0x4c build/cdc_acm_core.o
-                0x0000000008004e5e                cdc_acm_data_out_handler
+                0x0000000008004e4e       0x4c build/cdc_acm_core.o
+                0x0000000008004e4e                cdc_acm_data_out_handler
  .text.cdc_acm_data_in_handler
-                0x0000000008004eaa       0x40 build/cdc_acm_core.o
-                0x0000000008004eaa                cdc_acm_data_in_handler
+                0x0000000008004e9a       0x40 build/cdc_acm_core.o
+                0x0000000008004e9a                cdc_acm_data_in_handler
  .text.cdc_acm_req_handler
-                0x0000000008004eea       0xa4 build/cdc_acm_core.o
-                0x0000000008004eea                cdc_acm_req_handler
+                0x0000000008004eda       0xa4 build/cdc_acm_core.o
+                0x0000000008004eda                cdc_acm_req_handler
  .text.cdc_acm_EP0_RxReady
-                0x0000000008004f8e       0x5e build/cdc_acm_core.o
-                0x0000000008004f8e                cdc_acm_EP0_RxReady
+                0x0000000008004f7e       0x5e build/cdc_acm_core.o
+                0x0000000008004f7e                cdc_acm_EP0_RxReady
  .text.usbd_ep_setup
-                0x0000000008004fec       0x9a build/usbd_core.o
-                0x0000000008004fec                usbd_ep_setup
+                0x0000000008004fdc       0x9a build/usbd_core.o
+                0x0000000008004fdc                usbd_ep_setup
  .text.usbd_ep_clear
-                0x0000000008005086       0x3a build/usbd_core.o
-                0x0000000008005086                usbd_ep_clear
+                0x0000000008005076       0x3a build/usbd_core.o
+                0x0000000008005076                usbd_ep_clear
  .text.usbd_ep_recev
-                0x00000000080050c0       0x40 build/usbd_core.o
-                0x00000000080050c0                usbd_ep_recev
+                0x00000000080050b0       0x40 build/usbd_core.o
+                0x00000000080050b0                usbd_ep_recev
  .text.usbd_ep_send
-                0x0000000008005100       0x40 build/usbd_core.o
-                0x0000000008005100                usbd_ep_send
+                0x00000000080050f0       0x40 build/usbd_core.o
+                0x00000000080050f0                usbd_ep_send
  .text.usbd_ep_stall
-                0x0000000008005140       0x40 build/usbd_core.o
-                0x0000000008005140                usbd_ep_stall
+                0x0000000008005130       0x40 build/usbd_core.o
+                0x0000000008005130                usbd_ep_stall
  .text.usbd_ep_stall_clear
-                0x0000000008005180       0x3e build/usbd_core.o
-                0x0000000008005180                usbd_ep_stall_clear
+                0x0000000008005170       0x3e build/usbd_core.o
+                0x0000000008005170                usbd_ep_stall_clear
  .text.usbd_addr_set
-                0x00000000080051be        0x8 build/usbd_core.o
-                0x00000000080051be                usbd_addr_set
+                0x00000000080051ae        0x8 build/usbd_core.o
+                0x00000000080051ae                usbd_addr_set
  .text.usbd_rxcount_get
-                0x00000000080051c6        0xe build/usbd_core.o
-                0x00000000080051c6                usbd_rxcount_get
+                0x00000000080051b6        0xe build/usbd_core.o
+                0x00000000080051b6                usbd_rxcount_get
  .text.usbd_connect
-                0x00000000080051d4       0x1a build/usbd_core.o
-                0x00000000080051d4                usbd_connect
+                0x00000000080051c4       0x1a build/usbd_core.o
+                0x00000000080051c4                usbd_connect
  .text.usbd_disconnect
-                0x00000000080051ee       0x1a build/usbd_core.o
-                0x00000000080051ee                usbd_disconnect
+                0x00000000080051de       0x1a build/usbd_core.o
+                0x00000000080051de                usbd_disconnect
  .text.usbd_init
-                0x0000000008005208       0x5a build/usbd_core.o
-                0x0000000008005208                usbd_init
+                0x00000000080051f8       0x5a build/usbd_core.o
+                0x00000000080051f8                usbd_init
  .text.usb_devint_enable
-                0x0000000008005262       0x3e build/drv_usb_dev.o
-                0x0000000008005262                usb_devint_enable
+                0x0000000008005252       0x3e build/drv_usb_dev.o
+                0x0000000008005252                usb_devint_enable
  .text.usb_devcore_init
-                0x00000000080052a0      0x10e build/drv_usb_dev.o
-                0x00000000080052a0                usb_devcore_init
+                0x0000000008005290      0x10e build/drv_usb_dev.o
+                0x0000000008005290                usb_devcore_init
  .text.usb_dev_disconnect
-                0x00000000080053ae        0xc build/drv_usb_dev.o
-                0x00000000080053ae                usb_dev_disconnect
+                0x000000000800539e        0xc build/drv_usb_dev.o
+                0x000000000800539e                usb_dev_disconnect
  .text.usb_dev_connect
-                0x00000000080053ba        0xa build/drv_usb_dev.o
-                0x00000000080053ba                usb_dev_connect
+                0x00000000080053aa        0xa build/drv_usb_dev.o
+                0x00000000080053aa                usb_dev_connect
  .text.usb_devaddr_set
-                0x00000000080053c4       0x14 build/drv_usb_dev.o
-                0x00000000080053c4                usb_devaddr_set
+                0x00000000080053b4       0x14 build/drv_usb_dev.o
+                0x00000000080053b4                usb_devaddr_set
  .text.usb_transc_active
-                0x00000000080053d8       0x9e build/drv_usb_dev.o
-                0x00000000080053d8                usb_transc_active
+                0x00000000080053c8       0x9e build/drv_usb_dev.o
+                0x00000000080053c8                usb_transc_active
  .text.usb_transc_deactivate
-                0x0000000008005476       0x46 build/drv_usb_dev.o
-                0x0000000008005476                usb_transc_deactivate
+                0x0000000008005466       0x46 build/drv_usb_dev.o
+                0x0000000008005466                usb_transc_deactivate
  .text.usb_transc_inxfer
-                0x00000000080054bc       0xea build/drv_usb_dev.o
-                0x00000000080054bc                usb_transc_inxfer
+                0x00000000080054ac       0xea build/drv_usb_dev.o
+                0x00000000080054ac                usb_transc_inxfer
  .text.usb_transc_outxfer
-                0x00000000080055a6       0x8c build/drv_usb_dev.o
-                0x00000000080055a6                usb_transc_outxfer
+                0x0000000008005596       0x8c build/drv_usb_dev.o
+                0x0000000008005596                usb_transc_outxfer
  .text.usb_transc_stall
-                0x0000000008005632       0x3a build/drv_usb_dev.o
-                0x0000000008005632                usb_transc_stall
+                0x0000000008005622       0x3a build/drv_usb_dev.o
+                0x0000000008005622                usb_transc_stall
  .text.usb_transc_clrstall
-                0x000000000800566c       0x46 build/drv_usb_dev.o
-                0x000000000800566c                usb_transc_clrstall
+                0x000000000800565c       0x46 build/drv_usb_dev.o
+                0x000000000800565c                usb_transc_clrstall
  .text.usb_oepintnum_read
-                0x00000000080056b2       0x10 build/drv_usb_dev.o
-                0x00000000080056b2                usb_oepintnum_read
+                0x00000000080056a2       0x10 build/drv_usb_dev.o
+                0x00000000080056a2                usb_oepintnum_read
  .text.usb_oepintr_read
-                0x00000000080056c2       0x12 build/drv_usb_dev.o
-                0x00000000080056c2                usb_oepintr_read
+                0x00000000080056b2       0x12 build/drv_usb_dev.o
+                0x00000000080056b2                usb_oepintr_read
  .text.usb_iepintnum_read
-                0x00000000080056d4        0xe build/drv_usb_dev.o
-                0x00000000080056d4                usb_iepintnum_read
+                0x00000000080056c4        0xe build/drv_usb_dev.o
+                0x00000000080056c4                usb_iepintnum_read
  .text.usb_iepintr_read
-                0x00000000080056e2       0x20 build/drv_usb_dev.o
-                0x00000000080056e2                usb_iepintr_read
+                0x00000000080056d2       0x20 build/drv_usb_dev.o
+                0x00000000080056d2                usb_iepintr_read
  .text.usb_ctlep_startout
-                0x0000000008005702       0x26 build/drv_usb_dev.o
-                0x0000000008005702                usb_ctlep_startout
+                0x00000000080056f2       0x26 build/drv_usb_dev.o
+                0x00000000080056f2                usb_ctlep_startout
  .text.usb_clock_active
-                0x0000000008005728       0x1a build/drv_usb_dev.o
-                0x0000000008005728                usb_clock_active
+                0x0000000008005718       0x1a build/drv_usb_dev.o
+                0x0000000008005718                usb_clock_active
  .text.layer_cb
-                0x0000000008005742        0x4 build/main.o
+                0x0000000008005732        0x4 build/main.o
  .text.parse_output
-                0x0000000008005746       0xe8 build/main.o
- *fill*         0x000000000800582e       0x12 
+                0x0000000008005736       0xfe build/main.o
+ *fill*         0x0000000008005834        0xc 
  .text.trap     0x0000000008005840       0x82 build/entry.o
                 0x0000000008005840                trap_entry
  *fill*         0x00000000080058c2        0x2 
@@ -2831,7 +2829,7 @@ END GROUP
                 [!provide]                        PROVIDE (_dbg_sp = .)
 OUTPUT(build/gd32vf103.elf elf32-littleriscv)
 
-.debug_info     0x0000000000000000    0x25625
+.debug_info     0x0000000000000000    0x2562c
  .debug_info    0x0000000000000000      0x3e9 build/gd32vf103_exti.o
  .debug_info    0x00000000000003e9      0xf51 build/gd32vf103_rcu.o
  .debug_info    0x000000000000133a      0x2ac build/gd32vf103_eclic.o
@@ -2863,32 +2861,32 @@ OUTPUT(build/gd32vf103.elf elf32-littleriscv)
  .debug_info    0x00000000000178ab     0x21a4 build/cdc_acm_core.o
  .debug_info    0x0000000000019a4f     0x1304 build/usbd_core.o
  .debug_info    0x000000000001ad53     0x13ce build/drv_usb_dev.o
- .debug_info    0x000000000001c121     0x261b build/main.o
- .debug_info    0x000000000001e73c       0x26 build/start.o
- .debug_info    0x000000000001e762       0x22 build/entry.o
- .debug_info    0x000000000001e784     0x1245 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
- .debug_info    0x000000000001f9c9      0x5a5 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(adddf3.o)
- .debug_info    0x000000000001ff6e      0x734 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divdf3.o)
- .debug_info    0x00000000000206a2      0x286 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(gedf2.o)
- .debug_info    0x0000000000020928      0x286 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(ledf2.o)
- .debug_info    0x0000000000020bae      0x76c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(muldf3.o)
- .debug_info    0x000000000002131a      0x5a5 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(subdf3.o)
- .debug_info    0x00000000000218bf      0x217 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixdfsi.o)
- .debug_info    0x0000000000021ad6      0x205 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixunsdfsi.o)
- .debug_info    0x0000000000021cdb      0x2c0 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatsidf.o)
- .debug_info    0x0000000000021f9b      0x2af c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatunsidf.o)
- .debug_info    0x000000000002224a      0x351 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(addsf3.o)
- .debug_info    0x000000000002259b      0x3bf c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divsf3.o)
- .debug_info    0x000000000002295a      0x264 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(gesf2.o)
- .debug_info    0x0000000000022bbe      0x3ac c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(mulsf3.o)
- .debug_info    0x0000000000022f6a      0x351 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(subsf3.o)
- .debug_info    0x00000000000232bb      0x1f7 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixsfsi.o)
- .debug_info    0x00000000000234b2      0x25d c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatsisf.o)
- .debug_info    0x000000000002370f      0x24a c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatunsisf.o)
- .debug_info    0x0000000000023959      0x2a9 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(extendsfdf2.o)
- .debug_info    0x0000000000023c02      0x2e2 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(truncdfsf2.o)
- .debug_info    0x0000000000023ee4      0xb6a c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clz.o)
- .debug_info    0x0000000000024a4e      0xbd7 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
+ .debug_info    0x000000000001c121     0x2622 build/main.o
+ .debug_info    0x000000000001e743       0x26 build/start.o
+ .debug_info    0x000000000001e769       0x22 build/entry.o
+ .debug_info    0x000000000001e78b     0x1245 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_udivdi3.o)
+ .debug_info    0x000000000001f9d0      0x5a5 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(adddf3.o)
+ .debug_info    0x000000000001ff75      0x734 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divdf3.o)
+ .debug_info    0x00000000000206a9      0x286 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(gedf2.o)
+ .debug_info    0x000000000002092f      0x286 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(ledf2.o)
+ .debug_info    0x0000000000020bb5      0x76c c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(muldf3.o)
+ .debug_info    0x0000000000021321      0x5a5 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(subdf3.o)
+ .debug_info    0x00000000000218c6      0x217 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixdfsi.o)
+ .debug_info    0x0000000000021add      0x205 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixunsdfsi.o)
+ .debug_info    0x0000000000021ce2      0x2c0 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatsidf.o)
+ .debug_info    0x0000000000021fa2      0x2af c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatunsidf.o)
+ .debug_info    0x0000000000022251      0x351 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(addsf3.o)
+ .debug_info    0x00000000000225a2      0x3bf c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(divsf3.o)
+ .debug_info    0x0000000000022961      0x264 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(gesf2.o)
+ .debug_info    0x0000000000022bc5      0x3ac c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(mulsf3.o)
+ .debug_info    0x0000000000022f71      0x351 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(subsf3.o)
+ .debug_info    0x00000000000232c2      0x1f7 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixsfsi.o)
+ .debug_info    0x00000000000234b9      0x25d c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatsisf.o)
+ .debug_info    0x0000000000023716      0x24a c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatunsisf.o)
+ .debug_info    0x0000000000023960      0x2a9 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(extendsfdf2.o)
+ .debug_info    0x0000000000023c09      0x2e2 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(truncdfsf2.o)
+ .debug_info    0x0000000000023eeb      0xb6a c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clz.o)
+ .debug_info    0x0000000000024a55      0xbd7 c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(_clzsi2.o)
 
 .debug_abbrev   0x0000000000000000     0x7255
  .debug_abbrev  0x0000000000000000      0x15c build/gd32vf103_exti.o
@@ -3815,7 +3813,6 @@ __divsf3                                          c:/users/jesper/documents/ml_s
 __errno                                           c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-errno.o)
                                                   c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-w_exp.o)
 __extendsfdf2                                     c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(extendsfdf2.o)
-                                                  build/main.o
                                                   build/tm_stat.o
                                                   build/tm_layers.o
 __fdlib_version                                   c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-s_lib_ver.o)
@@ -3830,7 +3827,6 @@ __fixsfsi                                         c:/users/jesper/documents/ml_s
                                                   build/tm_layers.o
                                                   build/tm_model.o
 __fixunsdfsi                                      c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(fixunsdfsi.o)
-                                                  build/main.o
                                                   build/tm_stat.o
 __floatsidf                                       c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(floatsidf.o)
                                                   c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-e_exp.o)
@@ -3877,7 +3873,6 @@ __malloc_unlock                                   c:/users/jesper/documents/ml_s
                                                   c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libc_nano.a(lib_a-nano-freer.o)
 __muldf3                                          c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(muldf3.o)
                                                   c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/../../../../riscv64-unknown-elf/lib/rv32imac/ilp32\libm.a(lib_a-e_exp.o)
-                                                  build/main.o
                                                   build/tm_stat.o
 __mulsf3                                          c:/users/jesper/documents/ml_sommarjobb/toolchain-gd32v-v201-win/toolchain-gd32v-v201-win/compiler/bin/../lib/gcc/riscv64-unknown-elf/8.3.0/rv32imac/ilp32\libgcc.a(mulsf3.o)
                                                   build/main.o

@@ -63,7 +63,7 @@ uint8_t mnist_pic[28*28]={
   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
 };
-#elif 0
+#elif 1
 uint8_t mnist_pic[28*28]={
   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
   0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
@@ -169,7 +169,7 @@ static void parse_output(tm_mat_t* outs)
             maxp = data[i];
         }
     }
-    TM_PRINTF("### Predict output is: Number %d, prob 0.%d\r\n", maxi, (uint32_t)(maxp*1000.0));
+    TM_PRINTF("### Predict output is: Number %d, prob %d.%03d\r\n", maxi, (int)maxp, (int)((maxp - (int)maxp) * 1000));
     return;
 }
 
