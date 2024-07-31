@@ -122,8 +122,11 @@ tm_err_t tm_stat(tm_mdlbin_t* b)
         }
         layer_body += (h->size);
     }
-    printf("\r\nTotal param ~%.1f KB, OPS ~%.2f MOPS, buffer %.1f KB\r\n\r\n", \
-        sum_param/1024.0, sum_ops/1000000.0, (b->buf_size + b->sub_size)/1024.0);
+    printf("\r\nTotal param ~%d.%d KB, OPS ~%d.%02d MOPS, buffer %d.%d KB\r\n\r\n",
+    (uint32_t)(sum_param / 1024), (uint32_t)((sum_param / 1024.0 - (uint32_t)(sum_param / 1024)) * 10),
+    (uint32_t)(sum_ops / 1000000), (uint32_t)((sum_ops / 1000000.0 - (uint32_t)(sum_ops / 1000000)) * 100),
+    (uint32_t)((b->buf_size + b->sub_size) / 1024), (uint32_t)(((b->buf_size + b->sub_size) / 1024.0 - (uint32_t)((b->buf_size + b->sub_size) / 1024)) * 10));
+
     return TM_OK;
 } 
 

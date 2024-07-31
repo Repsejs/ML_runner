@@ -46,8 +46,8 @@ limitations under the License.
 
 
 #define TM_PRINTF(...) printf(__VA_ARGS__); fflush(0);
-#define TM_DBG(...)    TM_PRINTF("###L%d: ",__LINE__);TM_PRINTF(__VA_ARGS__);
-#define TM_DBGL()      TM_PRINTF("###L%d\r\n",__LINE__);
+#define TM_DBG(...)    TM_PRINTF("###L%d: ",__LINE__);TM_PRINTF(__VA_ARGS__); fflush(0);
+#define TM_DBGL()      TM_PRINTF("###L%d\r\n",__LINE__); fflush(0);
 
 /******************************* DBG TIME CONFIG  ************************************/
 #include <sys/time.h>
@@ -59,7 +59,7 @@ limitations under the License.
 #define TM_DBGT_START()    _start=TM_GET_US();
 #define TM_DBGT(x)         {_finish=TM_GET_US();\
                             _time = (float)(_finish-_start)/1000.0;\
-                            TM_PRINTF("===%s use %.3f ms\r\n", (x), _time);\
+                            TM_PRINTF("===%s use %d.%03d ms\r\n", (x), (int)_time, (int)((_time - (int)_time) * 1000));\
                             _start=TM_GET_US();}
 
 /******************************* DBG PERFORMANCE CONFIG  ************************************/
